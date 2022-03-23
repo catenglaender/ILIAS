@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <path d="M25.5,14h0a6,6,0,0,0-6-6h-8v2.5h-5a2,2,0,0,0-2,2h0a2,2,0,0,0,2,2h5v3h-5a2,2,0,0,0-2,2h0a2,2,0,0,0,2,2h5V24h8a6,6,0,0,0,6-6h0a2,2,0,0,0,2-2h0A2,2,0,0,0,25.5,14Z" fill="none" stroke="#333" stroke-linecap="round" stroke-miterlimit="10"/>
+  </g>
+</svg>

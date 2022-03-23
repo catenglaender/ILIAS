@@ -1,0 +1,45 @@
+//out: mail.css, sourcemap: false, compress: false
+
+/*
+***********************************
+mail specific styles
+***********************************
+*/
+
+@base-color-1: #c0069b;
+
+@font-face {
+	font-family: 'Nunito';
+	src:	url('../fonts/Nunito_Sans/nunito-sans-v6-latin-300.woff') format('woff');
+	src:	url('../fonts/Nunito_Sans/nunito-sans-v6-latin-300.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+
+.mail-body {
+	color: #333;
+	font-family: 'Nunito', 'Open Sans', 'Arial', 'Helvetica', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 19px;
+	margin: 0;
+	padding: 0 20px;
+}
+
+strong {
+	color: @base-color-1;
+}
+
+a {
+	color: @base-color-1;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+//logo
+td.mail-footer-img {
+	padding: 20px 0 5px 0;
+}

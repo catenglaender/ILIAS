@@ -1,0 +1,4 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<template xmlns = "http://www.w3.org" version = "1" name = "cate skin by Concepts and Training GmbH">
+        <style name = "cate-tms" id = "cate-tms" image_directory = "images"/>
+</template>

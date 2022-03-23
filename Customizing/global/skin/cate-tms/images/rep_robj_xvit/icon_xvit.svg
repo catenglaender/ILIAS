@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g>
+      <ellipse id="ellipse15" cx="16.01" cy="16.08" rx="9.4" ry="4.4" transform="translate(-5.07 7.68) rotate(-23.4)" fill="none" stroke="#333" stroke-linejoin="round" stroke-width="1"/>
+      <circle id="circle17" cx="26.4" cy="8.5" r="1.8" fill="#333"/>
+      <circle id="circle19" cx="17.8" cy="7" r="1.8" fill="#333"/>
+      <circle id="circle21" cx="27.9" cy="16.2" r="1.8" fill="#333"/>
+      <circle id="circle23" cx="22.6" cy="21.7" r="1.8" fill="#333"/>
+      <circle id="circle25" cx="14.5" cy="25" r="1.8" fill="#333"/>
+      <circle id="circle27" cx="5.3" cy="23.3" r="1.8" fill="#333"/>
+      <circle id="circle29" cx="4.1" cy="15.6" r="1.8" fill="#333"/>
+      <g id="circle33">
+        <path d="M10,9.2a.79.79,0,0,1,.8.8.74.74,0,0,1-.8.8.79.79,0,0,1-.8-.8.86.86,0,0,1,.8-.8m0-1A1.79,1.79,0,0,0,8.2,10,1.71,1.71,0,0,0,10,11.7a1.79,1.79,0,0,0,1.8-1.8A1.71,1.71,0,0,0,10,8.2Z" fill="#333"/>
+      </g>
+    </g>
+  </g>
+</svg>
