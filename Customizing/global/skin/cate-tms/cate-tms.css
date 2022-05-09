@@ -1,3 +1,11 @@
+/* cate skin created by CaT Concepts and Training GmbH, Vorgebirgstraße 338, 50969 Köln / +49 221 467576-00 / info@concepts-and-training.de
+cate is an ILIAS based Training Management System for small and large organizations.
+It includes additional industry standards and extended business functionality beyond the ILIAS core and uses a modern and focused design.
+Find out more here: https://cate-tms.de
+This version of the cate skin is modified to run on ILIAS 7 and may only be used on demo.ilias.de
+(c) CaT Concepts and Training GmbH, 2022 
+*/
+
 @font-face {
   font-family: 'Open Sans';
   src: url('../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff2') format('woff2'), url('../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff') format('woff');
