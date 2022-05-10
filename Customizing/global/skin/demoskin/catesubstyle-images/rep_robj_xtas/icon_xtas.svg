@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g>
+      <g>
+        <path d="M24.85,20.68A10.08,10.08,0,0,1,16.35,26H16a10.07,10.07,0,0,1-4.66-1.15" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <path d="M7.54,21.34a10,10,0,0,1-1.53-5c0-.12,0-.24,0-.35a10,10,0,0,1,4.65-8.45" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <path d="M15.66,6H16a10,10,0,0,1,10,9.64" fill="none" stroke="#333" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <line x1="14.49" y1="17.51" x2="20.5" y2="11.5" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="20.5 15.74 20.5 11.5 16.26 11.5" fill="none" stroke="#333" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

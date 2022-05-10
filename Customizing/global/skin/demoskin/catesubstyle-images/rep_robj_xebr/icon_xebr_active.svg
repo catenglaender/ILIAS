@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g>
+      <g>
+        <polyline points="18.81 21.49 21.88 26.82 26.43 24.19 23.51 19.14" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="9.66 19.1 5.57 26.18 10.12 28.81 14.36 21.46" fill="none" stroke="#333" stroke-linejoin="round"/>
+      </g>
+      <g>
+        <circle cx="16.57" cy="11.19" r="8" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <circle cx="16.57" cy="11.19" r="4" fill="none" stroke="#333" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

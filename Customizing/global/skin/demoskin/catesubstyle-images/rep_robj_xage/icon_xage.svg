@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g>
+      <path d="M8,8A.94.94,0,0,1,9,9a.94.94,0,0,1-1,1A.94.94,0,0,1,7,9,.94.94,0,0,1,8,8M8,7A1.92,1.92,0,0,0,6,9a1.92,1.92,0,0,0,2,2,1.92,1.92,0,0,0,2-2A1.92,1.92,0,0,0,8,7Z" fill="#333"/>
+      <path d="M8,15a1,1,0,0,1,0,2,1,1,0,0,1,0-2m0-1a2,2,0,0,0,0,4,2,2,0,0,0,0-4Z" fill="#333"/>
+      <path d="M8,22a1,1,0,0,1,0,2,1,1,0,0,1,0-2m0-1a2,2,0,0,0,0,4,2,2,0,0,0,0-4Z" fill="#333"/>
+      <line x1="26" y1="9" x2="12" y2="9" fill="none" stroke="#333" stroke-linejoin="round"/>
+      <line x1="26" y1="16" x2="12" y2="16" fill="none" stroke="#333" stroke-linejoin="round"/>
+      <line x1="26" y1="23" x2="12" y2="23" fill="none" stroke="#333" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>

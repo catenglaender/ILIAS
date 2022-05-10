@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g>
+      <polyline points="22.05 22.91 22.05 27.91 11.05 27.91 6.05 22.91 6.05 6.91 15.64 6.91" fill="none" stroke="#333" stroke-linecap="square" stroke-linejoin="round"/>
+      <polyline points="11.05 27.91 11.05 22.91 6.05 22.91" fill="none" stroke="#333" stroke-linejoin="round"/>
+    </g>
+    <polyline points="17.95 9.56 20.45 12.06 25.45 7.06" fill="none" stroke="#333" stroke-linejoin="round"/>
+    <polyline points="17.95 16.67 20.45 19.17 25.45 14.17" fill="none" stroke="#333" stroke-linejoin="round"/>
+  </g>
+</svg>

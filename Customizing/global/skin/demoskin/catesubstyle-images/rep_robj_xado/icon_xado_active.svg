@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <g id="cat-pg">
+      <g>
+        <polyline points="20.03 8.28 16.89 7.16 15.11 4.14 11.52 5.03 11.3 8.73 8.84 10.85" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="11.3 8.73 8.84 10.85 5.26 10.85 4.25 14.43 7.27 16.45 7.94 19.58" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="7.27 16.45 7.94 19.58 6.15 22.71 8.73 25.4 11.97 23.72 15.11 24.84" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="11.97 23.72 15.11 24.84 16.89 27.86 20.48 26.97 20.7 23.27 23.16 21.15" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="20.7 23.27 23.16 21.15 26.74 21.15 27.75 17.57 24.73 15.55 24.06 12.42" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <polyline points="24.73 15.55 24.06 12.42 25.85 9.29 23.27 6.6 20.03 8.28 16.89 7.16" fill="none" stroke="#333" stroke-linejoin="round"/>
+        <circle cx="16" cy="16" r="3.69" fill="none" stroke="#333" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

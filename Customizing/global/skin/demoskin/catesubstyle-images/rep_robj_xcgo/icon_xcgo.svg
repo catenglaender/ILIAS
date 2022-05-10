@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Guidelines">
+    <polyline points="4 28 13 19 16 22 28 10" fill="none" stroke="#333" stroke-linejoin="round"/>
+    <g>
+      <line x1="8.49" y1="16.51" x2="14.5" y2="10.5" fill="none" stroke="#333" stroke-linejoin="round"/>
+      <polyline points="14.5 14.74 14.5 10.5 10.26 10.5" fill="none" stroke="#333" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
