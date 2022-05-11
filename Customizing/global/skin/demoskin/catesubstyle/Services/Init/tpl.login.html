@@ -1,0 +1,54 @@
+<!-- BEGIN login_information -->
+<div class="small">{TXT_LOGIN_INFORMATION}</div>
+<!-- END login_information -->
+
+<div class="ilStartupSectionPageEditor">
+	<!-- BEGIN login_page_editor -->
+	{LPE}
+	<!-- END login_page_editor -->
+</div>
+
+<div class="ilStartupSection row row-flex flex-center-horizontal">
+	<div class="login-form ilc_section_PaddingMedium">
+		<!-- BEGIN shib_login_form -->
+		<div class="login-shib">
+			{SHIB_LOGIN_FORM}
+		</div>
+		<!-- END shib_login_form -->
+		<!-- BEGIN saml_login -->
+		<div class="login-saml">
+			{SAML_LOGIN_FORM}
+		</div>
+		<!-- END saml_login -->
+		<!-- BEGIN cas_login -->
+		<div class="login-cas">{CAS_LOGIN_FORM}</div>
+		<!-- END cas_login -->
+		<!-- BEGIN oidc_login -->
+		<div class="login-oidc">
+			{OPEN_ID_CONNECT_LOGIN_FORM}
+		</div>
+		<!-- END oidc_login -->
+		<!-- BEGIN ilias_login -->
+		<div id="login-ilias-local" class="">
+			{LOGIN_FORM}
+			<!-- BEGIN reg_links -->
+			<div class="login-links">
+				{REG_PWD_CLIENT_LINKS}
+			</div>
+			<!-- END reg_links -->
+		</div>
+		<!-- END ilias_login -->
+		<!-- BEGIN agreement -->
+		<div class="login-user-agreement">{USER_AGREEMENT}</div>
+		<!-- END agreement -->
+	</div>
+</div>
+<script>
+	<!--
+	if (document.formlogin.username && document.formlogin.password)
+	{
+		if(document.formlogin.username.value!="") document.formlogin.password.focus();
+		else document.formlogin.username.focus();
+	}
+	//-->
+</script>
