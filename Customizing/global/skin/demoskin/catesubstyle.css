@@ -32024,3 +32024,11 @@ body .ilc_section_NoteBox03 > .ilc_section_SpalteBlockZwischenabstand > .ilc_sec
 body .ilc_section_NoteBox04 > .ilc_section_SpalteBlockZwischenabstand > .ilc_section_KarteHovereffekt {
   color: #fff;
 }
+
+/* Substyle Tweaks */
+
+/* div disturbing full height in column layout */
+
+.row .flex-col > div[style*="height:100%"] > .ilc_section_VolleHoehe {
+  height: 100%;
+}
