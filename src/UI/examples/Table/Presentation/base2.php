@@ -28,7 +28,7 @@ function base2()
                     'Statistics' => $environment['statistics']($record),
                     'Given Answer' => $environment['given-answer']($record['given-answer']),
                     'Feedback' => $environment['feedback']($record['feedback']),
-                    'Best possible Antwort' => $environment['best-answer']($record['best-answer'])
+                    'Best possible answer' => $environment['best-answer']($record['best-answer'])
                 )
             )
         )
@@ -60,7 +60,21 @@ function base2()
     require('included_data2.php');
     $data = included_data2();
 
+    $searchglyph = $renderer->render($f->symbol()->glyph()->search("#"));
+
     //apply data to table and render
     $tablehtml = $renderer->render($ptable->withData($data));
-    return '<div class="PresTableResult">' . $tablehtml . '</div>';
+    $returnedhtml = "{$searchglyph} Search: <form>";
+    $returnedhtml .= <<<EOT
+	    <input type="text" id="search">
+    </form>
+EOT;
+    $returnedhtml .= '<div class="PresTableResult">' . $tablehtml . '</div>';
+    $returnedhtml .= <<<EOT
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js"></script>
+    <script type="text/javascript">
+        $('input#search').quicksearch('.PresTableResult .il-table-presentation-row');
+    </script>
+EOT;
+    return $returnedhtml;
 }

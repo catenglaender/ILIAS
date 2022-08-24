@@ -43,7 +43,7 @@ function included_data2()
 				<label for="answer_0" class="answertext">
 
 
-					Exactly one option and one option only is correct.
+					Exactly one option and one option only is correct. <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -173,7 +173,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_1" class="answertext">
 
 
-					Elephant
+					Elephant <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
 				</label>
 			</div>
 		</div>
@@ -191,7 +191,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_2" class="answertext">
 
 
-					Yellow
+					Yellow <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -209,7 +209,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_3" class="answertext">
 
 
-					Banana
+					Banana <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -227,7 +227,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_0" class="answertext">
 
 
-					Green
+					Green <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
 				</label>
 			</div>
 		</div>
@@ -331,7 +331,7 @@ EOT;
 $question3_givenanswer = <<<EOT
 <div class="ilc_question_Standard">	 <div class="ilc_question_ClozeTest">
 <div class="ilc_qtitle_Title">Please complete the following text</div>
-<div class="ilc_qanswer_Answer ilc_answers answers ilAssClozeTest ilClearFloat"><p>This here text has some <input class="ilc_qinput_TextInput" type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" name="gap_0" value="words">. There could also be a larger gap, for example this one talking about how ILIAS is <select class="ilc_qinput_ClozeGapSelect" name="gap_1">
+<div class="ilc_qanswer_Answer ilc_answers answers ilAssClozeTest ilClearFloat"><p>This here text has some <input class="ilc_qinput_TextInput" type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" name="gap_0" value="words"> <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">. There could also be a larger gap, for example this one talking about how ILIAS is <select class="ilc_qinput_ClozeGapSelect" name="gap_1">
 	<option value="-1">---- bitte auswählen ----</option>
 
 	<option value="0">an e-Learning system, also called an LMS to organize courses and groups for online and offline learning.</option>
@@ -340,7 +340,9 @@ $question3_givenanswer = <<<EOT
 
 	<option value="2" selected="selected">a bird feeder with a decorative water bowl retailing for just 29 euros.</option>
 
-</select> What a highly interesting text.</p></div>
+	
+
+</select><img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch."> What a highly interesting text.</p></div>
 <div class="ilClearFloat"></div>
 </div>
 
@@ -397,7 +399,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			The earth is round
+			The earth is round <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -412,7 +414,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			Spiders have two legs
+			Spiders have two legs <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -427,7 +429,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			ILIAS is an e-Learning software
+			ILIAS is an e-Learning software <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -442,7 +444,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			Nothing lasts forever
+			Nothing lasts forever <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -637,23 +639,7 @@ $allquestions = [
                 'assessment' => 'correct'
             ],
             'question_title' => $IconPassed . 'A difficult choice',
-            'question_txt' => "In a single choice question, how many answers are correct? Please ponder this question carefully and select the correct option below. If you select the wrong option, you won't get any points. That's just how it is: No points for wrong answers.",
-            'answers' => array(
-                array('title' => 'weniger ausgeprägt', 'amount' => 2,	'proportion' => 20),
-                array('title' => 'teilweise ausgeprägt', 'amount' => 0,	'proportion' => 0),
-                array('title' => 'ausgeprägt', 'amount' => 6,	'proportion' => 60),
-                array('title' => 'deutlich ausgeprägt', 'amount' => 1,	'proportion' => 10),
-                array('title' => 'stark ausgeprägt', 'amount' => 0,	'proportion' => 0),
-                array('title' => 'sehr stark ausgeprägt', 'amount' => 0,	'proportion' => 0),
-                array('title' => 'übermäßig ausgeprägt', 'amount' => 1,	'proportion' => 10)
-            ),
-            'stats' => array(
-                'total' => 10,
-                'skipped' => 2,
-                'most_common' => 2,
-                'most_common_total' => 6,
-                'median' => 2,
-            )
+            'question_txt' => "In a single choice question, how many answers are correct? Please ponder this question carefully and select the correct option below. If you select the wrong option, you won't get any points. That's just how it is: No points for wrong answers."
         ),
 
         array(
@@ -670,13 +656,6 @@ $allquestions = [
             ],
             'question_title' => $IconNotPassed . 'One is not enough',
             'question_txt' => 'Which of these options are colors?',
-            'stats' => array(
-                'total' => 1,
-                'skipped' => 0,
-                'most_common' => 1,
-                'most_common_total' => 1,
-                'median' => 1,
-            )
         ),
 
         array(
@@ -693,36 +672,22 @@ $allquestions = [
             ],
             'question_title' => $IconNotPassed . 'Text with gaps',
             'question_txt' => 'Please complete the following text',
-            'stats' => array(
-                'total' => 1,
-                'skipped' => 0,
-                'most_common' => 1,
-                'most_common_total' => 1,
-                'median' => 1,
-            )
             ),
 
             array(
                 'id' => 8,
                 'given-answer' => $allquestions['question4']['given'],
-                'best-answer' => $allquestions['question4']['best'],
+                'best-answer' => '',
                 'feedback' => $allquestions['question4']['feedback'],
                 'type' => 'Multiple True/False Choice',
                 'points' => [
-                    'max' => 0,
-                    'earned' => 0,
-                    'percent' => 0,
-                    'assessment' => 'incorrect'
+                    'max' => 4,
+                    'earned' => 4,
+                    'percent' => 100,
+                    'assessment' => 'correct'
                 ],
                 'question_title' => $IconPassed . 'What is right? What is wrong?',
                 'question_txt' => 'Please complete the following text',
-                'stats' => array(
-                    'total' => 1,
-                    'skipped' => 0,
-                    'most_common' => 1,
-                    'most_common_total' => 1,
-                    'median' => 1,
-                )
             )
     );
 }
