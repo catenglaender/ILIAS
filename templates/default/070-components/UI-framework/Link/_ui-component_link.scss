@@ -6,10 +6,11 @@
 }
 
 
-.c-link.link-bulky {
+.c-link--bulky {
 	text-decoration: none;
 
-	.icon, .bulky-label{
+	.icon, // icon is another ui-component, therefor not &__icon
+	.bulky-label { // bulky label is used by both bulky links and bulky buttons, therefor not &__label
 		display: inline-block;
 	}
 

@@ -24,7 +24,7 @@ $il-metabar-small-glyph-size: 1.25rem;
 	list-style-type: none; /* Remove bullets */
 
 	// no display labels in metabar level 1, but make them readable by screenreaders
-	> li > .btn-bulky > .bulky-label, > li > .link-bulky > .bulky-label {
+	> li > .btn-bulky > .bulky-label, > li > .c-link--bulky > .bulky-label {
 		@include btstrp3.sr-only;
 	}
 
@@ -66,7 +66,7 @@ $il-metabar-small-glyph-size: 1.25rem;
 		top: 32px;
 	}
 
-	 > li > .c-link.link-bulky {
+	 > li > .c-link--bulky {
 		 display: block;
 		 text-align: center;
 		 padding: $il-padding-base-vertical $il-padding-base-horizontal;
@@ -74,7 +74,7 @@ $il-metabar-small-glyph-size: 1.25rem;
 		 border: 1px solid transparent;
 	 }
 
-	 > li > .btn-bulky, > li > .link-bulky {
+	 > li > .btn-bulky, > li > .c-link--bulky {
 		background-color: transparent;
 		height: $il-metabar-entry-height;
 		min-width: $il-metabar-entry-width;

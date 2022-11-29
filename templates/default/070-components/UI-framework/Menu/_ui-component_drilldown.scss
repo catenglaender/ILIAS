@@ -66,13 +66,13 @@ $il-drilldown-item-font-line-height: $il-slate-bulky-label-size * 1.133333333333
 	// visibility of menu items
 	li > .menulevel,
 	li > .btn-bulky,
-	li > .link-bulky,
+	li > .c-link--bulky,
 	li > hr {
     	display: none;
 	}
 	.engaged ~ ul > li > .menulevel,
 	.engaged ~ ul > li > .btn-bulky,
-	.engaged ~ ul > li > .link-bulky {
+	.engaged ~ ul > li > .c-link--bulky {
     	display: flex;
 	}
 	.engaged ~ ul > li > hr {
@@ -82,7 +82,7 @@ $il-drilldown-item-font-line-height: $il-slate-bulky-label-size * 1.133333333333
 	// styling shared by many menu items
 	.menulevel,
 	.btn-bulky,
-	.link-bulky {
+	.c-link--bulky {
 		display: flex;
 		align-items: center; // icons, arrow glyphs and labels are vertically centered
 		justify-content: space-between;
@@ -109,7 +109,7 @@ $il-drilldown-item-font-line-height: $il-slate-bulky-label-size * 1.133333333333
 		}
 	}
 	.btn-bulky,
-	.link-bulky {
+	.c-link--bulky {
 		background-color: $il-drilldown-bulky-bg;
 		&:hover {
 			background-color: $il-drilldown-item-hover-bg; // has to be a color with transparency so h2 can be seen underneath backnav

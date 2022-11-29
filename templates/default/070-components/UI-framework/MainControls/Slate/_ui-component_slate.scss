@@ -15,11 +15,11 @@
 	.btn-bulky {
 		padding: $il-slate-bulky-padding;
 	}
-	.link-bulky {
+	.c-link--bulky {
 		padding: $il-slate-bulky-link-padding;
 	}
 	.btn-bulky,
-	.link-bulky {
+	.c-link--bulky {
 		align-items: flex-start;
 		background-color: $il-slate-bulky-bg-color;
 		border: none;
@@ -137,19 +137,19 @@
 .il-maincontrols-slate.engaged {
 	&[data-depth-level="2"] {
 		.btn-bulky:not(:hover),
-		.link-bulky:not(:hover) {
+		.c-link--bulky:not(:hover) {
 			background-color: $il-slate-bulky-level2-bg-color;
 		}
 	}
 	&[data-depth-level="3"] {
 		.btn-bulky:not(:hover),
-		.link-bulky:not(:hover) {
+		.c-link--bulky:not(:hover) {
 			background-color: rgba($il-slate-bulky-level2-bg-color, math.div(15%, 100.0%));
 		}
 	}
 	&[data-depth-level="4"] {
 		.btn-bulky:not(:hover),
-		.link-bulky:not(:hover) {
+		.c-link--bulky:not(:hover) {
 			background-color: rgba($il-slate-bulky-level2-bg-color, math.div(10%, 100.0%));
 		}
 	}
@@ -234,7 +234,7 @@
 		.il-avatar{
 			margin-right: 45px - $il-avatar-inner-mobile-size;
 		}
-		.link-bulky .icon.small, .btn-bulky .icon.small {
+		.c-link--bulky .icon.small, .btn-bulky .icon.small {
 			margin-right: 45px - $il-icon-size-small;
 		}
 	}
