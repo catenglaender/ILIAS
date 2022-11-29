@@ -120,7 +120,7 @@ class BulkyLinkTest extends ILIAS_UI_TestBase
         $b = $this->factory->bulky($this->glyph, "label", $this->target);
 
         $expected = ''
-            . '<a class="il-link link-bulky" href="http://www.ilias.de">'
+            . '<a class="c-link link-bulky" href="http://www.ilias.de">'
             . '	<span class="glyph" role="img">'
             . '		<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>'
             . '	</span>'
@@ -139,7 +139,7 @@ class BulkyLinkTest extends ILIAS_UI_TestBase
         $b = $this->factory->bulky($this->icon, "label", $this->target);
 
         $expected = ''
-            . '<a class="il-link link-bulky" href="http://www.ilias.de">'
+            . '<a class="c-link link-bulky" href="http://www.ilias.de">'
             . '	<img class="icon someExample small" src="./templates/default/images/icon_default.svg" alt=""/>'
             . '	<span class="bulky-label">label</span>'
             . '</a>';
@@ -158,7 +158,7 @@ class BulkyLinkTest extends ILIAS_UI_TestBase
             });
 
         $expected = ''
-            . '<a class="il-link link-bulky" href="http://www.ilias.de" id="id_1">'
+            . '<a class="c-link link-bulky" href="http://www.ilias.de" id="id_1">'
             . '<img class="icon someExample small" src="./templates/default/images/icon_default.svg" alt=""/>'
             . ' <span class="bulky-label">label</span>'
             . '</a>';
@@ -176,7 +176,7 @@ class BulkyLinkTest extends ILIAS_UI_TestBase
         ->withAriaRole(I\Button\Bulky::MENUITEM);
 
         $expected = ''
-        . '<a class="il-link link-bulky" href="http://www.ilias.de" role="menuitem">'
+        . '<a class="c-link link-bulky" href="http://www.ilias.de" role="menuitem">'
         . '<img class="icon someExample small" src="./templates/default/images/icon_default.svg" alt=""/>'
         . ' <span class="bulky-label">label</span>'
         . '</a>';
@@ -194,7 +194,7 @@ class BulkyLinkTest extends ILIAS_UI_TestBase
                            ->withAriaRole(I\Button\Bulky::MENUITEM);
 
         $expected = ''
-            . '<a class="il-link link-bulky" href="http://www.ilias.de" role="menuitem">'
+            . '<a class="c-link link-bulky" href="http://www.ilias.de" role="menuitem">'
             . '<img class="icon someExample small" src="./templates/default/images/icon_default.svg"  alt=""/>'
             . ' <span class="bulky-label">Example</span>'
             . '</a>';

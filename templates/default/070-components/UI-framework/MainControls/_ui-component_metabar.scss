@@ -52,7 +52,7 @@ $il-metabar-small-glyph-size: 1.25rem;
 		position: absolute;
 	}
 
-	.btn, .il-link {
+	.btn, .c-link {
 		position: relative;
 	}
 
@@ -66,7 +66,7 @@ $il-metabar-small-glyph-size: 1.25rem;
 		top: 32px;
 	}
 
-	 > li > .il-link.link-bulky {
+	 > li > .c-link.link-bulky {
 		 display: block;
 		 text-align: center;
 		 padding: $il-padding-base-vertical $il-padding-base-horizontal;

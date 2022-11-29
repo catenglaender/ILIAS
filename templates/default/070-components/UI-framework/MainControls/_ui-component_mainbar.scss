@@ -25,7 +25,7 @@
 .il-maincontrols-mainbar,
 .il-maincontrols-metabar {
 	.btn-bulky,
-	.il-link.link-bulky {
+	.c-link.link-bulky {
 		font-size: $il-mainbar-btn-label-size;
 		line-height: $il-mainbar-btn-label-size * $il-line-height-large;
 		&:focus,
@@ -80,7 +80,7 @@
 	width: $il-mainbar-btn-width;
 	z-index: 1;
 	.btn-bulky,
-	.il-link.link-bulky {
+	.c-link.link-bulky {
 		align-items: center;
 		background: $il-mainbar-btn-bg-color;
 		border: 0;
@@ -134,7 +134,7 @@
 	// no hover on mobile devices
 	@media (hover: none) {
 		.btn-bulky,
-		.il-link.link-bulky {
+		.c-link.link-bulky {
 			&:hover {
 				background-color: $il-mainbar-btn-bg-color;
 				color: $il-mainbar-btn-bg-color-engaged;
@@ -210,7 +210,7 @@
 		flex-shrink: 0;
 	}
 	.btn-bulky,.btn-bulky,
-	.il-link.link-bulky {
+	.c-link.link-bulky {
 		background-color: $il-mainbar-tools-tab-btn-bg-disengaged;
 		color: $il-mainbar-btn-color;
 		padding: 0;
@@ -347,7 +347,7 @@
 	   width: 100%;
 	   z-index: 1;
 	   .btn-bulky,
-	   .il-link.link-bulky {
+	   .c-link.link-bulky {
 	   	   flex-shrink: 0;
 		   border: 0;
 		   height: $il-mainbar-small-btn-height;

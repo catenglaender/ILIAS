@@ -1,12 +1,12 @@
 @use "../../../010-settings/"as *;
 @use "../../../030-tools/tool_focus-outline" as *;
 
-.il-link{
+.c-link{
 	@include il-focus();
 }
 
 
-.il-link.link-bulky {
+.c-link.link-bulky {
 	text-decoration: none;
 
 	.icon, .bulky-label{
