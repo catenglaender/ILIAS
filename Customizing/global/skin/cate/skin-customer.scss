@@ -1,0 +1,10 @@
+$cate-skin-customer: (
+    "base-color-1": red
+    ,"base-color-2": blue
+) !default;
+
+@use "./010-settings/" as skin with (
+    $cate-skin-settings: $cate-skin-customer
+);
+@use "./skin-base.scss" as base;
+

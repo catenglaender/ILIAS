@@ -1,0 +1,6 @@
+@use "sass:map";
+@use "../../010-settings/" as *;
+@forward "./layout_standardpage" with (
+    $il-mainbar-btn-bg-color: map.get($cate-skin-settings, "base-color-1")
+);
+@forward "./layout_standardpage-mobile";
