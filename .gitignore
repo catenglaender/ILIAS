@@ -36,7 +36,7 @@
 
 # Directories
 /data
-/Customizing/global
+/Customizing/globa/plugins
 /Customizing/clients
 /setup/sql/ilDBTemplate
 virtual-data
