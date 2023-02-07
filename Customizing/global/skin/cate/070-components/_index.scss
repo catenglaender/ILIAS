@@ -123,3 +123,25 @@
 @use "./legacy/Services/UIComponent/_component_tooltip.scss";
 @use "./legacy/Services/_component_user.scss";
 @use "./legacy/Services/_component_webdav.scss";
+
+// # Begin cate skin overrides
+
+@use "../010-settings/" as *;
+@use "../050-layout/basics" as *;
+
+// ## Mianbar
+.il-mainbar-triggers,
+.il-mainbar-tools-button,
+.il-mainbar-tools-entries {
+	.il-link.link-bulky,
+	.btn-bulky {
+		border-radius: $il-margin-base;
+		margin: $il-margin-base;
+
+		.icon,
+		&:hover .icon,
+		&.engaged .icon {
+			filter: invert(0);
+		}
+    }
+}

@@ -1,13 +1,14 @@
 // # ITCSS structure
 // All style code MUST be split into these layers
 
-// The first two layers expose public variables with @forward so they can be overwritten in a skin
+// # CATE SKIN RULES
+//
+// ## Variables
+// On this skin base file, you should avoid using cate specific variabels.
+// Use ILIAS variables instead.
 
 // ## Settings
-@use "./010-settings/" as * with (
-    $il-main-color: red
-);
-@forward "./010-settings/";
+@use "./010-settings/" as *; // many values will be overwritten by skin-xy file
 
 // ## Dependencies
 @forward "./020-dependencies/";
@@ -33,3 +34,9 @@
 // # Relative paths differences
 // SCSS paths are relativ to the SCSS file
 // CSS paths (linked fonts) are relative to the compiled template CSS
+
+// # SCSS for all cate skins
+
+.panel .panel-heading.ilHeader, .panel .panel-heading.ilBlockHeader {
+    background-color: $il-main-color;
+}

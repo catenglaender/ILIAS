@@ -1,1 +1,6 @@
-@use "./skin-base.scss";
+@use "./skin-customer/customer_010-settings" as skin-s;
+@use "./010-settings/" as * with (
+    $il-main-color: skin-s.$base-color-1
+);
+@use "./skin-base.scss" as base;
+

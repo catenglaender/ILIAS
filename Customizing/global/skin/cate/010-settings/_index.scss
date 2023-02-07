@@ -6,7 +6,12 @@
 // These variables MUST be only the ones absolutely needed to quickly recolor and reshape ILIAS.
 // Bootstrap variables MUST be overridden in the Dependency layer.
 
-@forward "./settings_color-palette";
+@forward "./cate-settings";
+@use "./cate-settings" as *;
+
+@forward "./settings_color-palette" with (
+    $il-main-color: $base-color-1 !default
+);
 @forward "./settings_typography";
 @forward "./settings_borders";
 @forward "./settings_button";

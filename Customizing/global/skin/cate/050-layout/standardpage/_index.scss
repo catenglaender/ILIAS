@@ -1,4 +1,5 @@
+@use "../../010-settings/" as *;
 @forward "./layout_standardpage" with (
-    $il-mainbar-btn-bg-color: green
+    $il-mainbar-btn-bg-color: $il-main-bg
 );
 @forward "./layout_standardpage-mobile";
