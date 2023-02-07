@@ -31,9 +31,13 @@ function base()
     $launcher3 = $launcher
         ->withStatus($progressmeter);
 
-    $icon = $ui_factory->symbol()->icon()->standard('crs', '', 'large');
+    $icon = $ui_factory->symbol()->icon()->standard('crs', 'something', 'large');
     $launcher4 = $launcher
         ->withStatus($icon);
+
+    $textstatus = $ui_factory->messageBox()->failure("Locked");
+    $launcher5 = $launcher
+        ->withStatus($textstatus);
 
     return $renderer->render([
             $launcher,
@@ -42,6 +46,8 @@ function base()
             $spacer,
             $launcher3,
             $spacer,
-            $launcher4
+            $launcher4,
+            $spacer,
+            $launcher5
     ]);
 }

@@ -23,6 +23,7 @@ namespace ILIAS\UI\Component\Launcher;
 use ILIAS\UI\Component\Component;
 use ILIAS\UI\Component\Chart\ProgressMeter\ProgressMeter;
 use ILIAS\UI\Component\Symbol\Icon\Icon;
+use ILIAS\UI\Component\MessageBox\MessageBox;
 use ILIAS\UI\Component\Input\Container\Form\Form;
 use ILIAS\UI\Component\Input\Field\Group;
 use ILIAS\UI\Component\Legacy\Legacy;
@@ -31,7 +32,8 @@ interface Launcher extends Component
 {
     public const ALLOWED_STATUS_COMPONENTS = [
         Icon::class,
-        ProgressMeter::class
+        ProgressMeter::class,
+        MessageBox::class
     ];
 
     public function withDescription(string $description): self;
