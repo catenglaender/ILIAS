@@ -4,8 +4,7 @@
 // # CATE SKIN RULES
 //
 // ## Variables
-// On this skin base file, you should avoid using cate specific variabels.
-// Use ILIAS variables instead.
+// Use ILIAS variables whenever possible
 
 // ## Settings
 @use "./010-settings/" as *; // many values will be overwritten by skin-xy file
@@ -38,5 +37,5 @@
 // # SCSS for all cate skins
 
 .panel .panel-heading.ilHeader, .panel .panel-heading.ilBlockHeader {
-    background-color: $il-main-color;
+    // background-color: $il-main-color;
 }

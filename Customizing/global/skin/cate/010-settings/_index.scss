@@ -6,12 +6,17 @@
 // These variables MUST be only the ones absolutely needed to quickly recolor and reshape ILIAS.
 // Bootstrap variables MUST be overridden in the Dependency layer.
 
-@forward "./cate-settings";
-@use "./cate-settings" as *;
+@use "sass:map";
+
+$cate-skin-settings: (
+    "base-color-1": #c0069b
+    ,"base-color-2": #df0226
+) !default;
 
 @forward "./settings_color-palette" with (
-    $il-main-color: $base-color-1 !default
+    $il-main-color: map.get($cate-skin-settings, "base-color-1")
 );
+
 @forward "./settings_typography";
 @forward "./settings_borders";
 @forward "./settings_button";
