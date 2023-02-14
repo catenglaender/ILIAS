@@ -10,8 +10,9 @@ $il-popover-max-height: 40vh;
 $il-popover-background-color: $il-main-dark-bg;
 $il-popover-text-color: $il-text-color;
 $il-popover-border-color: $il-main-border-dark-color;
+$il-popover-border-size: 2px;
 
-$il-popover-arrow-height: .5em;
+$il-popover-arrow-height: $il-margin-xlarge-vertical;
 $il-popover-arrow-background-color: $il-popover-border-color;
 
 $il-popover-z-index: 9999;
@@ -70,8 +71,8 @@ $il-popover-z-index: 9999;
 	transform: translateX(-50%);
 	margin: 0;
 	padding: $il-padding-xlarge-vertical $il-padding-xlarge-horizontal;
-	border: 2px solid $il-popover-border-color;
-	border-radius: .25em;
+	border: $il-popover-border-size solid $il-popover-border-color;
+	border-radius: $il-border-radius-secondary-base;
 	color: $il-popover-text-color;
 	background: $il-popover-background-color;
 	width: max-content;

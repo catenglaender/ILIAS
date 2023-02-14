@@ -12372,7 +12372,7 @@ div.alert ul > li:before {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border: 0.5em solid transparent;
+  border: 9px solid transparent;
   border-bottom-color: #757575;
 }
 
@@ -12382,7 +12382,7 @@ div.alert ul > li:before {
   top: 100%;
   left: -20%;
   display: block;
-  height: 1em;
+  height: 18px;
 }
 
 .c-tooltip__container.c-tooltip--visible::before,
@@ -12404,13 +12404,13 @@ div.alert ul > li:before {
 
 .c-tooltip__container [role=tooltip] {
   position: absolute;
-  top: calc(100% + 1em);
+  top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   padding: 9px 15px;
   border: 2px solid #757575;
-  border-radius: 0.25em;
+  border-radius: 4px;
   color: #161616;
   background: #f9f9f9;
   width: max-content;
@@ -12421,7 +12421,7 @@ div.alert ul > li:before {
 }
 
 .c-tooltip__container.c-tooltip--top [role=tooltip] {
-  bottom: calc(100% + 1em);
+  bottom: calc(100% + 18px);
 }
 
 /* Hides the tooltip */
