@@ -22,31 +22,67 @@ namespace ILIAS\UI\Implementation\Component\Input\Container\ViewControl;
 
 use ILIAS\UI\Component\Input\Container\ViewControl as I;
 use ILIAS\UI\Implementation\Component\ComponentHelper;
+use ILIAS\UI\Implementation\Component\JavaScriptBindable;
+use ILIAS\UI\Implementation\Component\SignalGeneratorInterface;
+use ILIAS\UI\Component\Signal;
 use Psr\Http\Message\ServerRequestInterface;
+use ILIAS\UI\Implementation\Component\Input;
+use ILIAS\UI\Implementation\Component\Input\Container\QueryParamsFromServerRequest;
 
 class ViewControl implements I\ViewControl
 {
     use ComponentHelper;
+    use JavaScriptBindable;
 
     protected array $controls;
+    protected Signal $submit_signal;
 
-    public function __construct(array $controls)
-    {
-        $this->controls = $controls;
+    public function __construct(
+        SignalGeneratorInterface $signal_generator,
+        Input\NameSource $name_source,
+        array $controls
+    ) {
+        $this->controls = array_map(
+            fn ($input) => $input->withNameFrom($name_source),
+            $controls
+        );
+        $this->submit_signal = $signal_generator->create();
     }
+
+    public function getSubmissionSignal(): Signal
+    {
+        return $this->submit_signal;
+    }
+
 
     public function getInputs(): array
     {
-        return [];
+        return $this->controls;
     }
 
-    public function withRequest(ServerRequestInterface $request)
+    public function withRequest(ServerRequestInterface $request): self
     {
-        return $this;
+        $data = new QueryParamsFromServerRequest($request);
+        $set = [];
+        foreach ($this->controls as $control) {
+            if ($value = $data->getOr($control->getName(), null)) {
+                $control = $control->withValue($value);
+            }
+            $set[] = $control;
+        }
+        $clone = clone $this;
+        $clone->controls = $set;
+        return $clone;
     }
+
 
     public function getData(): array
     {
-        return [];
+        return array_merge(
+            ...array_map(
+                fn ($c) => [$c->getName() => $c->getValue()],
+                $this->getInputs()
+            )
+        );
     }
 }

@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 /**
  * This file is part of ILIAS, a powerful learning management system
  * published by ILIAS open source e-Learning e.V.
@@ -18,22 +15,24 @@ declare(strict_types=1);
  *
  *********************************************************************/
 
-namespace ILIAS\UI\Component\Input\Container\ViewControl;
+declare(strict_types=1);
 
-use ILIAS\UI\Component\Component;
-use ILIAS\UI\Component\JavaScriptBindable;
-use Psr\Http\Message\ServerRequestInterface;
-use ILIAS\UI\Component\Input\Field;
+namespace ILIAS\UI\examples\Symbol\Glyph\Sortation;
 
-/**
- * This describes a View Control Container.
- */
-interface ViewControl extends Component, JavaScriptBindable
+function sortation()
 {
-    public function withRequest(ServerRequestInterface $request): self;
+    global $DIC;
+    $f = $DIC->ui()->factory();
+    $renderer = $DIC->ui()->renderer();
 
-    /**
-     * @return array<string,mixed>
-     */
-    public function getData(): array;
+    $glyph = $f->symbol()->glyph()->sortation("#");
+
+    //Showcase the various states of this Glyph
+    $list = $f->listing()->descriptive([
+        "Active" => $glyph,
+        "Inactive" => $glyph->withUnavailableAction(),
+        "Highlighted" => $glyph->withHighlight()
+    ]);
+
+    return $renderer->render($list);
 }

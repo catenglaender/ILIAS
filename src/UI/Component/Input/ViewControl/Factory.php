@@ -1,7 +1,4 @@
 <?php
-
-declare(strict_types=1);
-
 /**
  * This file is part of ILIAS, a powerful learning management system
  * published by ILIAS open source e-Learning e.V.
@@ -17,6 +14,8 @@ declare(strict_types=1);
  * https://github.com/ILIAS-eLearning
  *
  *********************************************************************/
+
+declare(strict_types=1);
 
 namespace ILIAS\UI\Component\Input\ViewControl;
 
@@ -47,4 +46,43 @@ interface Factory
         string $label = FieldSelection::DEFAULT_DROPDOWN_LABEL,
         string $button_label = FieldSelection::DEFAULT_BUTTON_LABEL
     ): FieldSelection;
+
+    /**
+     * ---
+     * description:
+     *   purpose: >
+     *      Sortation is used XXX
+     *   composition: >
+     *      XXX
+     *   effect: >
+     *      XXX
+     * ---
+     * @param array<string,string> $options
+     * @param string $label
+     * @return \ILIAS\UI\Component\Input\ViewControl\Sortation
+     */
+    public function sortation(
+        array $options,
+        string $aspect = null,
+        string $direction = null
+    ): Sortation;
+
+    /**
+     * ---
+     * description:
+     *   purpose: >
+     *      Sortation is used XXX
+     *   composition: >
+     *      XXX
+     *   effect: >
+     *      XXX
+     * ---
+     * @param array<string,string> $options
+     * @param string $label
+     * @return \ILIAS\UI\Component\Input\ViewControl\Pagination
+     */
+    public function pagination(
+        int $offset,
+        int $length
+    ): Pagination;
 }
