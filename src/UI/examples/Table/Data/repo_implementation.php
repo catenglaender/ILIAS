@@ -100,10 +100,6 @@ class DataTableDemoRepo extends T\DataRetrieval
             'fee' => $f->table()->column()->number("Fee")
                 ->withDecimals(2)
                 ->withUnit('£', I\Column\Number::UNIT_POSITION_FORE),
-            'hidden' => $f->table()->column()->status("success")
-                ->withIsSortable(false)
-                ->withIsOptional(true)
-                ->withIsInitiallyVisible(false),
             'sql_order' => $f->table()->column()->text("sql order part")
                 ->withIsSortable(false)
                 ->withIsOptional(true),

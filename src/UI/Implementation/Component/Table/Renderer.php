@@ -230,21 +230,34 @@ class Renderer extends AbstractComponentRenderer
     protected function applyViewControls(Component\Table\Data $component): Component\Table\Data
     {
         //TODO: Viewcontrols, Filter
-        $df = $this->getDataFactory();
-        $range = $component->getRange();
-        $order = $component->getOrder();
-        $selected_optional = $component->getSelectedOptionalColumns();
+
+        //$df = $this->getDataFactory();
+        //$range = $component->getRange();
+        //$order = $component->getOrder();
+        //$selected_optional = $component->getSelectedOptionalColumns();
         $filter_data = null;
         $additional_parameters = null;
 
         if ($request = $component->getRequest()) {
-            $params = [];
-            parse_str($request->getUri()->getQuery(), $params);
-            if (array_key_exists('tsort_f', $params) && array_key_exists('tsort_d', $params)
-                && array_key_exists($params['tsort_f'], $component->getVisibleColumns())
-            ) {
-                $order = $df->order($params['tsort_f'], $params['tsort_d']);
-            }
+            $component = $component->withViewControls(
+                $component->getViewControls()->withRequest($request)
+            );
+            $data = $component->getViewControls()->getData();
+
+            //var_dump($data);die();
+
+            $range = $data['form_input_0'];
+            $order = $data['form_input_1'];
+            $selected_optional = $data['form_input_2'];
+            /*
+                $params = [];
+                parse_str($request->getUri()->getQuery(), $params);
+                if (array_key_exists('tsort_f', $params) && array_key_exists('tsort_d', $params)
+                    && array_key_exists($params['tsort_f'], $component->getVisibleColumns())
+                ) {
+                    $order = $df->order($params['tsort_f'], $params['tsort_d']);
+                }
+            */
         }
         //END TODO: Viewcontrols, Filter
 

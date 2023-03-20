@@ -39,7 +39,7 @@ function base()
         'fee' => $f->table()->column()->number("Fee")
             ->withDecimals(2)
             ->withUnit('£', I\Column\Number::UNIT_POSITION_FORE),
-        'hidden' => $f->table()->column()->status("success")
+        'hidden' => $f->table()->column()->status("hidden")
             ->withIsSortable(false)
             ->withIsOptional(true)
             ->withIsInitiallyVisible(false),
