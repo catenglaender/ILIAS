@@ -64,10 +64,19 @@ class FieldSelection extends ViewControl implements VCInterface\FieldSelection
 
     public function withValue($value): self
     {
+        //$this->checkArg("value", $this->isClientSideValueOk($value), "Display value does not match input type.");
+
         $clone = clone $this;
         $clone->value = explode(',', $value);
         return $clone;
     }
+
+    protected function isClientSideValueOk($value): bool
+    {
+        $v = explode(',', $value);
+        return array_filter($v, fn ($v) =>array_key_exists($v, $this->getOptions())) === $v;
+    }
+
     public function getValue()
     {
         return $this->value ?? [];

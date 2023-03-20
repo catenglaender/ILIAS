@@ -56,10 +56,18 @@ abstract class ViewControl implements VCInterface\ViewControl
 
     public function withValue($value): self
     {
+        $this->checkArg("value", $this->isClientSideValueOk($value), "Display value does not match input type.");
         $clone = clone $this;
         $clone->value = $value;
         return $clone;
     }
+
+    /**
+     * Check if the value is good to be displayed client side.
+     *
+     * @param mixed $value
+     */
+    abstract protected function isClientSideValueOk($value): bool;
 
     public function withNameFrom(NameSource $source)
     {

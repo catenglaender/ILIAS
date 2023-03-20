@@ -30,7 +30,7 @@ use ILIAS\UI\Component\Signal;
 interface ViewControl extends Input, Triggerer
 {
     /**
-     * When a View Control becomses part of a View Contraol Input Container,
+     * When a View Control becomes part of a View Control Input Container,
      * the Container will amend a Signal to the Component; this Signal MUST
      * be triggered when operating the Control.
      */

@@ -64,11 +64,17 @@ class Sortation extends ViewControl implements VCInterface\Sortation
      */
     public function withValue($value): self
     {
+        //$this->checkArg("value", $this->isClientSideValueOk($value), "Display value does not match input type.");
         list($aspect, $direction) = explode(':', $value);
         $clone = clone $this;
         $clone->aspect = $aspect;
         $clone->direction = $direction;
         return $clone;
+    }
+
+    protected function isClientSideValueOk($value): bool
+    {
+        return array_key_exists($value, $this->getOptions());
     }
 
     public function getValue()

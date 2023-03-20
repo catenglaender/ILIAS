@@ -33,7 +33,7 @@ interface ViewControl extends Component, JavaScriptBindable
     public function withRequest(ServerRequestInterface $request): self;
 
     /**
-     * @return array<string,mixed>
+     * @return <string, mixed>
      */
     public function getData(): array;
 }

@@ -80,6 +80,7 @@ class Pagination extends ViewControl implements VCInterface\Pagination
      */
     public function withValue($value): self
     {
+        $this->checkArg("value", $this->isClientSideValueOk($value), "Display value does not match input type.");
         list($offset, $limit) = explode(':', $value);
         $clone = clone $this;
         $clone->offset = (int)$offset;
@@ -93,6 +94,12 @@ class Pagination extends ViewControl implements VCInterface\Pagination
             $this->getLimitOptions(),
             fn ($a, $b) =>  abs($b - $limit) <= abs($a - $limit) ? $b : $a
         );
+    }
+
+    protected function isClientSideValueOk($value): bool
+    {
+        $v = explode(':', $value);
+        return count(array_filter($v, fn ($v) =>is_numeric($v))) === 2;
     }
 
     public function getValue()
