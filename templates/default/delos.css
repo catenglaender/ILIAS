@@ -20189,4 +20189,69 @@ table.mceToolbar td {
   border: 1px solid #dddddd;
   border-radius: 0.25em;
 }
-/*# sourceMappingURL=./delos.css.map */
+/* Test Result Page Mockup */
+.PresTableResult .ilc_question_Standard {
+  pointer-events: none;
+}
+.PresTableResult .il-table-presentation-details.inline {
+  display: none;
+}
+.PresTableResult .il-table-presentation-row .il-table-presentation-row-expanded .il-table-presentation-desclist {
+  width: 100%;
+}
+/* Two Sided Mockup */
+.PresTableResult .il-table-presentation-desclist dl {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+}
+.PresTableResult .il-table-presentation-desclist dl dt > *,
+.PresTableResult .il-table-presentation-desclist dl dd > * {
+  margin: 0;
+}
+.PresTableResult .il-table-presentation-desclist dl dt:nth-child(1) {
+  grid-column: 1 / 3;
+  grid-row: 1;
+}
+.PresTableResult .il-table-presentation-desclist dl dd:nth-child(2) {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+.PresTableResult .il-table-presentation-desclist dl dt:nth-child(3) {
+  grid-column: 1 / 2;
+  grid-row: 5;
+}
+.PresTableResult .il-table-presentation-desclist dl dd:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 6;
+}
+.PresTableResult .il-table-presentation-desclist dl dt:nth-child(5) {
+  grid-column: 1 / 3;
+  grid-row: 3;
+}
+.PresTableResult .il-table-presentation-desclist dl dd:nth-child(6) {
+  grid-column: 1 / 3;
+  grid-row: 4;
+}
+.PresTableResult .il-table-presentation-desclist dl dt:nth-child(7) {
+  grid-column: 2 / 3;
+  grid-row: 5;
+}
+.PresTableResult .il-table-presentation-desclist dl dd:nth-child(8) {
+  grid-column: 2 / 3;
+  grid-row: 6;
+}
+.PresTableResult .il-table-presentation-row:nth-child(1) .il-table-presentation-desclist dl dt:nth-child(3),
+.PresTableResult .il-table-presentation-row:nth-child(4) .il-table-presentation-desclist dl dt:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 5;
+}
+.PresTableResult .il-table-presentation-row:nth-child(1) .il-table-presentation-desclist dl dd:nth-child(4),
+.PresTableResult .il-table-presentation-row:nth-child(4) .il-table-presentation-desclist dl dd:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 6;
+}
+.PresTableResult select.ilc_qinput_ClozeGapSelect {
+  max-width: 250px;
+}

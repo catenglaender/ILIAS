@@ -43,7 +43,7 @@ function included_data2()
 				<label for="answer_0" class="answertext">
 
 
-					Exactly one option and one option only is correct. <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+					Exactly one option and one option only is correct. <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -84,7 +84,7 @@ $question1_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
+				<img src="./templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
 				
 				
 			</div>
@@ -101,7 +101,7 @@ $question1_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
+				<img src="./templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
 				
 				
 			</div>
@@ -118,7 +118,7 @@ $question1_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/radiobutton_checked.png" alt="Ausgewählt" title="Ausgewählt">
+				<img src="./templates/default/images/radiobutton_checked.png" alt="Ausgewählt" title="Ausgewählt">
 				
 				
 			</div>
@@ -135,7 +135,7 @@ $question1_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
+				<img src="./templates/default/images/radiobutton_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
 				
 				
 			</div>
@@ -173,7 +173,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_1" class="answertext">
 
 
-					Elephant <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
+					Elephant <img style="display: inline;" src="./templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
 				</label>
 			</div>
 		</div>
@@ -191,7 +191,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_2" class="answertext">
 
 
-					Yellow <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+					Yellow <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -209,7 +209,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_3" class="answertext">
 
 
-					Banana <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+					Banana <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 				</label>
 			</div>
 		</div>
@@ -227,7 +227,7 @@ $question2_givenanswer = <<<EOT
 				<label for="answer_0" class="answertext">
 
 
-					Green <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
+					Green <img style="display: inline;" src="./templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">
 				</label>
 			</div>
 		</div>
@@ -253,7 +253,7 @@ $question2_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/checkbox_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
+				<img src="./templates/default/images/checkbox_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
 				
 				
 			</div>
@@ -270,7 +270,7 @@ $question2_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/checkbox_checked.png" alt="Ausgewählt" title="Ausgewählt">
+				<img src="./templates/default/images/checkbox_checked.png" alt="Ausgewählt" title="Ausgewählt">
 				
 				
 			</div>
@@ -287,7 +287,7 @@ $question2_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/checkbox_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
+				<img src="./templates/default/images/checkbox_unchecked.png" alt="Nicht ausgewählt" title="Nicht ausgewählt">
 				
 				
 			</div>
@@ -304,7 +304,7 @@ $question2_bestanswer = <<<EOT
 		<div class="ilc_qanswer_Answer">
 			<div>
 				
-				<img src="http://doil/ilias7/templates/default/images/checkbox_checked.png" alt="Ausgewählt" title="Ausgewählt">
+				<img src="./templates/default/images/checkbox_checked.png" alt="Ausgewählt" title="Ausgewählt">
 				
 				
 			</div>
@@ -331,7 +331,7 @@ EOT;
 $question3_givenanswer = <<<EOT
 <div class="ilc_question_Standard">	 <div class="ilc_question_ClozeTest">
 <div class="ilc_qtitle_Title">Please complete the following text</div>
-<div class="ilc_qanswer_Answer ilc_answers answers ilAssClozeTest ilClearFloat"><p>This here text has some <input class="ilc_qinput_TextInput" type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" name="gap_0" value="words"> <img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">. There could also be a larger gap, for example this one talking about how ILIAS is <select class="ilc_qinput_ClozeGapSelect" name="gap_1">
+<div class="ilc_qanswer_Answer ilc_answers answers ilAssClozeTest ilClearFloat"><p>This here text has some <input class="ilc_qinput_TextInput" type="text" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" name="gap_0" value="words"> <img style="display: inline;" src="./templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch.">. There could also be a larger gap, for example this one talking about how ILIAS is <select class="ilc_qinput_ClozeGapSelect" name="gap_1">
 	<option value="-1">---- bitte auswählen ----</option>
 
 	<option value="0">an e-Learning system, also called an LMS to organize courses and groups for online and offline learning.</option>
@@ -342,7 +342,7 @@ $question3_givenanswer = <<<EOT
 
 	
 
-</select><img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch."> What a highly interesting text.</p></div>
+</select><img style="display: inline;" src="./templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch."> What a highly interesting text.</p></div>
 <div class="ilClearFloat"></div>
 </div>
 
@@ -399,7 +399,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			The earth is round <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+			The earth is round <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -414,7 +414,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			Spiders have two legs <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+			Spiders have two legs <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -429,7 +429,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			ILIAS is an e-Learning software <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+			ILIAS is an e-Learning software <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -444,7 +444,7 @@ $question4_givenanswer = <<<EOT
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8">
 			
 			
-			Nothing lasts forever <img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
+			Nothing lasts forever <img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt.">
 		</div>
 	</div>
 	
@@ -485,13 +485,13 @@ $question4_bestanswer = <<<EOT
 	<div class="row ilc_qanswer_Answer">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
+			<img src="./templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
 			
 			
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
+			<img src="./templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
 			
 			
 		</div>
@@ -512,13 +512,13 @@ $question4_bestanswer = <<<EOT
 	<div class="row ilc_qanswer_Answer">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
+			<img src="./templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
 			
 			
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
+			<img src="./templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
 			
 			
 		</div>
@@ -539,13 +539,13 @@ $question4_bestanswer = <<<EOT
 	<div class="row ilc_qanswer_Answer">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
+			<img src="./templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
 			
 			
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
+			<img src="./templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
 			
 			
 		</div>
@@ -566,13 +566,13 @@ $question4_bestanswer = <<<EOT
 	<div class="row ilc_qanswer_Answer">
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
+			<img src="./templates/default/images/radiobutton_checked.png" alt="Checked" title="Checked">
 			
 			
 		</div>
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 kprimInput">
 			
-			<img src="http://doil/ilias7/templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
+			<img src="./templates/default/images/radiobutton_unchecked.png" alt="Unchecked" title="Unchecked">
 			
 			
 		</div>
@@ -623,8 +623,8 @@ $allquestions = [
         'feedback' => $question4_feedback
     ]
 ];
-    $IconPassed = '<img style="display: inline;" src="../ilias7/templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt."> ';
-    $IconNotPassed = '<img style="display: inline;" src="../ilias7/templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch."> ';
+    $IconPassed = '<img style="display: inline;" src="./templates/default/images/icon_ok.svg" alt="Ihre Lösung ist korrekt." title="Ihre Lösung ist korrekt."> ';
+    $IconNotPassed = '<img style="display: inline;" src="./templates/default/images/icon_not_ok.svg" alt="Ihre Lösung ist falsch." title="Ihre Lösung ist falsch."> ';
     return  array(
         array(
             'id' => 2,
