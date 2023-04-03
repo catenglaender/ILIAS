@@ -171,6 +171,11 @@ $il-table-presentation-details-viewcontrols-btn-bg: white;
     background-color: $il-main-darker-bg;
 }
 
+// viewcontrols
+.c-table-data > .viewcontrols {
+    margin-bottom: $il-margin-xxlarge-vertical;
+}
+
 // table header
 
 th.c-table-data__cell {

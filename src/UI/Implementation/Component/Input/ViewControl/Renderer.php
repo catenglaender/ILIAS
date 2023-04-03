@@ -97,7 +97,7 @@ class Renderer extends AbstractComponentRenderer
 
         $tpl->setVariable("ARIA_LABEL", $component->getDropdownLabel());
         $tpl->setVariable("BUTTON", $default_renderer->render($button));
-        $tpl->setVariable("CONTROL_LABEL", $default_renderer->render($icon));
+        // $tpl->setVariable("CONTROL_LABEL", $default_renderer->render($icon));
         $tpl->setVariable("NAME", $component->getName());
         $tpl->setVariable("VALUE", implode(',', $component->getValue()));
 
@@ -138,7 +138,7 @@ class Renderer extends AbstractComponentRenderer
         }
 
         //$tpl->setVariable("ARIA_LABEL", $component->getDropdownLabel());
-        $tpl->setVariable("CONTROL_LABEL", $default_renderer->render($icon));
+        // $tpl->setVariable("CONTROL_LABEL", $default_renderer->render($icon));
         $tpl->setVariable("NAME", $component->getName());
 
         $value = $component->getValue()->join('', fn ($ret, $key, $value) => $key . ':' . $value);
@@ -201,7 +201,7 @@ class Renderer extends AbstractComponentRenderer
         }
 
         $icon = $ui_factory->symbol()->glyph()->numberedlist();
-        $tpl->setVariable("CONTROL_LABEL_LIMIT", $default_renderer->render($icon));
+        // $tpl->setVariable("CONTROL_LABEL_LIMIT", $default_renderer->render($icon));
         foreach ($component->getLimitOptions() as $option) {
             $signal = clone $internal_signal;
             $signal->addOption('offset', $offset);
