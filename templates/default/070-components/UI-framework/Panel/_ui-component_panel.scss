@@ -84,18 +84,18 @@
 		flex-shrink: 1;
 		order: 1;
 	}
-	.il-viewcontrol-sortation {
+	.panel-heading > .il-viewcontrol-sortation {
 		flex-shrink: 1;
 		order: 2;
 		margin-right: $il-margin-base-horizontal;
 		margin-left: auto;
 	}
-	.panel-heading .dropdown {
+	.panel-heading > .dropdown {
 		flex-shrink: 1;
 		order: 3;
 	}
 
-	.il-viewcontrol-pagination, .il-viewcontrol-section {
+	.panel-heading > .il-viewcontrol-pagination, .panel-heading > .il-viewcontrol-section {
 		flex-grow: 1;
 		flex-shrink: 1;
 		flex-basis: 100%;
