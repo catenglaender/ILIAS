@@ -8441,7 +8441,7 @@ table.mceToolbar tbody, table.mceToolbar tr, table.mceToolbar td {
 }
 
 .l-bar__container {
-  margin-bottom: -12px;
+  margin-bottom: -9px;
 }
 .l-bar__container.l-bar__container--space-between {
   justify-content: space-between;
@@ -8455,8 +8455,8 @@ table.mceToolbar tbody, table.mceToolbar tr, table.mceToolbar td {
 }
 
 .l-bar__element {
-  margin-right: 12px;
-  margin-bottom: 12px;
+  margin-right: 3px;
+  margin-bottom: 9px;
 }
 .l-bar__element:last-child {
   margin-right: 0;
@@ -12289,7 +12289,7 @@ div.alert ul > li:before {
   flex-basis: 100%;
   order: 4;
   background-color: #f9f9f9;
-  text-align: center;
+  justify-content: center;
   padding-top: 9px;
 }
 
@@ -13358,7 +13358,13 @@ div.alert ul > li:before {
 }
 
 .c-table-data > .viewcontrols {
-  margin-bottom: 12px;
+  margin-bottom: 9px;
+}
+.c-table-data > .viewcontrols .il-viewcontrol-fieldselection .dropdown-menu {
+  padding: 6px 12px;
+}
+.c-table-data > .viewcontrols .il-viewcontrol-fieldselection .dropdown-menu .btn {
+  margin-top: 6px;
 }
 
 th.c-table-data__cell {
@@ -13580,42 +13586,35 @@ td.c-table-data__cell--highlighted {
   display: none;
 }
 
-.il-viewcontrol-sortation .dropdown-toggle .caret {
-  display: inline;
-  border: none;
-  vertical-align: initial;
-  width: 8px;
-  height: 8px;
+.il-viewcontrol-pagination {
+  display: flex;
+  align-items: center;
 }
-.il-viewcontrol-sortation .dropdown-toggle .caret:before {
-  content: "⇵";
+.il-viewcontrol-pagination > * + * {
+  margin-left: 3px;
 }
 
-.il-viewcontrol-pagination .dropdown {
-  display: inline-block;
-}
-
-.il-viewcontrol-pagination__num-of-pages .dropdown-toggle .caret {
-  display: inline;
-  border: none;
-  vertical-align: initial;
-  width: 8px;
-  height: 8px;
-}
-.il-viewcontrol-pagination__num-of-pages .dropdown-toggle .caret:before {
-  font-family: il-icons;
-  content: "\e900";
-}
-
+.il-viewcontrol-sortation .dropdown-toggle .caret,
+.il-viewcontrol-pagination__num-of-items .dropdown-toggle .caret,
 .il-viewcontrol-fieldselection .dropdown-toggle .caret {
   display: inline;
   border: none;
   vertical-align: initial;
-  width: 8px;
-  height: 8px;
 }
+
+.il-viewcontrol-sortation .dropdown-toggle .caret:before {
+  content: "⇵";
+}
+
+.il-viewcontrol-pagination__num-of-items .dropdown-toggle .caret:before {
+  font-family: il-icons;
+  font-size: 0.8rem;
+  content: "\e900";
+}
+
 .il-viewcontrol-fieldselection .dropdown-toggle .caret:before {
   font-family: "Glyphicons Halflings";
+  font-size: 0.8rem;
   content: "\e105";
 }
 
