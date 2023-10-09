@@ -7671,6 +7671,11 @@ div.alert ul > li:before {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
+@media screen and (max-width: 768px) {
+  .icon {
+    max-width: inherit;
+  }
+}
 
 @font-face {
   font-family: "Glyphicons Halflings";
