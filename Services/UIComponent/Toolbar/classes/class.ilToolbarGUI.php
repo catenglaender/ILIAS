@@ -427,16 +427,11 @@ class ilToolbarGUI
                     }
                     $tpl_items->parseCurrentBlock();
                 }
-
-                if ($i > 0) {
-                    $tpl_itemgroups = new ilTemplate("tpl.toolbar_itemgroup.html", true, true, "Services/UIComponent/Toolbar");
-                    $tpl_itemgroups->setCurrentBlock("itemgroup");
-                    $tpl_itemgroups->setVariable("ITEMS", $tpl_items->get());
-                    $tpl_itemgroups->parseCurrentBlock();
-                    $markup_items .= $tpl_itemgroups->get();
-                } else {
-                    $markup_items .= $tpl_items->get();
-                }
+                $tpl_itemgroups = new ilTemplate("tpl.toolbar_itemgroup.html", true, true, "Services/UIComponent/Toolbar");
+                $tpl_itemgroups->setCurrentBlock("itemgroup");
+                $tpl_itemgroups->setVariable("ITEMS", $tpl_items->get());
+                $tpl_itemgroups->parseCurrentBlock();
+                $markup_items .= $tpl_itemgroups->get();
             }
 
             $tpl->setVariable('ITEMS', $markup_items);
