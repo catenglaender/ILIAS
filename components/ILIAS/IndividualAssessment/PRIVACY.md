@@ -1,70 +1,110 @@
 # Individual Assessment Privacy
 
-Disclaimer: This documentation does not warrant completeness or correctness. Please report any missing or wrong information using the [ILIAS issue tracker](https://mantis.ilias.de) or contribute a fix via [Pull Request](docs/development/contributing.md#pull-request-to-the-repositories).
-
+Disclaimer: This documentation does not warrant completeness or correctness. Please report any missing or wrong
+information using the [ILIAS issue tracker](https://mantis.ilias.de) or contribute a fix
+via [Pull Request](docs/development/contributing.md#pull-request-to-the-repositories).
 
 ### General Information
 
-An Individual Assessment may be part of another object's Learning Progress.
+The Individual Assessment is intended as a performance and skill evaluation tool. The submitted data can shape a
+person's career. Therefor, some data is intentionally impossible to delete or change for most or all user roles. This
+makes it more likely that Individual Assessment records are acceptable as proof in court.
 
-A managing user can add users from other objects as Participants to the Individual Assessment, e.g. from entire Courses or Groups.
+### Integrated Services
 
-Even after a person's membership to the original object has been removed, it may be obvious where the Users came from. For example, a Course might include an Individual Assessment and have most of the same Users in both. If a Participant is only part of the Individual Assessment, it's likely they also used to be a member of that Course at some point.
-
-Please consult the respective privacy.mds: (Links)
+- The Individual Assessment component employs the following services, please consult the respective privacy.mds:
+    - [Metadata](../MetaData/Privacy.md)
+    - [AccessControl](../AccessControl/PRIVACY.md)
+    - [Object](../ILIASObject/PRIVACY.md)
+    - [InfoScreen](../InfoScreen/PRIVACY.md)
+- Users from [Course](../Course/PRIVACY.md) and [Group](../Group/PRIVACY.md) can be added to an Individual Assessment.
+  Even after a person's membership to the original object has been removed, it may be obvious where the Users came from.
+- An Individual Assessment may be part of another object's Learning Progress [Tracking](../Tracking/PRIVACY.md).
 
 ## Data being stored
 
-- **Participants**: Importing users to the Individual Assessment references their User object. Their full name is stored alongside a grading.
-- **Examiner**: The User who grades another User is referenced by ID. If another user later amends the record, their User ID gets stored as well.
-- **Changed after finalization**: If the record was edited after finalization, the date and time of this change will be stored.
-- **Location, time and date of an exam**: The Examiner is asked about when and where an exam took place.
-- **Grading**: The Examiner selects whether the Participant Completed or Failed the assessment. Grading might influence the overall Learning Progress of another object.
-- **Contact Information**: In  the Info Settings sub-tab, contact information can be entered. This may include a person's Name, Responsibility, Phone, Email and Consultation Hours.
-- The Individual Assessment component employs the following services, please consult the respective privacy.mds: [Metadata](../../Services/MetaData/Privacy.md), [AccessControl](../../Services/AccessControl/PRIVACY.md)
-
+- **Participants**: Adding users as Participants to the Individual Assessment references their User object by ID.
+- **Examiner**: Examiners are Users with the permission to grade a Participant. Their User ID is stored with the
+  individual record.
+- **Location, time and date of an assessment**: The Examiner can enter when and where an exam took place. This field can
+  be
+  set as required in the Settings.
+- **Grading**: The Examiner selects whether the Participant Completed or Failed the assessment. Grading might influence
+  the overall Learning Progress of another object.
+- **Record Notes**: Examiners can write notes - both public to the individual Participant and internal notes only
+  visible to users with specific permissions.
+- **File**: Examiners can add a file to the record. This field can be set as required in the Settings.
+- **Changes after finalization:** Users with the corresponding permission can change a record after it was finalized.
+  Such a change is logged and stores the User ID of the Changer, as well as time and date of the change.
+- **Contact Information**: In the tab `Settings > Info Settings`, contact information can be entered. This may include a
+  person's Name, Responsibility, Phone, Email and Consultation Hours.
 
 ## Data being presented
-- **Users**: The User input field in the toolbar of the Participants tab and the Add Member view can show user search results (last and first name, login name of a user). Please consult the respective privacy.md of the Search component: (link)
-- **Courses & Groups**: Furthermore, the Add Member view can search for Courses and Groups. Please consult the respective privacy.md of the Search component: (link)
-- **Participants**: The name of participants is presented in the Participants tab and the Editing View of the Participant's Record.
-- **Examiner**: The name of the Examiner is shown in the Participants tab and the Editing View of the Participant Record. If the record is edited after finalizing it, the name of that Examiner is shown as well.
-- **Changed after finalization**: If the record was edited after finalization, the date and time of this change will be shown.
-- **Location, time and date of an exam** is shown in the Participants tab to managing users.
-- **Grading**: is shown in the Participants tab, the Editing View of the Participant's Record and to the individual Participant within the Info Tab.
-- **Contact Information**: The Info tab shows the manually entered contact information.
 
-## Data being deleted 
-- When deleting a single Participant record before finalizing it, the following personal data stored so far will be deleted:
-  - reference to user ID for Participant
-  - copy of the Participant's first, last, login name
-  - Location, time and date of an exam
-  - Grading
-- After finalizing, Participant Records cannot be deleted individually. The entire Individual Assessment object needs to be deleted to remove data.
-- When deleting the entire Individual Assessment, all records will be deleted and the following personal data potentially stored with it:
-  - reference to user ID for Participant, original Examiner, Examiner who last edited
-  - time and date of the last change
-  - copy of the Participant's first, last, login name
-  - Location, time and date of an exam
-  - Grading
-  - manually provided, optional contact information
+- **Users with high-level permissions can see:**
+    - **Users**: User search results (last and first name, login name of a user) can be seen in the toolbar of the
+      overview and while adding members.
+    - **Names of Courses & Groups**: While adding members, users can search for Groups and Courses.
+    - **Participants**: The name of Participants is presented in the overview screen and while adding or editing a
+      Participant Record.
+    - **Examiner**: The name of the Examiner is shown in overviews and editing screens.
+    - **Location, time and date of an assessment** in overview and during editing.
+    - **Changed after finalization**: If the record was edited after finalization, the name of the Changer, as well as
+      date and time of this change will be shown.
+    - **Grading**: is shown in the overview and the editing view of the Participant Record
+    - **Record Notes**: Both the public and the internal record note are shown in the overview and editing view of
+      records.
+    - **File**: Attached files can be downloaded from the overview screen.
+    - **Contact Information** can be set and viewed within the Settings.
+- **General users** can only access the top level info page and see a few items:
+    - their **Grading**
+    - the public **Record Note** of their record
+    - the **File** uploaded to their record if the visibility option was set
+    - the manually set **Contact Information** from the general settings
 
-## Data being exported 
-- Only the settings of the Individual Assessment and no Participant records are exported. Therefor the only sensitive data included at this point is:
-  - manually provided, optional contact information
+## Data being deleted
+
+- When deleting a single Participant record before finalizing it, the following personal data stored so far will be
+  deleted:
+    - reference to user ID for Participant
+    - Location, time and date of an assessment
+    - Grading
+    - both Record Notes
+    - uploaded file
+- After finalizing, Participant Records cannot be deleted individually. The entire Individual Assessment object needs to
+  be deleted to remove data.
+- When deleting the entire Individual Assessment, all records will be deleted and the following personal data
+  potentially stored with it:
+    - user ID for Participant, Examiner, Changer
+    - time and date of the last change
+    - Location, time and date of an assessment
+    - Grading
+    - both Record Notes
+    - uploaded file
+    - manually provided, optional contact information
+
+## Data being exported
+
+- Only the settings of the Individual Assessment and no Participant Records are exported. Therefor the only
+  sensitive data included at this point is:
+    - manually provided, optional contact information
 
 ## Summary
 
-| Data                                                           | Stored in DB | Shown to general user | Shown to managing user | Exported | deletes w/ record [^finaliz] | deletes w/ obj |
-|----------------------------------------------------------------|--------------|-----------------------|------------------------|----------|------------------------------|----------------|
-| Reference to Participant User (ID)                             | yes          | no                    | as name                | no       | yes                          | yes            |
-| Reference to Examiner User (ID)                                | yes          | no                    | as name                | no       | n.a.                         | yes            |
-| Reference to Examiner User (ID), time and date for last change | yes          | no                    | yes                    | no       | n.a.                         | yes            |
-| Copy of user's first, last, user name                          | yes          | no                    | yes                    | no       | yes                          | yes            |
-| Search result: Any User's first, last, user name               | no           | no                    | yes                    | no       | n.a.                         | n.a.           |
-| Search result: Any Group or Course name                        | no           | no                    | yes                    | no       | n.a.                         | n.a.           |
-| Location, time and date of exam                                | yes          | no                    | yes                    | no       | yes                          | yes            |
-| Grading                                                        | yes          | to individual         | yes                    | no       | yes                          | yes            |
-| manually provided, optional contact information                | yes          | yes                   | yes                    | yes      | no                           | yes            |
+| Data                                             | Stored in DB       | Shown to general user | Shown to high-level user | Exported | deletes w/ record [^finaliz] | deletes w/ obj |
+|--------------------------------------------------|--------------------|-----------------------|--------------------------|----------|------------------------------|----------------|
+| Participant User                                 | reference to by ID | no                    | as name                  | no       | yes                          | yes            |
+| Examiner User                       | reference to by ID | no                    | as name                  | no       | n.a.                         | yes            |
+| Location, time and date of assessment            | yes                | no                    | yes                      | no       | yes                          | yes            |
+| Record Note                                      | yes                | one personal          | yes                      | no       | yes                          | yes            |
+| Internal Record Note                             | yes                | no                    | yes                      | no       | yes                          | yes            |
+| File                                             | reference to by ID? | one personal          | yes                      | no       | yes?                         | yes?           |
+| Grading                                          | yes                | one personal          | yes                      | no       | yes                          | yes            |
+| Changer User                                     | reference to by ID                | no                    | yes                      | no       | n.a.                         | yes            |
+| time and date for last change                    | yes                | no                    | yes                      | no       | n.a.                         | yes            |
+| Search result: Any User's first, last, user name | no                 | no                    | yes                      | no       | n.a.                         | n.a.           |
+| Search result: Any Group or Course name          | no                 | no                    | yes                      | no       | n.a.                         | n.a.           |
+| manually provided, optional contact information  | yes                | yes                   | yes                      | yes      | no                           | yes            |
 
-[^finaliz]: before finalization. After finalizing a record, it can only be amended. To delete a finalized record, the entire object must be deleted.
+[^finaliz]: before finalization. After finalizing a record, it can only be amended. To delete a finalized record, the
+entire object must be deleted.
