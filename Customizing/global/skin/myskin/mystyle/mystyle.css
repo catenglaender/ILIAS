@@ -803,72 +803,72 @@ table.mceToolbar tbody, table.mceToolbar tr, table.mceToolbar td {
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-Regular.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-Regular.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-Bold.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-Bold.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-Italic.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-Italic.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-BoldItalic.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-BoldItalic.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-BoldItalic.woff") format("woff");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-Light.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-Light.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-LightItalic.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-LightItalic.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-LightItalic.woff") format("woff");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-Semibold.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-Semibold.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-SemiboldItalic.woff") format("woff");
   font-weight: 600;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-ExtraBold.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-ExtraBold.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: url("./fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff2") format("woff2"), url("./fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff") format("woff");
+  src: url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff2") format("woff2"), url("../../../../../templates/default/fonts/OpenSansWeb/OpenSans-ExtraBoldItalic.woff") format("woff");
   font-weight: 800;
   font-style: italic;
 }
 @font-face {
   font-family: "Open Sans Emoji";
-  src: url("./fonts/OpenSansEmoji/OpenSansEmoji.ttf") format("truetype"), url("./fonts/OpenSansEmoji/OpenSansEmoji.otf") format("otf");
+  src: url("../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.ttf") format("truetype"), url("../../../../../templates/default/fonts/OpenSansEmoji/OpenSansEmoji.otf") format("otf");
   font-style: normal;
 }
 @font-face {
   font-family: "il-icons";
-  src: url("./fonts/Iconfont/il-icons.woff") format("woff"), url("./fonts/Iconfont/il-icons.ttf") format("truetype");
+  src: url("../../../../../templates/default/fonts/Iconfont/il-icons.woff") format("woff"), url("../../../../../templates/default/fonts/Iconfont/il-icons.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
@@ -3285,7 +3285,7 @@ button > .glyphicon {
 }
 
 .il-btn-with-loading-animation {
-  background-image: url("./images/media/loader.svg");
+  background-image: url("../../../../../templates/default/images/media/loader.svg");
   background-color: #b0b0b0;
   border-color: #b0b0b0;
   background-repeat: no-repeat;
@@ -4704,7 +4704,7 @@ grid-based layout
 *********************
 */
 .il-layout-page {
-  background: white;
+  background: #f6e7d8;
   display: grid;
   grid-gap: 0px;
   grid-template-columns: auto 1fr;
@@ -4769,7 +4769,7 @@ div.il-system-infos {
 
 .header-inner {
   align-items: center;
-  background: white;
+  background: #f6d9a1;
   display: flex;
   flex-direction: row;
   height: 60px;
@@ -4881,7 +4881,7 @@ footer {
 }
 @media only screen and (max-width: 991px) {
   .il-layout-page {
-    background: white;
+    background: #f6e7d8;
     display: block;
     overflow: initial;
     width: 100%;
@@ -5013,8 +5013,8 @@ footer {
   .il-header-locator .open > .dropdown-toggle.btn-default:hover .open > .dropdown-toggle.btn-default:active,
   .il-header-locator .open > .dropdown-toggle.btn-default:active:hover,
   .il-header-locator .open > .dropdown-toggle.btn-default:active:focus {
-    background: white;
-    border-color: white;
+    background: #f6d9a1;
+    border-color: #f6d9a1;
     color: #2c2c2c;
     outline: none;
   }
@@ -5841,7 +5841,7 @@ footer {
 }
 .il-mainbar-triggers .btn-bulky,
 .il-mainbar-triggers .il-link.link-bulky {
-  background: #2c2c2c;
+  background: #431a1a;
 }
 .il-mainbar-triggers .btn-bulky .bulky-label,
 .il-mainbar-triggers .il-link.link-bulky .bulky-label {
@@ -5938,12 +5938,12 @@ footer {
   color: white;
 }
 .il-mainbar-triggers.engaged {
-  background: #2c2c2c;
+  background: #431a1a;
 }
 @media (hover: none) {
   .il-mainbar-triggers .btn-bulky:hover,
   .il-mainbar-triggers .il-link.link-bulky:hover {
-    background-color: #2c2c2c;
+    background-color: #431a1a;
     color: #2c2c2c;
   }
   .il-mainbar-triggers .btn-bulky:hover .icon,
@@ -5993,7 +5993,7 @@ footer {
 }
 
 .il-maincontrols-mainbar {
-  background-color: #2c2c2c;
+  background-color: #431a1a;
 }
 
 .il-maincontrols-mainbar .il-item-shy,
@@ -7333,7 +7333,7 @@ div.alert ul > li:before {
   padding: 0;
 }
 .il-popover i.icon-refresh {
-  background: url("./images/media/loading.gif") no-repeat;
+  background: url("../../../../../templates/default/images/media/loading.gif") no-repeat;
   height: 30px;
 }
 .il-popover .il-popover-title-container {
@@ -7383,8 +7383,8 @@ div.alert ul > li:before {
 
 @font-face {
   font-family: "Glyphicons Halflings";
-  src: url("./fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("./fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("./fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("./fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("./fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("./fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../templates/default/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 .glyphicon {
   position: relative;
@@ -9674,7 +9674,7 @@ div.ilHeaderBanner img.ilHeaderImg {
 }
 
 div.ilBox {
-  background: url("./images/contentstyle/FramedBack.png") repeat-x;
+  background: url("../../../../../templates/default/images/contentstyle/FramedBack.png") repeat-x;
   border: 1px solid #dddddd;
   padding: 10px;
   margin-bottom: 20px;
@@ -12969,7 +12969,7 @@ li.ilWikiBlockItem {
   cursor: pointer;
   color: #a52d2d;
   font-size: 1rem;
-  background-image: url("./images/nav/tree_col.svg");
+  background-image: url("../../../../../templates/default/images/nav/tree_col.svg");
   background-repeat: no-repeat;
   background-color: #f9f9f9;
   background-position: 15px 9px;
@@ -12996,7 +12996,7 @@ li.ilWikiBlockItem {
 }
 
 .il_HAccordionHeadActive, .il_VAccordionHeadActive {
-  background-image: url("./images/nav/tree_exp.svg");
+  background-image: url("../../../../../templates/default/images/nav/tree_exp.svg");
   background-color: #f5dcdc;
 }
 
@@ -13187,7 +13187,7 @@ div.ilc_va_icont_VAccordICont {
 }
 
 .ilAwarenessItemRow .media-body.ilAwarenessOnline {
-  background-image: url("./images/scorm/completed.svg");
+  background-image: url("../../../../../templates/default/images/scorm/completed.svg");
 }
 
 .ilAwarenessLoader {
@@ -13988,11 +13988,11 @@ div.il_ContainerListItem {
 }
 
 .ilContainerBlockHeaderExpanded {
-  background-image: url("./images/nav/tree_exp.svg");
+  background-image: url("../../../../../templates/default/images/nav/tree_exp.svg");
 }
 
 .ilContainerBlockHeaderCollapsed {
-  background-image: url("./images/nav/tree_col.svg");
+  background-image: url("../../../../../templates/default/images/nav/tree_col.svg");
 }
 
 .ilContainerBlock {
@@ -14075,7 +14075,7 @@ div#ilContRepIntro img {
 
 /* --- Services/COPage ---*/
 a.ilEditSubmit {
-  background: url("./images/ButtonsBack.png") repeat-x bottom white;
+  background: url("../../../../../templates/default/images/ButtonsBack.png") repeat-x bottom white;
   padding: 2px;
   margin: 0;
   border: 1px solid #bababa;
@@ -14094,7 +14094,7 @@ input.ilEditSubmit {
   font-size: 0.75rem;
   line-height: 14px;
   cursor: pointer;
-  background: url("./images/ButtonsBack.png") repeat-x bottom white;
+  background: url("../../../../../templates/default/images/ButtonsBack.png") repeat-x bottom white;
   border: 1px solid #bababa;
   border-bottom-color: #737373;
   border-right-color: #737373;
@@ -14683,7 +14683,7 @@ div.ilc_question_MultipleChoice .ilc_qanswer_Answer > div:first-child {
 div.ilCOPGMediaPrint {
   background-color: #f9f9f9 !important;
   position: relative !important;
-  background-image: url("./images/media/play.svg") !important;
+  background-image: url("../../../../../templates/default/images/media/play.svg") !important;
   background-position: 50% 50% !important;
   background-repeat: no-repeat !important;
   background-size: auto 90% !important;
@@ -15770,7 +15770,7 @@ a.mailunread, a.mailunread:visited {
   color: #f0f0f0;
   /* margin-top: -240px; */
   top: 0;
-  background: url("./images/media/black60.png");
+  background: url("../../../../../templates/default/images/media/black60.png");
 }
 
 .ilPlayerPreviewOverlay img {
@@ -15788,7 +15788,7 @@ a.mailunread, a.mailunread:visited {
 }
 
 .mejs-overlay-button {
-  background-image: url("./images/media/bigplay.svg");
+  background-image: url("../../../../../templates/default/images/media/bigplay.svg");
 }
 
 .mejs__overlay-button:focus,
@@ -15865,7 +15865,7 @@ a.mejs__volume-slider:focus-visible {
 }
 
 .ilPlayerPreviewPlayButton {
-  background: url("./images/media/bigplay.svg") no-repeat scroll 0 0 transparent;
+  background: url("../../../../../templates/default/images/media/bigplay.svg") no-repeat scroll 0 0 transparent;
   height: 100px;
   left: 50%;
   margin: -50px 0 0 -50px;
@@ -16930,21 +16930,21 @@ div.ilc_PredTextPlaceHolderThumb {
   padding: 5px 2px 5px 0;
   border: 1px solid #2c2c2c;
   font-size: 0.625rem;
-  background: url("./images/placeholder/question_placeholder_thumb.png") no-repeat center;
+  background: url("../../../../../templates/default/images/placeholder/question_placeholder_thumb.png") no-repeat center;
   background-color: white;
   font-weight: 600;
 }
 
 div.ilc_MediaPlaceHolderThumb {
-  background-image: url("./images/placeholder/media_placeholder_thumb.png");
+  background-image: url("../../../../../templates/default/images/placeholder/media_placeholder_thumb.png");
 }
 
 div.ilc_TextPlaceHolderThumb {
-  background-image: url("./images/placeholder/text_placeholder_thumb.png");
+  background-image: url("../../../../../templates/default/images/placeholder/text_placeholder_thumb.png");
 }
 
 div.ilc_PredTextPlaceHolderThumb {
-  background-image: url("./images/placeholder/pred_text_placeholder_thumb.png");
+  background-image: url("../../../../../templates/default/images/placeholder/pred_text_placeholder_thumb.png");
 }
 
 div.ilc_HeadlineThumb {
@@ -17647,7 +17647,7 @@ div.il_ExplorerItemDescription {
 }
 
 .jstree li, .jstree.jstree-default li i {
-  background: url("./images/nav/jstree.svg") no-repeat;
+  background: url("../../../../../templates/default/images/nav/jstree.svg") no-repeat;
   vertical-align: top;
 }
 
@@ -18665,6 +18665,13 @@ div.Access {
 
 .light {
   color: #6f6f6f;
+}
+
+.il-logo {
+  margin-left: 10px;
+}
+.il-logo img {
+  width: 20px;
 }
 
 /*# sourceMappingURL=mystyle.css.map */

@@ -1,3 +1,16 @@
 @use "../../../../../templates/default/delos" as delos with (
+      $il-web-font-path: "../../../../../templates/default/fonts/",
+      $il-background-images-path: "../../../../../templates/default/images/",
+      $il-icon-font-path: "../../../../../templates/default/fonts/bootstrap/",
       $il-main-color: #a52d2d,
+      $il-page-bg: #f6e7d8,
+      $il-mainbar-btn-bg-color: #431a1a,
+      $il-standard-page-header-bg-color: #f6d9a1,
 );
+
+.il-logo {
+  margin-left: 10px;
+  img {
+    width: 20px;
+  }
+}
