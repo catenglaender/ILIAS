@@ -16,16 +16,15 @@
 		}
 }
 
+// Handling condensed structure
 
 .c-form .c-input[data-il-ui-component="optional-group-field-input"],
-.c-form .c-input[data-il-ui-component="switchable-group-field-input"] > .c-input__field > .c-input {
+.c-form .c-input[data-il-ui-component="switchable-group-field-input"] > .c-input__field > .c-input /*,
+.c-form .c-input[data-il-ui-component="searchable-select-field-input"] */ {
 	display: grid;
 	grid-template-columns: l-form.$form__label-column__width l-form.$form__field-column__width;
-
 	> .c-input__field {
 		grid-area: group;
-		display: block; // will be display: none when collapsed
-		overflow: hidden; // row can collapse to hide content
 		> .c-input {
 			margin: 0; // usually margin spaces inputs, but colored bg padding is doing this in groups
 			&:first-child {
@@ -36,7 +35,7 @@
 			@include c-input_switch-bg-hover(none, s.$il-main-darker-bg);
 		}
 	}
-							
+
 	> .c-input__help-byline {
 		grid-area: group-help;
 	}
@@ -44,6 +43,16 @@
 	> .c-input__error-msg {
 		grid-area: error;
 	}
+}
+
+
+.c-form .c-input[data-il-ui-component="optional-group-field-input"],
+.c-form .c-input[data-il-ui-component="switchable-group-field-input"] > .c-input__field > .c-input {
+	> .c-input__field {
+		display: block; // will be display: none when collapsed
+		overflow: hidden; // row can collapse to hide content
+	}
+
 	// animate expanding of group by animating grid rows - base/expanded state
 	grid-template-rows: repeat(3, max-content) 1fr; // 1fr must target the group content row
 	transition-property: grid-template-rows;
@@ -54,8 +63,16 @@
 		transition-duration: .3s;
 		transition-behavior: allow-discrete; // jumps to display: none; after all other animations are done
 	}
-
 }
+
+// animate expanding of group by animating grid rows - collapsed state
+ .c-input[data-il-ui-component="optional-group-field-input"]:not(:has(> label input:checked)),
+ .c-input[data-il-ui-component="switchable-group-field-input"] > .c-input__field > fieldset.c-input:not(:has(> label input:checked)) {
+	 grid-template-rows: repeat(3, max-content) 0fr; // 0fr must target the group content row
+	 > .c-input__field {
+		 display: none;
+	 }
+ }
 
 .c-form .c-input[data-il-ui-component="switchable-group-field-input"] {
 	> .c-input__field > .c-input {
@@ -70,7 +87,8 @@
 	}
 }
 
-.c-form .c-input[data-il-ui-component="optional-group-field-input"] {
+.c-form .c-input[data-il-ui-component="optional-group-field-input"]/*,
+.c-form .c-input[data-il-ui-component="searchable-select-field-input"]*/ {
 	grid-template-areas: 	"group-head group-head"
 							"error error"
 							"blank group-help"
@@ -111,11 +129,4 @@
 	}
 }
 
-// animate expanding of group by animating grid rows - collapsed state
-.c-input[data-il-ui-component="optional-group-field-input"]:not(:has(> label input:checked)),
-.c-input[data-il-ui-component="switchable-group-field-input"]> .c-input__field > fieldset.c-input:not(:has(> label input:checked)) {
-	grid-template-rows: repeat(3, max-content) 0fr; // 0fr must target the group content row
-	> .c-input__field {
-		display: none;
-	}
-}
+

@@ -4132,7 +4132,6 @@ hr.il-divider-with-label {
 
 .c-field-radio > .c-field-radio__item {
   display: flex;
-  flex-wrap: wrap;
   margin-top: 6px;
 }
 .c-field-radio > .c-field-radio__item:first-child {
@@ -4162,7 +4161,6 @@ hr.il-divider-with-label {
 }
 .c-form ul.c-field-multiselect > li label {
   display: flex;
-  flex-wrap: wrap;
 }
 .c-form ul.c-field-multiselect > li label > input[type=checkbox] {
   margin-right: 9px;
@@ -4478,6 +4476,152 @@ hr.il-divider-with-label {
   font-family: Monospace, Courier;
 }
 
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition-property: height, max-height, padding;
+  transition-duration: 0.5s;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-field-searchable-select__hint,
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-input[data-il-ui-component=multi-select-field-input],
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-input[data-il-ui-component=radio-field-input] {
+  width: 100%;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component=text-field-input] {
+  flex-grow: 1;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > button:nth-of-type(1) {
+  align-self: flex-end;
+  padding: 6px 12px;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component] {
+  grid-template-areas: "label" "field" "error" "help";
+  grid-template-columns: 100%;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component] > .c-input__field {
+  max-height: 300px;
+  overflow: auto;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] > .c-input__field > ul.c-field-multiselect {
+  display: flex;
+  flex-direction: column;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] > .c-input__field > ul.c-field-multiselect li {
+  order: 2;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] > .c-input__field > ul.c-field-multiselect li:has(input:checked) {
+  animation: fade-item-up 0.5s;
+  order: 1;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-input[data-il-ui-component=radio-field-input] > .c-input__field > .c-field-radio {
+  display: flex;
+  flex-direction: column;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-input[data-il-ui-component=radio-field-input] > .c-input__field > .c-field-radio .c-field-radio__item {
+  order: 2;
+}
+.c-input[data-il-ui-component=searchable-select-field-input] > .c-input__field .c-input[data-il-ui-component=radio-field-input] > .c-input__field > .c-field-radio .c-field-radio__item:has(input:checked) {
+  animation: fade-item-up 0.5s;
+  order: 1;
+  margin-bottom: 6px;
+}
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > button:nth-of-type(1),
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > button:nth-of-type(2),
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component=text-field-input],
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component] input,
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component] .c-input__help-byline,
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] li:has(input:not(:checked)),
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component=radio-field-input] .c-field-radio__item:has(input:not(:checked)) {
+  display: none !important;
+}
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component] {
+  margin-top: 0;
+}
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component] > label {
+  display: none;
+}
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] li,
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field > .c-input[data-il-ui-component=radio-field-input] .c-field-radio__item {
+  pointer-events: none;
+}
+.c-input[data-il-ui-component=searchable-select-field-input]:not(.engaged) > .c-input__field:has(input:checked) .c-field-searchable-select__hint {
+  display: none;
+}
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field {
+  padding: 9px 15px;
+  border: 1px solid #dddddd;
+}
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field button:nth-of-type(3),
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field .c-field-searchable-select__hint {
+  display: none;
+}
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field > .c-input[data-il-ui-component=text-field-input] {
+  margin-top: 0;
+}
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field > .c-input[data-il-ui-component=multi-select-field-input] > .c-input__field,
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field > .c-input[data-il-ui-component=radio-field-input] > .c-input__field {
+  margin-top: 6px;
+  border: 1px solid #dddddd;
+  padding: 6px 12px;
+  animation: expanding-list 0.5s;
+}
+.c-input[data-il-ui-component=searchable-select-field-input].engaged > .c-input__field > button:nth-of-type(2) {
+  margin-top: 6px;
+}
+
+@keyframes fade-item-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    order: 2;
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(-20px);
+    order: 2;
+  }
+  51% {
+    opacity: 0;
+    transform: translateY(20px);
+    order: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    order: 1;
+  }
+}
+@keyframes fade-item-down {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    order: 1;
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(20px);
+    order: 1;
+  }
+  51% {
+    opacity: 0;
+    transform: translateY(-20px);
+    order: 2;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    order: 2;
+  }
+}
+@keyframes expanding-list {
+  0% {
+    max-height: 100px;
+  }
+  100% {
+    max-height: 300px;
+  }
+}
 .il-input-rating .il-input-rating__text {
   clear: both;
 }
@@ -4585,16 +4729,10 @@ hr.il-divider-with-label {
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input {
   display: grid;
   grid-template-columns: 25% 75%;
-  grid-template-rows: repeat(3, max-content) 1fr;
-  transition-property: grid-template-rows;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in-out;
 }
 .c-form .c-input[data-il-ui-component=optional-group-field-input] > .c-input__field,
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input > .c-input__field {
   grid-area: group;
-  display: block;
-  overflow: hidden;
 }
 .c-form .c-input[data-il-ui-component=optional-group-field-input] > .c-input__field > .c-input,
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input > .c-input__field > .c-input {
@@ -4627,11 +4765,33 @@ hr.il-divider-with-label {
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input > .c-input__error-msg {
   grid-area: error;
 }
+
+.c-form .c-input[data-il-ui-component=optional-group-field-input],
+.c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input {
+  grid-template-rows: repeat(3, max-content) 1fr;
+  transition-property: grid-template-rows;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.c-form .c-input[data-il-ui-component=optional-group-field-input] > .c-input__field,
+.c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input > .c-input__field {
+  display: block;
+  overflow: hidden;
+}
 .c-form .c-input[data-il-ui-component=optional-group-field-input] > .c-input__field,
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input > .c-input__field {
   transition-property: display;
   transition-duration: 0.3s;
   transition-behavior: allow-discrete;
+}
+
+.c-input[data-il-ui-component=optional-group-field-input]:not(:has(> label input:checked)),
+.c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > fieldset.c-input:not(:has(> label input:checked)) {
+  grid-template-rows: repeat(3, max-content) 0fr;
+}
+.c-input[data-il-ui-component=optional-group-field-input]:not(:has(> label input:checked)) > .c-input__field,
+.c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > fieldset.c-input:not(:has(> label input:checked)) > .c-input__field {
+  display: none;
 }
 
 .c-form .c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > .c-input {
@@ -4681,15 +4841,6 @@ hr.il-divider-with-label {
     grid-template-areas: "group-label" "group-field";
   }
 }
-.c-input[data-il-ui-component=optional-group-field-input]:not(:has(> label input:checked)),
-.c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > fieldset.c-input:not(:has(> label input:checked)) {
-  grid-template-rows: repeat(3, max-content) 0fr;
-}
-.c-input[data-il-ui-component=optional-group-field-input]:not(:has(> label input:checked)) > .c-input__field,
-.c-input[data-il-ui-component=switchable-group-field-input] > .c-input__field > fieldset.c-input:not(:has(> label input:checked)) > .c-input__field {
-  display: none;
-}
-
 .c-form {
   margin-bottom: 12px;
 }

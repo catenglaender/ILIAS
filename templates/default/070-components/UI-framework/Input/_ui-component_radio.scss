@@ -3,7 +3,6 @@
 .c-field-radio {
 	> .c-field-radio__item {
 		display: flex;
-		flex-wrap: wrap;
 		margin-top: l.$il-margin-large-vertical;
 		&:first-child {
 			margin-top: 0;

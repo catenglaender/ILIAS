@@ -86,6 +86,9 @@ class Renderer extends AbstractComponentRenderer
         $component = $this->setSignals($component);
 
         switch (true) {
+            case ($component instanceof F\SearchableSelect):
+                return $this->renderSearchableSelect($component, $default_renderer);
+
             case ($component instanceof F\OptionalGroup):
                 return $this->renderOptionalGroup($component, $default_renderer);
 
@@ -649,6 +652,48 @@ class Renderer extends AbstractComponentRenderer
         }
 
         return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get());
+    }
+
+    protected function renderSearchableSelect(F\SearchableSelect $component, RendererInterface $default_renderer): string
+    {
+        $tpl = $this->getTemplate("tpl.searchable_select_label.html", true, true);
+        $tpl->setVariable('LABEL', $component->getLabel());
+        $tpl = $tpl->get();
+
+        $tpl_selection_hint = $this->getTemplate("tpl.searchable_select_hint.html", true, true);
+        $no_selection_hint = "No selection was made.";
+        $tpl_selection_hint->setVariable('HINT', $no_selection_hint);
+        $tpl_selection_hint = $tpl_selection_hint->get();
+
+        $select_input = $component->getInputs();
+        $search_bar = $this->getUIFactory()->input()->field()->text("Search " . $select_input[0]->getLabel());
+
+        // order of buttons MUST not be changed - CSS and JS count to find the correct buttons
+        $remove_icon = $this->getUIFactory()->symbol()->glyph()->remove();
+        $collapse_icon = $this->getUIFactory()->symbol()->glyph()->collapseHorizontal();
+        $expand_icon = $this->getUIFactory()->symbol()->glyph()->expand();
+        $clear_search_button = $this->getUIFactory()->button()->shy("Clear searchbar", "#!")->withSymbol($remove_icon);
+        $disengage_button = $this->getUIFactory()->button()->shy("Show less", "#!")->withSymbol($collapse_icon);
+        $engage_button = $this->getUIFactory()->button()->shy("Show all options", "#!")->withSymbol($expand_icon);
+
+        $input_html = $tpl_selection_hint;
+        $input_html .= $default_renderer->render([
+            $search_bar,
+            $clear_search_button,
+            $select_input,
+            $disengage_button,
+            $engage_button]);
+
+        $component = $component->withAdditionalOnLoadCode(
+            static function ($id): string {
+                return "
+                    sselectId = document.getElementById('$id').id;
+                    il.UI.Input.searchableselect.init(sselectId);
+                ";
+            }
+        );
+
+        return $this->wrapInFormContext($component, $tpl, $input_html);
     }
 
     protected function renderDateTimeField(F\DateTime $component, RendererInterface $default_renderer): string

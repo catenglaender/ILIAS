@@ -384,6 +384,61 @@ interface Factory
      * ---
      * description:
      *   purpose: >
+     *     A searchable select is used to allow users to pick among a large number of options.
+     *   composition: >
+     *     The component can be collapsed and expanded.
+     *     When collapsed, only the current selection (if any) is shown.
+     *     The expanded searchable select consists out of a search field, a scrollable container of radio or
+     *     multi-select options and shy buttons that effect how many options are presented.
+     *   effect:
+     *     When expanded, all possible options of a radio or multi-select input component are shown. Also, a search bar
+     *     appears and can be used to filter for the desired option.
+     *     When a search term is entered, a button lets the user clear the search field and reset the filter.
+     *     If radio buttons are provided, only one option is selectable.
+     *     If multi-select is provided, multiple options are selectable.
+     *     Collapsing the component also clears the filter. The collapsed view is never filtered.
+     *   rivals:
+     *     Checkbox field: Use a checkbox field for binary yes/no choices or a list of a few (e.g. 5 or less) combinable
+     *       options.
+     *     Select field: >
+     *       Use a select field for few (5 or less) mutually exclusive choices.
+     *     Radio buttons: >
+     *       Use radio buttons for few (5 or less) mutually exclusive choices when it's important to also see which
+     *       options the user is not choosing.
+     *     Optional Group and Switchable Group: >
+     *       If several different input fields need to be initially hidden to de-clutter the view, use an optional or
+     *       switchable group. Note that activating the group is already a choice. Only expanding the searchable select
+     *       is a visual reveal and not an input to the form.
+     *
+     * rules:
+     *   usage:
+     *     1: searchable selection MAY be used for choosing from a large number (5 and more) of predetermined options.
+     *     2: It MAY be used to simplify setting screens where users want to quickly check a past choice without
+     *      having to see all the alternative options that weren't chosen.
+     *
+     *   composition:
+     *     1: the select search MUST be filled with a radio or multi-select component.
+     *
+     *   wording:
+     *     1: >
+     *         The label SHOULD indicate how the selection is used or what will be the result of the choice
+     *         e.g. Email Recipient(s), Email Wording
+     *     2: >
+     *         The label of the given multi-select or radio component SHOULD indicate where the options are from or
+     *         further describe their nature e.g. Group Members, Templates
+     *
+     * ---
+     * @param string                $label
+     * @param Radio|MultiSelect     $input
+     * @param string|null           $byline
+     * @return \ILIAS\UI\Component\Input\Field\SearchableSelect
+     */
+    public function searchableSelect(string $label, MultiSelect|Radio $input, ?string $byline = null): SearchableSelect;
+
+    /**
+     * ---
+     * description:
+     *   purpose: >
      *     A textarea is intended for entering multi-line texts.
      *   composition: >
      *      Textarea fields will render an textarea HTML tag.
