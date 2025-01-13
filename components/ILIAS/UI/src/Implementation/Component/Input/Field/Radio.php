@@ -21,9 +21,12 @@ declare(strict_types=1);
 namespace ILIAS\UI\Implementation\Component\Input\Field;
 
 use ILIAS\UI\Component as C;
+use ILIAS\UI\Implementation\Component\Input\Searchable;
 use ILIAS\UI\Implementation\Component\Input\InputData;
 use ILIAS\UI\Implementation\Component\JavaScriptBindable;
 use ILIAS\UI\Implementation\Component\Triggerer;
+use ILIAS\Data\Factory as DataFactory;
+use ILIAS\Refinery\Factory as Refinery;
 use ILIAS\Refinery\Constraint;
 use LogicException;
 use Closure;
@@ -35,6 +38,17 @@ class Radio extends FormInput implements C\Input\Field\Radio
 {
     use JavaScriptBindable;
     use Triggerer;
+    use Searchable;
+
+    public function __construct(
+        DataFactory $data_factory,
+        Refinery $refinery,
+        protected string $label,
+        protected ?string $byline = null,
+        ?bool $searchable = false,
+    ) {
+        parent::__construct($data_factory, $refinery, $label, $byline);
+    }
 
     /**
      * @var array <string,string> {$value => $label}

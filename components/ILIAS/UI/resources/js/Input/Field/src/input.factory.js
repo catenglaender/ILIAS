@@ -28,6 +28,7 @@ import il from 'ilias';
 import TextareaFactory from './Textarea/textarea.factory';
 import MarkdownFactory from './Markdown/markdown.factory';
 import SearchableSelectFactory from './SearchableSelect/searchableselect.factory';
+import SearchableInputContextFactory from "./SearchableContext/searchablecontext.factory";
 
 il.UI = il.UI || {};
 il.UI.Input = il.UI.Input || {};
@@ -36,4 +37,5 @@ il.UI.Input = il.UI.Input || {};
   Input.textarea = new TextareaFactory();
   Input.markdown = new MarkdownFactory();
   Input.searchableselect = new SearchableSelectFactory();
+  Input.searchableinputcontext = new SearchableInputContextFactory();
 }(il.UI.Input));

@@ -519,7 +519,7 @@ interface Factory
      * @param string|null $byline
      * @return    \ILIAS\UI\Component\Input\Field\Radio
      */
-    public function radio(string $label, ?string $byline = null): Radio;
+    public function radio(string $label, ?string $byline = null, ?bool $searchable = false): Radio;
 
     /**
      * ---

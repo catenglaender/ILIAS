@@ -154,9 +154,9 @@ class Factory implements I\Factory
     /**
      * @inheritdoc
      */
-    public function radio(string $label, ?string $byline = null): I\Radio
+    public function radio(string $label, ?string $byline = null, ?bool $searchable = false): I\Radio
     {
-        return new Radio($this->data_factory, $this->refinery, $label, $byline);
+        return new Radio($this->data_factory, $this->refinery, $label, $byline, $searchable);
     }
 
     /**

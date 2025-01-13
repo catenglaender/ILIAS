@@ -17334,6 +17334,10 @@ ui#:#ui_pagination_unlimited#:#Unlimited
 ui#:#ui_select_dropdown_label#:#Please select
 ui#:#ui_table_no_records#:#No records
 ui#:#ui_transcription#:#Transcript
+ui#:#ui_search_context_search_in#:#Searc h
+ui#:#ui_search_context_clear_search#:#Clear search
+ui#:#ui_search_context_show_less#:#Show less
+ui#:#ui_search_context_show_all_options#:#Show all options
 user#:#all_roles_has_starting_point#:#All the roles have starting points
 user#:#back_to_starting_points_list#:#Back to Starting Points
 user#:#change_email_email_confirmation_body#:#The email address for the account %s was changed. To confirm this change, please click on this link %s. The link is valid for %s minutes.
