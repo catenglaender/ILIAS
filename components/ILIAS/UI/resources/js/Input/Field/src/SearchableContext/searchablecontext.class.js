@@ -59,12 +59,7 @@ export default class SearchableInputContext {
   /**
    * @type {HTMLButtonElement}
    */
-  engageButton;
-
-  /**
-   * @type {HTMLButtonElement}
-   */
-  disengageButton;
+  engageDisengageToggle;
 
   /**
    * @type {HTMLButtonElement}
@@ -100,9 +95,8 @@ export default class SearchableInputContext {
     }
 
     /* Buttons */
-    this.clearSearchButton = this.inputFieldContext.querySelector(".c-input--searchable__clear-search button");
-    this.disengageButton = this.inputFieldContext.querySelector(".c-input--searchable__collapse button");
-    this.engageButton = this.inputFieldContext.querySelector(".c-input--searchable__expand button");
+    this.clearSearchButton = this.inputFieldContext.querySelector(".c-input--searchable__clear-search");
+    this.engageDisengageToggle = this.inputFieldContext.querySelector(".c-input--searchable__visibility-toggle");
 
     /* Initialize states */
     this.isEngaged = false; // will also set isFiltered false
@@ -113,9 +107,8 @@ export default class SearchableInputContext {
 
     this.clearSearchButton.addEventListener('click', () => { this.isFiltered = false });
 
-    this.disengageButton.addEventListener('click', () => { this.isEngaged = false });
-
-    this.engageButton.addEventListener('click', () => { this.isEngaged = true });
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+    this.engageDisengageToggle.addEventListener('click', this.toggleVisibility)
 
     if (this.listType === "radio-field-input") {
       this.scrollListToTop = this.scrollListToTop.bind(this);
@@ -126,34 +119,6 @@ export default class SearchableInputContext {
 
     }
 
-  }
-
-  /**
-   * Getter for isEngaged state
-   * @returns {boolean}
-   */
-  get isEngaged() {
-    return this.#isEngaged;
-  }
-
-  /**
-   * Setter for isEngaged state
-   * Disengaging the component resets the filter
-   * @param {boolean} value
-   */
-  set isEngaged(value) {
-    if (this.#isEngaged === value) return; // Avoid unnecessary updates
-    this.#isEngaged = value;
-
-    switch (value) {
-      case true:
-        this.inputFieldContext.classList.add("engaged")
-        break;
-      case false:
-        this.inputFieldContext.classList.remove("engaged")
-        this.isFiltered = false;
-        break;
-    }
   }
 
   /**
@@ -180,6 +145,28 @@ export default class SearchableInputContext {
         this.searchbar.value = '';
         this.clearSearchButton.style.display = "none";
         this.resetItemsDisplay();
+        break;
+    }
+  }
+
+  toggleVisibility() {
+    const toggleExpandText = this.engageDisengageToggle.querySelector(".text-expand");
+    const toggleCollapseText = this.engageDisengageToggle.querySelector(".text-collapse");
+    switch (this.isEngaged) {
+      case true:
+        this.isEngaged = false;
+        this.inputFieldContext.classList.remove("engaged");
+        this.isFiltered = false;
+        this.engageDisengageToggle.setAttribute("aria-expanded", "false");
+        toggleExpandText.style.removeProperty("display");
+        toggleCollapseText.style.display = "none"
+        break;
+      case false:
+        this.isEngaged = true;
+        this.inputFieldContext.classList.add("engaged")
+        this.engageDisengageToggle.setAttribute("aria-expanded", "true");
+        toggleExpandText.style.display = "none";
+        toggleCollapseText.style.removeProperty("display");
         break;
     }
   }

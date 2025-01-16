@@ -53,7 +53,7 @@
       }
     }
 
-    .c-input[data-il-ui-component="radio-field-input"] > .c-input__field > .c-field-radio {
+    > .c-field-radio {
       display: flex;
       flex-direction: column;
 
@@ -106,6 +106,7 @@
     > .c-input__field {
       padding: l.$il-padding-xlarge-vertical l.$il-padding-xlarge-horizontal;
       border: s.$il-main-border;
+
       button:nth-of-type(3), // engage button
       .c-field-searchable-select__hint {
         display: none;
@@ -124,7 +125,7 @@
       }
 
       // disengage button
-      > button:nth-of-type(2) {
+      > .c-input--searchable__collapse {
         margin-top: l.$il-margin-large-vertical;
       }
     }

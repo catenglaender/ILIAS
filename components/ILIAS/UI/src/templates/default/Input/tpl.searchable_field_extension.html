@@ -1,6 +1,14 @@
 <div class="c-input--searchable__nothing-selected">{NOTHING_SELECTED}</div>
-<div class="c-input--searchable__search-input">{SEARCH_INPUT}</div>
-<div class="c-input--searchable__clear-search">{CLEAR_SEARCH_BTN}</div>
-<div class="c-input--searchable__field">{INPUT}</div>
-<div class="c-input--searchable__collapse">{COLLAPSE_BTN}</div>
-<div class="c-input--searchable__expand">{EXPAND_BTN}</div>
+<div class="c-input--searchable__search-input">
+    <label>
+        <span class="label__text">{SEARCH_LABEL}</span>
+        <span class="sr-only">{SCREEN-READER-HINT}</span>
+        <input id="{SEARCH_INPUT_ID}" type="text" role="search">
+    </label>
+    <button type="button" class="c-input--searchable__clear-search btn btn-link" aria-controls="{SEARCH_INPUT_ID}">{CLEAR_SEARCH_BTN}</button>
+</div>
+<div class="c-input--searchable__field" id="{LIST_ID}" role="region">{INPUT}</div>
+<button type="button" class="c-input--searchable__visibility-toggle btn btn-link" aria-controls="{LIST_ID}" aria-expanded="false">
+    <span class="text-expand">{EXPAND_TEXT}</span>
+    <span class="text-collapse" style="display: none;">{COLLAPSE_TEXT}</span>
+</button>

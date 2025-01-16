@@ -628,9 +628,7 @@ class Renderer extends AbstractComponentRenderer
         $field_html = $tpl->get();
 
         if ($component->isSearchable()) {
-            $wrapperUtility = $this->wrapInSearchableContext($field_html, $component, $default_renderer);
-            $field_html = $wrapperUtility["field_html"];
-            $component = $wrapperUtility["component"];
+            list($field_html, $component) = $this->wrapInSearchableContext($field_html, $component, $default_renderer);
         }
 
         return $this->wrapInFormContext($component, $component->getLabel(), $field_html);
@@ -1117,28 +1115,20 @@ class Renderer extends AbstractComponentRenderer
         $search_tpl = $this->getTemplate("tpl.searchable_field_extension.html", true, true);
         $search_tpl->setVariable('INPUT', $input_html);
 
-        $no_selection_text = $this->txt('no_selection');
-        $search_tpl->setVariable('NO_SELECTION', $no_selection_text);
+        $no_selection_text = $this->txt('ui_search_context_no_selection');
+        $search_tpl->setVariable('NOTHING_SELECTED', $no_selection_text);
 
-        $search_bar = $this->getUIFactory()->input()->field()->text($this->txt("ui_search_context_search_in") . " " . $component->getLabel());
-        $search_bar_html = $default_renderer->render($search_bar);
-        $search_tpl->setVariable('SEARCH_INPUT', $search_bar_html);
+        $search_tpl->setVariable('SEARCH_LABEL', $this->txt("ui_search_context_search_in") . ' ' . $component->getName());
+        $search_tpl->setVariable('SCREEN_READER_HINT', $this->txt('ui_search_context_screen_reader_hint'));
 
-        $remove_icon = $this->getUIFactory()->symbol()->glyph()->remove();
-        $collapse_icon = $this->getUIFactory()->symbol()->glyph()->collapseHorizontal();
-        $expand_icon = $this->getUIFactory()->symbol()->glyph()->expand();
+        $expand_icon = $default_renderer->render($this->getUIFactory()->symbol()->glyph()->expand());
+        $search_tpl->setVariable('EXPAND_TEXT', $expand_icon . $this->txt('ui_search_context_show_all_options'));
 
-        $clear_search_button = $this->getUIFactory()->button()->shy($this->txt("ui_search_context_clear_searchbar"), "#!")->withSymbol($remove_icon);
-        $disengage_button = $this->getUIFactory()->button()->shy($this->txt("ui_search_context_show_less"), "#!")->withSymbol($collapse_icon);
-        $engage_button = $this->getUIFactory()->button()->shy($this->txt("ui_search_context_show_all_options"), "#!")->withSymbol($expand_icon);
+        $collapse_icon = $default_renderer->render($this->getUIFactory()->symbol()->glyph()->collapseHorizontal());
+        $search_tpl->setVariable('COLLAPSE_TEXT', $collapse_icon . $this->txt('ui_search_context_show_less'));
 
-        $clear_search_button_html = $default_renderer->render($clear_search_button);
-        $disengage_button_html = $default_renderer->render($disengage_button);
-        $engage_button_html = $default_renderer->render($engage_button);
-
-        $search_tpl->setVariable('CLEAR_SEARCH_BTN', $clear_search_button_html);
-        $search_tpl->setVariable('COLLAPSE_BTN', $disengage_button_html);
-        $search_tpl->setVariable('EXPAND_BTN', $engage_button_html);
+        $remove_icon = $default_renderer->render($this->getUIFactory()->symbol()->glyph()->remove());
+        $search_tpl->setVariable('CLEAR_SEARCH_BTN', $remove_icon . $this->txt('ui_search_context_clear_search'));
 
         $component = $component->withAdditionalOnLoadCode(
             static function ($id): string {
@@ -1149,6 +1139,6 @@ class Renderer extends AbstractComponentRenderer
             }
         );
 
-        return ["field_html" => $search_tpl->get(), "component" => $component];
+        return [$search_tpl->get(), $component];
     }
 }
