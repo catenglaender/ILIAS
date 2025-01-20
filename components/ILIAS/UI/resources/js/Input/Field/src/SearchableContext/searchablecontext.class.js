@@ -47,7 +47,7 @@ export default class SearchableInputContext {
   listType;
 
   /**
-   * @type {HTMLDivElement}
+   * @type {HTMLElement}
    */
   itemList;
 
@@ -67,36 +67,43 @@ export default class SearchableInputContext {
   clearSearchButton;
 
   /**
+   * @type {HTMLDivElement}
+   */
+  scrollContainer;
+
+  /**
    * @type {boolean}
    */
   #isFiltered;
 
   /**
-   * @type {boolean}
+   * @type {HTMLDivElement}
    */
-  #isEngaged;
+  messageNoMatch;
 
   constructor(inputFieldContext) {
     /* DOM Elements */
     this.inputFieldContext = inputFieldContext;
-    // first input is always search bar
-    this.searchbar = this.inputFieldContext.querySelector(".c-input--searchable__search-input input");
-    // second .c-input is always the nested selection component
-    this.itemList = this.inputFieldContext.querySelector(".c-input--searchable__field > *");
-    console.log("item list set up: " + this.itemList)
-    this.listType = this.inputFieldContext.getAttribute("data-il-ui-component");
+    this.scrollContainer = this.inputFieldContext.querySelector('.c-input--searchable__field');
+    this.searchbar = this.inputFieldContext.querySelector('.c-input--searchable__search-input input');
+    this.listType = this.inputFieldContext.getAttribute('data-il-ui-component');
     switch (this.listType) {
-      case "multi-select-field-input":
-        this.items = this.itemList.querySelectorAll("ul li");
+      case 'multi-select-field-input':
+        this.itemList = this.inputFieldContext.querySelector('ul');
+        this.items = this.itemList.querySelectorAll('li');
         break;
-      case "radio-field-input":
-        this.items = this.itemList.querySelectorAll(".c-field-radio .c-field-radio__item");
+      case 'radio-field-input':
+        this.itemList = this.inputFieldContext.querySelector('.c-field-radio');
+        this.items = this.itemList.querySelectorAll('.c-field-radio__item');
         break;
+      default:
+        // no default
     }
+    this.messageNoMatch = this.inputFieldContext.querySelector('.message-no-match');
 
     /* Buttons */
-    this.clearSearchButton = this.inputFieldContext.querySelector(".c-input--searchable__clear-search");
-    this.engageDisengageToggle = this.inputFieldContext.querySelector(".c-input--searchable__visibility-toggle");
+    this.clearSearchButton = this.inputFieldContext.querySelector('.c-input--searchable__clear-search');
+    this.engageDisengageToggle = this.inputFieldContext.querySelector('.c-input--searchable__visibility-toggle');
 
     /* Initialize states */
     this.isEngaged = false; // will also set isFiltered false
@@ -105,20 +112,17 @@ export default class SearchableInputContext {
     this.filterItemsSearch = this.filterItemsSearch.bind(this);
     this.searchbar.addEventListener('input', this.filterItemsSearch);
 
-    this.clearSearchButton.addEventListener('click', () => { this.isFiltered = false });
+    this.clearSearchButton.addEventListener('click', () => { this.isFiltered = false; });
 
     this.toggleVisibility = this.toggleVisibility.bind(this);
-    this.engageDisengageToggle.addEventListener('click', this.toggleVisibility)
+    this.engageDisengageToggle.addEventListener('click', this.toggleVisibility);
 
-    if (this.listType === "radio-field-input") {
+    if (this.listType === 'radio-field-input') {
       this.scrollListToTop = this.scrollListToTop.bind(this);
-      this.items.forEach(item => {
-        console.log("item: " + item)
+      this.items.forEach((item) => {
         item.addEventListener('change', this.scrollListToTop);
-      })
-
+      });
     }
-
   }
 
   /**
@@ -139,35 +143,40 @@ export default class SearchableInputContext {
 
     switch (value) {
       case true:
-        this.clearSearchButton.style.removeProperty("display");
+        this.clearSearchButton.style.removeProperty('display');
         break;
       case false:
         this.searchbar.value = '';
-        this.clearSearchButton.style.display = "none";
+        this.clearSearchButton.style.display = 'none';
+        this.messageNoMatch.style.display = 'none';
         this.resetItemsDisplay();
         break;
+      default:
+        // no default
     }
   }
 
   toggleVisibility() {
-    const toggleExpandText = this.engageDisengageToggle.querySelector(".text-expand");
-    const toggleCollapseText = this.engageDisengageToggle.querySelector(".text-collapse");
+    const toggleExpandText = this.engageDisengageToggle.querySelector('.text-expand');
+    const toggleCollapseText = this.engageDisengageToggle.querySelector('.text-collapse');
     switch (this.isEngaged) {
       case true:
         this.isEngaged = false;
-        this.inputFieldContext.classList.remove("engaged");
+        this.inputFieldContext.classList.remove('engaged');
         this.isFiltered = false;
-        this.engageDisengageToggle.setAttribute("aria-expanded", "false");
-        toggleExpandText.style.removeProperty("display");
-        toggleCollapseText.style.display = "none"
+        this.engageDisengageToggle.setAttribute('aria-expanded', 'false');
+        toggleExpandText.style.removeProperty('display');
+        toggleCollapseText.style.display = 'none';
         break;
       case false:
         this.isEngaged = true;
-        this.inputFieldContext.classList.add("engaged")
-        this.engageDisengageToggle.setAttribute("aria-expanded", "true");
-        toggleExpandText.style.display = "none";
-        toggleCollapseText.style.removeProperty("display");
+        this.inputFieldContext.classList.add('engaged');
+        this.engageDisengageToggle.setAttribute('aria-expanded', 'true');
+        toggleExpandText.style.display = 'none';
+        toggleCollapseText.style.removeProperty('display');
         break;
+      default:
+        // no default
     }
   }
 
@@ -180,47 +189,59 @@ export default class SearchableInputContext {
 
     this.isFiltered = !!value; // negates any search term input to false then flips it to true
 
-    this.items.forEach(item => {
+    let foundMatch = false;
+    this.items.forEach((item) => {
       const itemText = item.textContent.toLowerCase();
       const isMatch = itemText.includes(value);
       if (isMatch) {
-        this.showItem(item);
+        if (foundMatch === false) {
+          foundMatch = true;
+        }
+        showItem(item);
       } else {
-        this.hideItem(item);
+        hideItem(item);
       }
     });
+    if (
+      value !== '' && foundMatch === false
+    ) {
+      this.messageNoMatch.style.removeProperty('display');
+    } else if (
+      value === '' || foundMatch
+    ) {
+      this.messageNoMatch.style.display = 'none';
+    }
   }
 
   /**
    * Reset the display of all items
    */
   resetItemsDisplay() {
-    this.items.forEach(item => this.showItem(item));
+    this.items.forEach((item) => showItem(item));
   }
 
-  /**
-   * Show a specific item
-   * @param {HTMLElement} item
-   */
-  showItem(item) {
-    item.style.transform = "scale(1,1)";
-    item.style.removeProperty("display");
-  }
-
-  /**
-   * Hide a specific item
-   * @param {HTMLElement} item
-   */
-  hideItem(item) {
-    item.style.transform = "scale(1,0)";
-    item.style.display = "none";
-  }
-
-  scrollListToTop(event) {
-    console.log("attempting to scroll to top because of event: " + event)
-    this.itemList.scrollTo({
+  scrollListToTop() {
+    this.scrollContainer.scrollTo({
       top: 0,
-      behavior: "smooth",
-    })
+      behavior: 'smooth',
+    });
   }
+}
+
+/**
+ * Show a specific item
+ * @param {HTMLElement} item
+ */
+function showItem(item) {
+  item.style.transform = 'scale(1,1)';
+  item.style.removeProperty('display');
+}
+
+/**
+ * Hide a specific item
+ * @param {HTMLElement} item
+ */
+function hideItem(item) {
+  item.style.transform = 'scale(1,0)';
+  item.style.display = 'none';
 }

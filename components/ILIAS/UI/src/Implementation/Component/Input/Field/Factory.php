@@ -138,14 +138,6 @@ class Factory implements I\Factory
     /**
      * @inheritdoc
      */
-    public function searchableSelect(string $label, I\MultiSelect|I\Radio $input, ?string $byline = null): I\SearchableSelect
-    {
-        return new SearchableSelect($this->data_factory, $this->refinery, $this->lng, $input, $label, $byline);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function textarea(string $label, ?string $byline = null): I\Textarea
     {
         return new Textarea($this->data_factory, $this->refinery, $label, $byline);
@@ -154,9 +146,9 @@ class Factory implements I\Factory
     /**
      * @inheritdoc
      */
-    public function radio(string $label, ?string $byline = null, ?bool $searchable = false): I\Radio
+    public function radio(string $label, ?string $byline = null): I\Radio
     {
-        return new Radio($this->data_factory, $this->refinery, $label, $byline, $searchable);
+        return new Radio($this->data_factory, $this->refinery, $label, $byline);
     }
 
     /**

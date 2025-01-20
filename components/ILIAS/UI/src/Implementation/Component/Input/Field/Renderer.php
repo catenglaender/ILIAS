@@ -86,9 +86,6 @@ class Renderer extends AbstractComponentRenderer
         $component = $this->setSignals($component);
 
         switch (true) {
-            case ($component instanceof F\SearchableSelect):
-                return $this->renderSearchableSelect($component, $default_renderer);
-
             case ($component instanceof F\OptionalGroup):
                 return $this->renderOptionalGroup($component, $default_renderer);
 
@@ -660,48 +657,6 @@ class Renderer extends AbstractComponentRenderer
         return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get());
     }
 
-    protected function renderSearchableSelect(F\SearchableSelect $component, RendererInterface $default_renderer): string
-    {
-        $tpl = $this->getTemplate("tpl.searchable_select_label.html", true, true);
-        $tpl->setVariable('LABEL', $component->getLabel());
-        $tpl = $tpl->get();
-
-        $tpl_selection_hint = $this->getTemplate("tpl.searchable_select_hint.html", true, true);
-        $no_selection_hint = "No selection was made.";
-        $tpl_selection_hint->setVariable('HINT', $no_selection_hint);
-        $tpl_selection_hint = $tpl_selection_hint->get();
-
-        $select_input = $component->getInputs();
-        $search_bar = $this->getUIFactory()->input()->field()->text("Search " . $select_input[0]->getLabel());
-
-        // order of buttons MUST not be changed - CSS and JS count to find the correct buttons
-        $remove_icon = $this->getUIFactory()->symbol()->glyph()->remove();
-        $collapse_icon = $this->getUIFactory()->symbol()->glyph()->collapseHorizontal();
-        $expand_icon = $this->getUIFactory()->symbol()->glyph()->expand();
-        $clear_search_button = $this->getUIFactory()->button()->shy("Clear searchbar", "#!")->withSymbol($remove_icon);
-        $disengage_button = $this->getUIFactory()->button()->shy("Show less", "#!")->withSymbol($collapse_icon);
-        $engage_button = $this->getUIFactory()->button()->shy("Show all options", "#!")->withSymbol($expand_icon);
-
-        $input_html = $tpl_selection_hint;
-        $input_html .= $default_renderer->render([
-            $search_bar,
-            $clear_search_button,
-            $select_input,
-            $disengage_button,
-            $engage_button]);
-
-        $component = $component->withAdditionalOnLoadCode(
-            static function ($id): string {
-                return "
-                    sselectId = document.getElementById('$id').id;
-                    il.UI.Input.searchableselect.init(sselectId);
-                ";
-            }
-        );
-
-        return $this->wrapInFormContext($component, $tpl, $input_html);
-    }
-
     protected function renderDateTimeField(F\DateTime $component, RendererInterface $default_renderer): string
     {
         list($component, $tpl) = $this->internalRenderDateTimeField($component, $default_renderer);
@@ -1106,20 +1061,32 @@ class Renderer extends AbstractComponentRenderer
      *
      * @param string $input_html Rendered HTML of the inner input field made searchable.
      * @param FormInput $component The component object to attach onload JavaScript to.
-     * @return array{field_html: string, component: FormInput} An associative array containing:
-     *                  - 'field_html': The modified HTML of the input field within the search context.
-     *                  - 'component': The modified component object with additional JavaScript.
+     * @param RendererInterface $default_renderer
+     * @return array{string, FormInput}
      */
 
-    private function wrapInSearchableContext(string $input_html, FormInput $component, RendererInterface $default_renderer): array {
+    private function wrapInSearchableContext(string $input_html, FormInput $component, RendererInterface $default_renderer): array
+    {
         $search_tpl = $this->getTemplate("tpl.searchable_field_extension.html", true, true);
         $search_tpl->setVariable('INPUT', $input_html);
 
+        $search_input_id = $this->createId();
+        $search_input_label_id = $this->createId();
+        $search_input_description_id = $this->createId();
+        $list_id = $this->createId();
+
+        $search_tpl->setVariable('SEARCH_INPUT_ID', $search_input_id);
+        $search_tpl->setVariable('SEARCH_INPUT_LABEL_ID', $search_input_label_id);
+        $search_tpl->setVariable('SEARCH_INPUT_DESCRIPTION_ID', $search_input_description_id);
+        $search_tpl->setVariable('LIST_ID', $list_id);
+
         $no_selection_text = $this->txt('ui_search_context_no_selection');
         $search_tpl->setVariable('NOTHING_SELECTED', $no_selection_text);
+        $search_tpl->setVariable('ARIA_FILTERED_RESULTS', $this->txt('ui_search_context_filtered_results_aria_label'));
 
-        $search_tpl->setVariable('SEARCH_LABEL', $this->txt("ui_search_context_search_in") . ' ' . $component->getName());
+        $search_tpl->setVariable('SEARCH_LABEL', $this->txt("ui_search_context_search_in") . ' ' . $component->getLabel());
         $search_tpl->setVariable('SCREEN_READER_HINT', $this->txt('ui_search_context_screen_reader_hint'));
+        $search_tpl->setVariable('NO_MATCH', $this->txt('ui_search_context_no_match'));
 
         $expand_icon = $default_renderer->render($this->getUIFactory()->symbol()->glyph()->expand());
         $search_tpl->setVariable('EXPAND_TEXT', $expand_icon . $this->txt('ui_search_context_show_all_options'));
@@ -1133,8 +1100,8 @@ class Renderer extends AbstractComponentRenderer
         $component = $component->withAdditionalOnLoadCode(
             static function ($id): string {
                 return "
-                    sselectId = document.getElementById('$id').id;
-                    il.UI.Input.searchableinputcontext.init(sselectId);
+                    searchcontextId = document.getElementById('$id').id;
+                    il.UI.Input.searchableinputcontext.init(searchcontextId);
                 ";
             }
         );

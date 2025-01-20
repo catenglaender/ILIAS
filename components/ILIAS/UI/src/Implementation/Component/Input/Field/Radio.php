@@ -45,7 +45,6 @@ class Radio extends FormInput implements C\Input\Field\Radio
         Refinery $refinery,
         protected string $label,
         protected ?string $byline = null,
-        ?bool $searchable = false,
     ) {
         parent::__construct($data_factory, $refinery, $label, $byline);
     }
