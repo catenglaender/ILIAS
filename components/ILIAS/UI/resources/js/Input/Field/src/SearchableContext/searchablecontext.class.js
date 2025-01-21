@@ -89,7 +89,7 @@ export default class SearchableInputContext {
     this.listType = this.inputFieldContext.getAttribute('data-il-ui-component');
     switch (this.listType) {
       case 'multi-select-field-input':
-        this.itemList = this.inputFieldContext.querySelector('ul');
+        this.itemList = this.inputFieldContext.querySelector('ul.c-field-multiselect');
         this.items = this.itemList.querySelectorAll('li');
         break;
       case 'radio-field-input':

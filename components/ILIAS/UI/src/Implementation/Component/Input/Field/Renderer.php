@@ -654,7 +654,13 @@ class Renderer extends AbstractComponentRenderer
             $tpl->touchBlock("no_options");
         }
 
-        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get());
+        $field_html = $tpl->get();
+
+        if ($component->isSearchable()) {
+            list($field_html, $component) = $this->wrapInSearchableContext($field_html, $component, $default_renderer);
+        }
+
+        return $this->wrapInFormContext($component, $component->getLabel(), $field_html);
     }
 
     protected function renderDateTimeField(F\DateTime $component, RendererInterface $default_renderer): string
@@ -1067,7 +1073,7 @@ class Renderer extends AbstractComponentRenderer
 
     private function wrapInSearchableContext(string $input_html, FormInput $component, RendererInterface $default_renderer): array
     {
-        $search_tpl = $this->getTemplate("tpl.searchable_field_extension.html", true, true);
+        $search_tpl = $this->getTemplate("tpl.searchable_field_context.html", true, true);
         $search_tpl->setVariable('INPUT', $input_html);
 
         $search_input_id = $this->createId();
