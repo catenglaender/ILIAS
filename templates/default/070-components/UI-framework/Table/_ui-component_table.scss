@@ -394,6 +394,8 @@ td.c-table-data__cell--highlighted {
             border-bottom: 1px solid $il-main-border-color;
         }
 
+
+
         //
         // Table Header
         //
@@ -415,7 +417,7 @@ td.c-table-data__cell--highlighted {
         td.c-table-data__cell--number {
             text-align: inherit;
         }
-        
+
         // Highlighted Columns
         td.c-table-data__cell--highlighted {
             font-size: $il-font-size-xxlarge;
@@ -434,5 +436,21 @@ td.c-table-data__cell--highlighted {
         .c-table-data__rowaction {
             margin-left: auto;
         }
+    }
+}
+
+// for drag and drop on touchscreens, is appended to body
+tr.c-table-data__row.touchDragImage {
+    pointer-events: none;
+    position: fixed;
+    background-color: $il-main-bg;
+    max-width: 10vw;
+}
+
+tr.c-table-data__row.rippedRowGap {
+    border: 2px solid $il-focus-color;
+    td {
+        background-color: $il-main-darker-bg;
+        height: 25px;
     }
 }

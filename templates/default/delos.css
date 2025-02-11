@@ -10644,6 +10644,21 @@ td.c-table-data__cell--highlighted {
   }
 }
 
+tr.c-table-data__row.touchDragImage {
+  pointer-events: none;
+  position: fixed;
+  background-color: white;
+  max-width: 10vw;
+}
+
+tr.c-table-data__row.rippedRowGap {
+  border: 2px solid #0078D7;
+}
+tr.c-table-data__row.rippedRowGap td {
+  background-color: #f0f0f0;
+  height: 25px;
+}
+
 .il-toast-container {
   position: fixed;
   z-index: 19999;
