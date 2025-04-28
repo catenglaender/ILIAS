@@ -42,6 +42,9 @@ class Renderer extends AbstractComponentRenderer
             $this->cannotHandleComponent($component);
         }
 
+        return "hello";
+        /*
+
         $tpl = $this->getTemplate('tpl.popover.html', true, true);
         $tpl->setVariable('FORCE_RENDERING', '');
 
@@ -100,6 +103,7 @@ class Renderer extends AbstractComponentRenderer
         }
 
         $this->cannotHandleComponent($component);
+        */
     }
 
     /**
