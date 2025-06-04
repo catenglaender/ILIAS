@@ -1,8 +1,8 @@
-<fieldset class="c-input" data-il-ui-component="{UI_COMPONENT_NAME}" data-il-ui-input-name="{INPUT_NAME}"<!-- BEGIN section_context --> aria-labelledby="{SECTION_LABEL_ID2}" role="region"<!-- END section_context --><!-- BEGIN section_describedby --> aria-describedby="{WRAPPER_BYLINE_ID}"<!-- END section_describedby --><!-- BEGIN disabled --> disabled="disabled"<!-- END disabled --><!-- BEGIN described --> aria-describedby="{ERROR_ID} {BYLINE_ID}"<!-- END described --><!-- BEGIN binding --> id="{BINDING_ID}"<!-- END binding --><!-- BEGIN tabindex --> tabindex="0"<!-- END tabindex -->>
-	<{LEGEND_OR_LABEL} <!-- BEGIN section_label --> id="{SECTION_LABEL_ID}"<!-- END section_label --><!-- BEGIN for --> for="{ID}"<!-- END for -->>{LABEL}<!-- BEGIN required --><span class="asterisk" aria-label="{REQUIRED_ARIA}">*</span><!-- END required --></{LEGEND_OR_LABEL}>
+<fieldset class="c-input" data-il-ui-component="{UI_COMPONENT_NAME}" data-il-ui-input-name="{INPUT_NAME}"<!-- BEGIN section_context --> aria-labelledby="{SECTION_LABEL_ID2}" role="region"<!-- END section_context --><!-- BEGIN disabled --> disabled="disabled"<!-- END disabled --><!-- BEGIN descr_for_sections -->aria-describedby="{SECTION_BYLINE_ID}<!-- BEGIN descr_has_error --> {ERROR_ID_FOR_SECTIONS}<!-- END descr_has_error -->"<!-- END descr_for_sections --><!-- BEGIN binding --> id="{BINDING_ID}"<!-- END binding --><!-- BEGIN tabindex --> tabindex="0"<!-- END tabindex -->>
+	<{LEGEND_OR_LABEL}<!-- BEGIN section_label --> id="{SECTION_LABEL_ID}"<!-- END section_label --><!-- BEGIN for --> for="{ID}"<!-- END for -->><span>{LABEL}</span><!-- BEGIN required --><span class="asterisk" aria-label="{REQUIRED_ARIA}">*</span><!-- END required --></{LEGEND_OR_LABEL}>
 
 	<!-- BEGIN byline -->
-	<div id="{BYLINE_ID}" class="c-input__help-byline">{BYLINE}</div>
+	<div id="{BYLINE_ID}" class="c-input__help-byline" role="note">{BYLINE}</div>
 	<!-- END byline -->
 
 	<div class="c-input__field">
