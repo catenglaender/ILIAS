@@ -161,8 +161,9 @@ class Renderer extends AbstractComponentRenderer
         FormInput $component,
         string $label,
         string $input_html,
-        ?string $id_for_label = null,
-        ?string $dependant_group_html = null
+        ?string $id_of_input_for_label = null,
+        ?string $dependant_group_html = null,
+        ?string $id_of_help_byline = null,
     ): string {
         $tpl = $this->getTemplate("tpl.context_form.html", true, true);
 
@@ -171,22 +172,45 @@ class Renderer extends AbstractComponentRenderer
         $tpl->setVariable("UI_COMPONENT_NAME", $this->getComponentCanonicalNameAttribute($component));
         $tpl->setVariable("INPUT_NAME", $component->getName());
 
+
+
+        if (in_array($component::class, [
+            F\Section::class,
+        ])) {
+            // In non-sections, label points to the input using for="input-id" attribute
+            // In section-like inputs, container points to the label/legend using aria-labledby="label-id"
+            $section_label_id = $this->createId();
+            // label id
+            $tpl->setVariable("SECTION_LABEL_ID", $section_label_id);
+            // fieldset aria-labelledby to label id
+            $tpl->setVariable("SECTION_LABEL_ID2", $section_label_id);
+            $tpl->setVariable("LEGEND_OR_LABEL", "legend");
+        } else {
+            $tpl->setVariable("LEGEND_OR_LABEL", "label");
+        }
+
         if ($component->getOnLoadCode() !== null) {
             $binding_id = $this->bindJavaScript($component) ?? $this->createId();
             $tpl->setVariable("BINDING_ID", $binding_id);
         }
 
-        if ($id_for_label) {
+        if ($id_of_input_for_label) {
             $tpl->setCurrentBlock('for');
-            $tpl->setVariable("ID", $id_for_label);
+            $tpl->setVariable("ID", $id_of_input_for_label);
             $tpl->parseCurrentBlock();
         } else {
             $tpl->touchBlock('tabindex');
         }
 
+
+        // child inputs in a section are also aria-describedby the help byline of the section's formcontext
+        if (is_a($component::class, F\FormInput::class, true)) {
+            $tpl->setVariable("PARENT_BYLINE_ID", $component->getParentHelpBylineId());
+        }
         $byline = $component->getByline();
         if ($byline) {
             $tpl->setVariable("BYLINE", $byline);
+            $tpl->setVariable("BYLINE_ID", $id_of_help_byline);
         }
 
         $required = $component->isRequired();
@@ -206,8 +230,8 @@ class Renderer extends AbstractComponentRenderer
             $tpl->setVariable("ERROR_LABEL", $this->txt("ui_error"));
             $tpl->setVariable("ERROR_ID", $error_id);
             $tpl->setVariable("ERROR", $error);
-            if ($id_for_label) {
-                $tpl->setVariable("ERROR_FOR_ID", $id_for_label);
+            if ($id_of_input_for_label) {
+                $tpl->setVariable("ERROR_FOR_ID", $id_of_input_for_label);
             }
         }
 
@@ -292,8 +316,9 @@ class Renderer extends AbstractComponentRenderer
         $this->applyValue($component, $tpl, $this->escapeSpecialChars());
 
         $label_id = $this->createId();
+        $context_byline_id = $this->createId();
         $tpl->setVariable('ID', $label_id);
-        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id);
+        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id, id_of_help_byline: $context_byline_id);
     }
 
     protected function renderNumericField(F\Numeric $component, RendererInterface $default_renderer): string
@@ -302,9 +327,17 @@ class Renderer extends AbstractComponentRenderer
         $this->applyName($component, $tpl);
         $this->applyValue($component, $tpl, $this->escapeSpecialChars());
 
+        // the label of the formcontext references the input by this id using the html label "for" attribute
         $label_id = $this->createId();
         $tpl->setVariable('ID', $label_id);
-        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id);
+        // the input itself references the id of the formcontext's help byline using aria-describedby
+        $context_byline_id = $this->createId();
+        $tpl->setVariable('CONTEXT_BYLINE_ID', $context_byline_id);
+        // if input is part of a section, it also references the section's help byline in aria-describedby
+        if ($component->getParentHelpBylineId()) {
+            $tpl->setVariable("SECTION_BYLINE_ID", $component->getParentHelpBylineId());
+        }
+        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id, null, $context_byline_id);
     }
 
     protected function renderCheckboxField(F\Checkbox $component, RendererInterface $default_renderer): string
@@ -738,7 +771,13 @@ class Renderer extends AbstractComponentRenderer
 
     protected function renderSection(F\Section $section, RendererInterface $default_renderer): string
     {
-        $inputs_html = $default_renderer->render($section->getInputs());
+        $byline_id = $this->createId();
+        $inputs_with_parent_byline_id = [];
+        foreach ($section->getInputs() as $input) {
+            $inputs_with_parent_byline_id[] = $input->setParentHelpBylineId($byline_id);
+        }
+
+        $inputs_html = $default_renderer->render($inputs_with_parent_byline_id);
 
         $headline_tpl = $this->getTemplate("tpl.headlines.html", true, true);
         $headline_tpl->setVariable("HEADLINE", $section->getLabel());
@@ -750,7 +789,7 @@ class Renderer extends AbstractComponentRenderer
 
         $headline_html = $headline_tpl->get();
 
-        return $this->wrapInFormContext($section, $headline_html, $inputs_html);
+        return $this->wrapInFormContext($section, $headline_html, $inputs_html, id_of_help_byline: $byline_id);
     }
 
     protected function renderUrlField(F\Url $component, RendererInterface $default_renderer): string

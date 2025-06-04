@@ -71,6 +71,7 @@ abstract class Input implements InputInternal
      * @var Transformation[]
      */
     protected array $operations = [];
+    private ?string $parentHelpBylineId = null;
 
     /**
      * Input constructor.
@@ -137,6 +138,21 @@ abstract class Input implements InputInternal
     private function setError(string $error): void
     {
         $this->error = $error;
+    }
+
+    public function setParentHelpBylineId(?string $id_parent_help_byline): self
+    {
+        $clone = clone $this;
+        $clone->parentHelpBylineId = $id_parent_help_byline;
+        return $clone;
+    }
+
+    /**
+     *
+     */
+    public function getParentHelpBylineId(): ?string
+    {
+        return $this->parentHelpBylineId;
     }
 
     /**
