@@ -45,10 +45,13 @@ class Renderer extends AbstractComponentRenderer
     {
         $tpl = $this->getTemplate("tpl.standard.html", true, true);
 
+        $id = $this->createId();
+        $tpl->setVariable('ID', $id);
+
         $this->maybeAddDedicatedName($component, $tpl);
         $this->maybeAddRequired($component, $tpl);
         $this->addPostURL($component, $tpl);
-        $this->maybeAddError($component, $tpl);
+        $this->maybeAddError($component, $tpl, $id);
 
         $submit_button = $this->getUIFactory()->button()->standard(
             $component->getSubmitLabel() ?? $this->txt("save"),
@@ -78,11 +81,13 @@ class Renderer extends AbstractComponentRenderer
         }
     }
 
-    protected function maybeAddError(Form\Form $component, Template $tpl): void
+    protected function maybeAddError(Form\Form $component, Template $tpl, string $id): void
     {
         if (null !== ($error = $component->getError())) {
             $tpl->setVariable("ERROR", $error);
             $tpl->setVariable("ERROR_LABEL", $this->txt("ui_error"));
+            $id_error = $id . '_error';
+            $tpl->setVariable('ID_ERROR', $id_error);
         }
     }
 

@@ -32,18 +32,18 @@ class DateTimeFilterContextRenderer extends FilterContextRenderer
 {
     protected function wrapInFormContext(
         FormInput $component,
-        string $label,
-        string $input_html,
-        ?string $id_of_input_for_label = null,
-        ?string $dependant_group_html = null
+        string    $label,
+        string    $input_html,
+        ?string   $input_id = null,
+        ?string   $dependant_group_html = null
     ): string {
         $tpl = $this->getTemplate("tpl.context_form.html", true, true);
 
         $tpl->setVariable("INPUT", $input_html);
 
-        if ($id_of_input_for_label) {
+        if ($input_id) {
             $tpl->setCurrentBlock("for");
-            $tpl->setVariable("ID", $id_of_input_for_label);
+            $tpl->setVariable("ID", $input_id);
             $tpl->parseCurrentBlock();
         }
 

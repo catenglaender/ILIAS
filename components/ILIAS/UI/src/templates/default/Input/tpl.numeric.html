@@ -1,1 +1,5 @@
-<input id="{ID}" type="number" aria-describedby="{CONTEXT_BYLINE_ID}<!-- BEGIN error_ref --> {ERROR_ID}<!-- END error_ref -->"<!-- BEGIN name --> name="{NAME}"<!-- END name --><!-- BEGIN disabled --> {DISABLED}<!-- END disabled --> class="c-field-number"<!-- BEGIN value --> value="{VALUE}"<!-- END value -->/>
+<input id="{ID}" type="number"
+        <!-- BEGIN has_byline --> aria-describedby="{CONTEXT_BYLINE_ID}"<!-- END has_byline -->
+        <!-- BEGIN error_ref --> aria-errormessage="{ERROR_ID}" aria-invalid="true"<!-- END error_ref -->
+        <!-- BEGIN name --> name="{NAME}"<!-- END name -->
+        <!-- BEGIN disabled --> {DISABLED}<!-- END disabled --> class="c-field-number"<!-- BEGIN value --> value="{VALUE}"<!-- END value -->/>

@@ -20,7 +20,9 @@ declare(strict_types=1);
 
 namespace ILIAS\UI\Implementation\Component\Input\Field;
 
+use http\Exception\InvalidArgumentException;
 use ILIAS\Data\DateFormat;
+use ILIAS\GlobalScreen\isGlobalScreenItem;
 use ILIAS\UI\Component;
 use ILIAS\UI\Implementation\Component\Input\Field as F;
 use ILIAS\UI\Component\Input\Field as FI;
@@ -84,6 +86,7 @@ class Renderer extends AbstractComponentRenderer
     public function render(Component\Component $component, RendererInterface $default_renderer): string
     {
         $component = $this->setSignals($component);
+
 
         switch (true) {
             case ($component instanceof F\OptionalGroup):
@@ -159,12 +162,11 @@ class Renderer extends AbstractComponentRenderer
 
     protected function wrapInFormContext(
         FormInput $component,
-        string $label,
-        string $input_html,
-        ?string $id_of_input_for_label = null,
-        ?string $dependant_group_html = null,
-        ?string $id_of_help_byline = null,
-        ?string $error_id = null,
+        string    $label,
+        string    $input_html,
+        ?string   $input_id = null,
+        ?string   $dependant_group_html = null,
+        bool      $isGroupOfInputs = false,
     ): string {
         $tpl = $this->getTemplate("tpl.context_form.html", true, true);
 
@@ -176,26 +178,30 @@ class Renderer extends AbstractComponentRenderer
         $error = $component->getError();
         $byline = $component->getByline();
 
-        if (in_array($component::class, [
-            F\Section::class,
-        ])) {
-            // In non-sections, label points to the input using for="input-id" attribute
-            // In section-like inputs, container points to the label/legend using aria-labledby="label-id"
-            $section_label_id = $this->createId();
-            // label id
-            $tpl->setVariable("SECTION_LABEL_ID", $section_label_id);
-            // fieldset aria-labelledby to label id
-            $tpl->setVariable("SECTION_LABEL_ID2", $section_label_id);
+        if ($isGroupOfInputs) {
+            if (!$input_id) {
+                $input_id = $this->createId();
+            } else {
+                throw new InvalidArgumentException("A group MUST NOT pass a single input ID to the form context.");
+            }
+            // When multiple inputs are wrapped, context points to its own label/legend with aria-labledby="label-id"
+            $group_label_id = $input_id . "_group-label";
+            $tpl->setVariable("GROUP_LABEL_ID", $group_label_id);
+            $tpl->setVariable("GROUP_LABEL_ID2", $group_label_id);
             $tpl->setVariable("LEGEND_OR_LABEL", "legend");
+            $tpl->touchBlock('tabindex');
             if ($error) {
-                $tpl->setVariable("ERROR_ID_FOR_SECTIONS", $error_id);
+                $tpl->setVariable("ERROR_ID_FOR_SECTIONS", $input_id . "_error");
             }
             if ($byline) {
-                // because sections don't carry an input already referencing the byline
-                $tpl->setVariable("SECTION_BYLINE_ID", $id_of_help_byline);
+                // because groups don't carry an input that references the context byline
+                $tpl->setVariable("SECTION_BYLINE_ID", $input_id . "_byline");
             }
         } else {
             $tpl->setVariable("LEGEND_OR_LABEL", "label");
+            $tpl->setCurrentBlock('for');
+            $tpl->setVariable("ID", $input_id);
+            $tpl->parseCurrentBlock();
         }
 
         if ($component->getOnLoadCode() !== null) {
@@ -203,17 +209,9 @@ class Renderer extends AbstractComponentRenderer
             $tpl->setVariable("BINDING_ID", $binding_id);
         }
 
-        if ($id_of_input_for_label) {
-            $tpl->setCurrentBlock('for');
-            $tpl->setVariable("ID", $id_of_input_for_label);
-            $tpl->parseCurrentBlock();
-        } else {
-            $tpl->touchBlock('tabindex');
-        }
-
         if ($byline) {
             $tpl->setVariable("BYLINE", $byline);
-            $tpl->setVariable("BYLINE_ID", $id_of_help_byline);
+            $tpl->setVariable("BYLINE_ID", $input_id . "_byline");
         }
 
         $required = $component->isRequired();
@@ -229,7 +227,7 @@ class Renderer extends AbstractComponentRenderer
 
         if ($error) {
             $tpl->setVariable("ERROR_LABEL", $this->txt("ui_error"));
-            $tpl->setVariable("ERROR_ID", $error_id);
+            $tpl->setVariable("ERROR_ID", $input_id . "_error");
             $tpl->setVariable("ERROR", $error);
         }
 
@@ -313,10 +311,9 @@ class Renderer extends AbstractComponentRenderer
 
         $this->applyValue($component, $tpl, $this->escapeSpecialChars());
 
-        $label_id = $this->createId();
-        $context_byline_id = $this->createId();
-        $tpl->setVariable('ID', $label_id);
-        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id, id_of_help_byline: $context_byline_id);
+        $input_id = $this->createId();
+        $tpl->setVariable('ID', $input_id);
+        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $input_id);
     }
 
     protected function renderNumericField(F\Numeric $component, RendererInterface $default_renderer): string
@@ -325,18 +322,15 @@ class Renderer extends AbstractComponentRenderer
         $this->applyName($component, $tpl);
         $this->applyValue($component, $tpl, $this->escapeSpecialChars());
 
-        // the label of the formcontext references the input by this id using the html label "for" attribute
-        $label_id = $this->createId();
-        $tpl->setVariable('ID', $label_id);
-        // the input itself references the id of the formcontext's help byline using aria-describedby
-        $context_byline_id = $this->createId();
-        $tpl->setVariable('CONTEXT_BYLINE_ID', $context_byline_id);
-        // error referenced from input is located in form context
-        $error_id = $this->createId();
-        if ($component->getError()) {
-            $tpl->setVariable('ERROR_ID', $error_id);
+        $input_id = $this->createId();
+        $tpl->setVariable('ID', $input_id);
+        if ($component->getByline()) {
+            $tpl->setVariable('CONTEXT_BYLINE_ID', $input_id . '_byline');
         }
-        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id, null, $context_byline_id, $error_id);
+        if ($component->getError()) {
+            $tpl->setVariable('ERROR_ID', $input_id . '_error');
+        }
+        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $input_id, null, false);
     }
 
     protected function renderCheckboxField(F\Checkbox $component, RendererInterface $default_renderer): string
@@ -770,9 +764,6 @@ class Renderer extends AbstractComponentRenderer
 
     protected function renderSection(F\Section $section, RendererInterface $default_renderer): string
     {
-        $byline_id = $this->createId();
-        $error_id = $this->createId();
-
         $inputs_html = $default_renderer->render($section->getInputs(), $default_renderer);
 
         $headline_tpl = $this->getTemplate("tpl.headlines.html", true, true);
@@ -785,7 +776,7 @@ class Renderer extends AbstractComponentRenderer
 
         $headline_html = $headline_tpl->get();
 
-        return $this->wrapInFormContext($section, $headline_html, $inputs_html, null, null, $byline_id, $error_id);
+        return $this->wrapInFormContext($section, $headline_html, $inputs_html, null, null, true);
     }
 
     protected function renderUrlField(F\Url $component, RendererInterface $default_renderer): string

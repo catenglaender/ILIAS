@@ -122,12 +122,12 @@ class FilterContextRenderer extends Renderer
 
     protected function wrapInFormContext(
         FormInput $component,
-        string $label,
-        string $input_html,
-        ?string $id_of_input_for_label = null,
-        ?string $dependant_group_html = null
+        string    $label,
+        string    $input_html,
+        ?string   $input_id = null,
+        ?string   $dependant_group_html = null
     ): string {
-        return $this->wrapInFilterContext($component, $input_html, $this->getOriginalDefaultRenderer(), $id_of_input_for_label);
+        return $this->wrapInFilterContext($component, $input_html, $this->getOriginalDefaultRenderer(), $input_id);
     }
 
     protected function wrapInFilterContext(
