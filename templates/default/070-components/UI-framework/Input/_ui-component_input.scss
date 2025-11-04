@@ -42,7 +42,7 @@
 
 /// general form container styling
 .c-form {
-  margin-bottom: l.$il-margin-xxlarge-vertical;
+  margin-bottom: l.$il-margin-xlarge-vertical;
 
   .c-form__header,
   .c-form__footer {
@@ -59,7 +59,7 @@
     }
   }
   .c-form__footer {
-    margin-top: l.$il-margin-xxlarge-vertical;
+    margin-top: l.$il-margin-xlarge-vertical;
   }
 }
 
@@ -71,7 +71,7 @@
                         "label error"
                         "label help";
 
-  margin-top: l.$il-margin-xxlarge-vertical;
+  margin-top: l.$il-margin-xlarge-vertical;
   &:first-child {
     margin-top: 0;
   }
@@ -79,7 +79,7 @@
   > label {
     display: block;
     grid-area: label;
-    padding-right: l.$il-margin-large-horizontal;
+    padding-right: l.$il-margin-medium-horizontal;
   }
 
   > .c-input__field {
@@ -122,7 +122,7 @@
 
 .c-form {
   .c-form__error-msg {
-    margin-top: l.$il-margin-large-vertical;
+    margin-top: l.$il-margin-medium-vertical;
     margin-bottom: 0; // overrides alert default
   }
   .c-input[data-il-ui-component] input:invalid {

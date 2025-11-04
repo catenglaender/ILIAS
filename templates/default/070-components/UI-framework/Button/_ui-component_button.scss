@@ -193,9 +193,9 @@ input.btn {
     $input-field-height: $input-min-height-large,
 
     $set-full-width: true,
-    $padding-small-x: l.$il-padding-large-horizontal,
-    $padding-small-y: l.$il-padding-large-vertical,
-    $inner-spacing: l.$il-padding-large-vertical,
+    $padding-small-x: l.$il-padding-medium-horizontal,
+    $padding-small-y: l.$il-padding-medium-vertical,
+    $inner-spacing: l.$il-padding-medium-vertical,
 
     $hover_bg-color: s.$il-bulky-bg-color-engaged,
     $hover_border-color: s.$il-bulky-bg-color-engaged,
@@ -239,8 +239,8 @@ input.btn {
   @include make-button($set-basics: false, $set-design: false, $set-size: true,
   $font-size: s.$il-font-size-large,
   $input-field-height: $input-min-height-large,
-  $padding-small-y: l.$il-padding-xlarge-vertical,
-  $padding-small-x: l.$il-padding-xlarge-horizontal);
+  $padding-small-y: l.$il-padding-large-vertical,
+  $padding-small-x: l.$il-padding-large-horizontal);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input

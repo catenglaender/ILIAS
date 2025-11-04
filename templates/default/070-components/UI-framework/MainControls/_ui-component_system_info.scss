@@ -74,9 +74,9 @@ $il-standard-page-system-info-color-variant-breaking: darken($il-danger-color, 1
 
   // General Sizes
   line-height: $il-line-height-computed;
-  padding-top: $il-padding-large-vertical;
-  padding-bottom: $il-padding-large-vertical;
-  height: calc($il-padding-large-vertical + $il-padding-large-vertical + $il-line-height-computed);
+  padding-top: $il-padding-medium-vertical;
+  padding-bottom: $il-padding-medium-vertical;
+  height: calc($il-padding-medium-vertical + $il-padding-medium-vertical + $il-line-height-computed);
 
 
   // Flex
@@ -123,10 +123,10 @@ $il-standard-page-system-info-color-variant-breaking: darken($il-danger-color, 1
     flex-grow: 0;
     flex-shrink: 0;
     text-align: right;
-    flex-basis: $il-padding-large-horizontal*5;
+    flex-basis: $il-padding-medium-horizontal*5;
 
     :not(:last-child){
-      padding-right: $il-padding-large-horizontal;
+      padding-right: $il-padding-medium-horizontal;
     }
 
     span.il-system-info-more {

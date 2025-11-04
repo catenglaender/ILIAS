@@ -42,8 +42,8 @@ $il-standard-filter-add-input-popover-list-button-width: 100%;
 		display: flex;
 	}
 	.col-md-4, .col-md-6{
-		padding-top: $il-padding-large-vertical;
-		padding-bottom: $il-padding-large-vertical;
+		padding-top: $il-padding-medium-vertical;
+		padding-bottom: $il-padding-medium-vertical;
 		padding-right: 0px;
 	}
 
@@ -129,7 +129,7 @@ $il-standard-filter-add-input-popover-list-button-width: 100%;
 		}
 
 		li > button {
-			padding: $il-padding-large-vertical $il-standard-filter-controls-padding-left;
+			padding: $il-padding-medium-vertical $il-standard-filter-controls-padding-left;
 			display: block;
 			width: $il-standard-filter-add-input-popover-list-button-width;
 		}
@@ -176,7 +176,7 @@ $il-standard-filter-add-input-popover-list-button-width: 100%;
 		button {
 			min-height: 0px;
 			width: $il-standard-filter-input-group-width;
-			padding: $il-padding-large-vertical $il-padding-large-horizontal;
+			padding: $il-padding-medium-vertical $il-padding-medium-horizontal;
 			border: none;
 			background-color: initial;
 			font-size: $il-standard-filter-bar-btn-font-size;
@@ -253,7 +253,7 @@ $il-standard-filter-add-input-popover-list-button-width: 100%;
 	}
 
 	.c-input--duration {
-		margin: $il-margin-xxlarge-vertical;
+		margin: $il-margin-xlarge-vertical;
 	}
 }
 

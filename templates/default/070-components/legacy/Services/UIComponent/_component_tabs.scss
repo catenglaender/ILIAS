@@ -25,7 +25,7 @@ $nav-tabs-border: 2px solid $nav-tabs-active-link-hover-bg !default;
 			margin-right: 2px;
 			font-size: $il-font-size-base;
 			line-height: $il-line-height-base;
-			padding: $il-padding-large-vertical $il-padding-xlarge-horizontal $il-padding-base-vertical;
+			padding: $il-padding-medium-vertical $il-padding-large-horizontal $il-padding-base-vertical;
 			border: 0 none;
 			border-radius: $il-border-radius-base $il-border-radius-base 0 0;
 
@@ -59,11 +59,11 @@ $nav-tabs-border: 2px solid $nav-tabs-active-link-hover-bg !default;
 
 /* Sub Tabs */
 #ilSubTab {
-	padding: $il-padding-large-vertical 0;
+	padding: $il-padding-medium-vertical 0;
 	margin: 0;
 
 	> li:first-child > a {
-		padding-left: $il-padding-large-horizontal;
+		padding-left: $il-padding-medium-horizontal;
 	}
 
 
@@ -95,5 +95,5 @@ $nav-tabs-border: 2px solid $nav-tabs-active-link-hover-bg !default;
 }
 
 .il_after_tabs_spacing {
-	margin-bottom: $il-margin-xxlarge-vertical;
+	margin-bottom: $il-margin-xlarge-vertical;
 }

@@ -7,7 +7,7 @@
 @use "../../../050-layout/layout_breakpoints" as *;
 
 $cursor-disabled: not-allowed;
-$form-group-margin-bottom: $il-margin-xlarge-vertical;
+$form-group-margin-bottom: $il-margin-large-vertical;
 $il-form-autocomplete-bg: $il-main-bg;
 $il-form-autocomplete-bg-hover: $il-highlight-bg;
 $il-form-autocomplete-border: $il-main-border;
@@ -340,7 +340,7 @@ input[type="checkbox"] {
 	color: $il-standard-form-color;
 	font-size: $il-standard-form-byline-font-size;
 
-	margin: $il-margin-large-vertical 0 $il-margin-large-horizontal;
+	margin: $il-margin-medium-vertical 0 $il-margin-medium-horizontal;
 
 	clear: both;
 
@@ -450,7 +450,7 @@ input[type="checkbox"] {
 // labels on the left and inputs on the right.
 
 .form-horizontal {
-	margin-bottom: $il-margin-xxxlarge-vertical;
+	margin-bottom: $il-margin-xlarge-vertical;
 	background: $il-standard-form-bg;
 
 	.form-group {
@@ -464,12 +464,12 @@ input[type="checkbox"] {
 	.row > {
 		input, textarea, select {
 			&.form-control {
-				margin-left: $il-padding-xxlarge-horizontal;
+				margin-left: $il-padding-xlarge-horizontal;
 			}
 		}
 
 		.btn, input.btn, .tox-tinymce, div.input {
-			margin-left: $il-padding-xxlarge-horizontal;
+			margin-left: $il-padding-xlarge-horizontal;
 		}
 
 		.tox-tinymce {
@@ -502,7 +502,7 @@ input[type="checkbox"] {
 	label {
 		color: $il-standard-form-label-color;
 		font-size: 100%;
-		padding-right: $il-padding-xlarge-horizontal*2;
+		padding-right: $il-padding-large-horizontal*2;
 	}
 
 	.control-label {
@@ -566,15 +566,15 @@ input[type="checkbox"] {
 .ilSubForm {
 	background-color: $il-standard-form-dependant-group-bg;
 	padding: $il-padding-base-vertical 0;
-	margin-bottom: $il-margin-xlarge-vertical;
-	margin-left: $il-margin-xxlarge-horizontal;
+	margin-bottom: $il-margin-large-vertical;
+	margin-left: $il-margin-xlarge-horizontal;
 
 	.form-group {
 		background-color: $il-standard-form-dependant-group-bg;
 		margin: 0;
 
 		@media (max-width: $il-grid-float-breakpoint-max) {
-			margin: $il-margin-large-vertical 0;
+			margin: $il-margin-medium-vertical 0;
 		}
 	}
 
@@ -679,7 +679,7 @@ div.ilHFormFooter .ilFormCmds {
 }
 
 .wzdrow .form-control {
-	height: (rem-to-pixel($il-font-size-small) * $il-line-height-base) + (2+2*$il-padding-base-vertical) * 1.35;
+	height: $il-line-height-base;
 }
 
 

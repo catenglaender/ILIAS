@@ -71,7 +71,7 @@
 	}
 
 	.panel-body {
-		padding: $il-padding-xxxlarge-vertical $il-padding-xlarge-horizontal;
+		padding: $il-padding-xlarge-vertical $il-padding-large-horizontal;
 		background-color: $il-main-bg;
 		@include clearfix;
 	}
@@ -146,24 +146,24 @@
 
 	.panel-body {
 		.il-item-group{
-			margin: 0 (-$il-margin-xlarge-horizontal);
+			margin: 0 (-$il-margin-large-horizontal);
 			h2{
-				padding: $il-padding-large-vertical $il-padding-xlarge-horizontal;
+				padding: $il-padding-medium-vertical $il-padding-large-horizontal;
 			}
 			h3{
-				padding: $il-padding-large-vertical $il-padding-xlarge-horizontal;
+				padding: $il-padding-medium-vertical $il-padding-large-horizontal;
 			}
 
 			&:first-child{
-				margin-top: -$il-margin-xxxlarge-vertical;
+				margin-top: -$il-margin-xlarge-vertical;
 			}
 
 			&:last-child{
-				margin-bottom: -$il-margin-xxxlarge-vertical;
+				margin-bottom: -$il-margin-xlarge-vertical;
 			}
 
 			.il-item{
-				padding-left: $il-padding-xlarge-horizontal;
+				padding-left: $il-padding-large-horizontal;
 
 				.media-right{
 					vertical-align: middle;
@@ -191,7 +191,7 @@
 	-webkit-box-shadow: none;
 	box-shadow: none;
 
-	margin: (-$il-padding-xxxlarge-vertical) (-$il-margin-xlarge-horizontal);
+	margin: (-$il-padding-xlarge-vertical) (-$il-margin-large-horizontal);
 
 	.panel-body{
 		margin: 0;
@@ -210,7 +210,7 @@
 		margin-bottom: 0;
 	}
 	> .panel-body > .panel {
-		margin-bottom: $il-margin-large-vertical;
+		margin-bottom: $il-margin-medium-vertical;
 	}
 	.panel-heading{
 		min-height: 34px;
