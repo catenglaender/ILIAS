@@ -2,7 +2,7 @@
 @use "../../../050-layout/layout_breakpoints" as *;
 @use "../../../050-layout/basics" as *;
 
-$table-cell-padding: $il-padding-base-horizontal;
+$table-cell-padding: $il-padding-small-horizontal;
 $table-condensed-cell-padding: $il-padding-small-horizontal;
 $table-border-color: $il-main-border-color;
 $table-bg-accent: $il-main-bg; // striped tables legacy were styled back to be un-striped tables
@@ -420,7 +420,7 @@ div.ilTableCommandRowTop {
 	tr {
 		td:first-child {
 			input[type="checkbox"] {
-				margin-left: calc($il-padding-large-horizontal - $il-padding-base);
+				margin-left: calc($il-padding-large-horizontal - $il-padding-medium-horizontal);
 			}
 		}
 	}

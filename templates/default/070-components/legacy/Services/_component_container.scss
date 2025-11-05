@@ -21,7 +21,7 @@ div.ilPreconditionItem {
 
 /* Repository */
 div.ilContainerListItemOuter {
-	padding: $il-padding-large-vertical $il-padding-large-horizontal;
+	padding: $il-padding-medium-vertical $il-padding-medium-horizontal;
 	zoom: 1;
 
 	.subitem {
@@ -117,7 +117,7 @@ div.ilContainerListItemContentCB {
 
 div.il_ContainerListItem {
 	margin: $il-padding-small-vertical 0;
-	padding-left: $il-padding-base;
+	padding-left: $il-padding-medium-horizontal;
 	width:100%;
 }
 

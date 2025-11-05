@@ -16,10 +16,10 @@
   $line-height: inherit,
   // button height is by default largely determined by this value
   $input-field-height: s-form.$il-input-min-height,
-  $padding-small-x: l.$il-padding-small-horizontal,
+  $padding-small-x: l.$il-padding-xs-horizontal,
   // padding y is only a small buffer for when the button contains multiple lines
-  $padding-small-y: l.$il-padding-small-vertical,
-  $inner-spacing: l.$il-padding-small-horizontal,
+  $padding-small-y: l.$il-padding-xs-vertical,
+  $inner-spacing: l.$il-padding-xs-horizontal,
   $set-full-width: false,
   $button_active-transform: none
 );
@@ -246,7 +246,7 @@ input.btn {
   // line-height: ensure proper height of button next to small input
   @include make-button($set-basics: false, $set-design: false, $set-size: true,
   $font-size: s.$il-font-size-xsmall,
-  $input-field-height: s-form.$il-input-line-height-base - l.$il-padding-base-vertical,
+  $input-field-height: s-form.$il-input-line-height-base - l.$il-padding-small-vertical,
   $padding-small-y: l.$il-padding-small-vertical,
   $padding-small-x: l.$il-padding-small-horizontal);
 }

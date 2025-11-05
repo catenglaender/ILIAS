@@ -114,7 +114,7 @@ $il-test-working-time-font-weight: $il-font-weight-bold;
     // make nested layers more clear
     li.dd-item.ilc_qordli_OrderListItem > ul li.dd-item.ilc_qordli_OrderListItem {
         border: 1px $il-main-color solid;
-        border-left: $il-padding-base $il-main-color solid;
+        border-left: $il-padding-medium-horizontal $il-main-color solid;
     }
 }
 

@@ -80,7 +80,7 @@ $il-card-border-radius: 0;
 	}
 
 	.caption{
-		padding: $il-padding-medium-vertical $il-padding-base-horizontal;
+		padding: $il-padding-medium-vertical $il-padding-small-horizontal;
 
 		//See #28508
 		overflow-wrap: break-word;
@@ -125,7 +125,7 @@ $il-card-border-radius: 0;
 
 		> div.il-card-repository-dropdown {
 			float:right;
-			padding: ($il-padding-medium-vertical + $il-padding-base-vertical) $il-padding-small-horizontal;
+			padding: ($il-padding-medium-vertical + $il-padding-small-vertical) $il-padding-small-horizontal;
 
 			> .dropdown {
 				> button {

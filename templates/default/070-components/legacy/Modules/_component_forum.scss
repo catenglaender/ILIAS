@@ -55,7 +55,7 @@ div.ilForumQuoteHead {
 		max-width: 100%;
 		@media only screen and (min-width: $il-grid-float-breakpoint) {
 			margin: 0 !important;
-			padding: $il-padding-medium-vertical $il-padding-base-horizontal $il-padding-large-vertical $il-padding-small-horizontal;
+			padding: $il-padding-medium-vertical $il-padding-small-horizontal $il-padding-large-vertical $il-padding-small-horizontal;
 		}
 	}
 }
@@ -81,7 +81,7 @@ div.ilFrmPostHeader span.small {
 }
 
 .ilFrmPostContentContainer {
-	margin: 0 0 $il-margin-base-vertical;
+	margin: 0 0 $il-margin-small-vertical;
 	width: 80%;
 	float: left;
 	@media only screen and (max-width: $il-grid-float-breakpoint-max) {
@@ -122,7 +122,7 @@ div.ilFrmPostHeader span.small {
 }
 
 li.ilFrmPostRow {
-	padding: $il-padding-base-vertical 0 $il-padding-small-vertical $il-padding-xs-horizontal;
+	padding: $il-padding-small-vertical 0 $il-padding-small-vertical $il-padding-xs-horizontal;
 	margin-bottom: $il-margin-xlarge-vertical;
 	border-left: $il-posting-left-border-width solid $il-main-border-color;
 

@@ -31,7 +31,6 @@ $il-item-gap-xs: 1px;
 	padding: $il-item-padding;
 
 	.il-item-title {
-		font-size: $il-font-size-base;
 		display: inline-block;
 		.btn-link, a {
 			font-size: inherit;
@@ -228,7 +227,7 @@ $il-item-gap-xs: 1px;
 		}
 
 		.col-sm-3 {
-			margin-top: $il-margin-base-vertical;
+			margin-top: $il-margin-small-vertical;
 			margin-left: 0;
 			width: 45px;
 			img {

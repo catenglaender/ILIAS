@@ -7,7 +7,7 @@
 //== View Control
 //
 //##
-$il-vc-glyph-padding-horizontal: $il-padding-base-horizontal;
+$il-vc-glyph-padding-horizontal: $il-padding-small-horizontal;
 $il-vc-glyph-hover-bg: lighten($il-main-color, 5%);
 $il-vc-mode-btn-active: $il-vc-glyph-hover-bg;
 $il-vc-pagination-btn-active-bg: $il-main-bg;
@@ -20,7 +20,7 @@ $il-vc-pagination-btn-active-bg: $il-main-bg;
 .il-viewcontrol-pagination__sectioncontrol {
 	display: flex;
 	align-items: center;
-	gap: $il-margin-xs-horizontal;
+	gap: $il-margin-xs-vertical;
 }
 
 // viewcontrols container bar to include set of inner buttons
@@ -31,8 +31,8 @@ $il-vc-pagination-btn-active-bg: $il-main-bg;
 	width: fit-content;
 	min-height: $il-btn-ctrl-outer-height;
 	min-width: $il-btn-ctrl-outer-height;
+	padding: $il-padding-xs-vertical $il-padding-xs-horizontal;
 	border: 1px solid $il-btn-ctrl-border;
-	padding: $il-padding-xs-horizontal;
 	background-color: $il-btn-ctrl-bg;
 	border-radius: $il-border-radius-secondary-large;
 }
