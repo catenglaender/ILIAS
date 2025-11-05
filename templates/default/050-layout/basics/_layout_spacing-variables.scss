@@ -1,24 +1,25 @@
 @use "../../030-tools/tool_rem-conversion" as t-rem;
+@use "../../030-tools/tool_scale-with-ratio" as t-scale;
 
 //== Spacing
 //
 //## Define common padding, margin and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 
-$_vertical-to-horizontal-ratio: 2;
-$_scale-ratio: 1.5;
+$_vertical-to-horizontal-ratio: 1.333;
+$_scale-ratio: 1.333;
 
 $_spacing-base: 16px;
 
-$spacing-small-vertical: $_spacing-base * (0.5 * $_scale-ratio);
+$spacing-small-vertical: t-scale.scale-with-ratio($_scale-ratio, -1, $_spacing-base);
 $spacing-small-horizontal: $spacing-small-vertical * $_vertical-to-horizontal-ratio;
 
 $spacing-medium-vertical: $_spacing-base;
 $spacing-medium-horizontal: $spacing-medium-vertical * $_vertical-to-horizontal-ratio;
 
-$spacing-large-vertical: $_spacing-base * $_scale-ratio;
+$spacing-large-vertical: t-scale.scale-with-ratio($_scale-ratio, 1, $_spacing-base);
 $spacing-large-horizontal: $spacing-large-vertical * $_vertical-to-horizontal-ratio;
 
-$spacing-xlarge-vertical: $_spacing-base * (2 * $_scale-ratio);
+$spacing-xlarge-vertical: t-scale.scale-with-ratio($_scale-ratio, 2, $_spacing-base);
 $spacing-xlarge-horizontal: $spacing-xlarge-vertical * $_vertical-to-horizontal-ratio;
 
 $il-padding-base: $spacing-small-vertical;
