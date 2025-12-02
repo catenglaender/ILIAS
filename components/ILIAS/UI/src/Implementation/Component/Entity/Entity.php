@@ -27,11 +27,12 @@ use ILIAS\UI\Component\Symbol\Symbol;
 use ILIAS\UI\Component\Symbol\Glyph\Glyph;
 use ILIAS\UI\Component\Button\Shy;
 use ILIAS\UI\Component\Button\Tag;
+use ILIAS\UI\Component\Button\Standard as StandardButton;
 use ILIAS\UI\Component\Legacy\Legacy;
 use ILIAS\UI\Component\Listing\Property as PropertyListing;
 use ILIAS\UI\Component\Link\Standard as StandardLink;
-
 use ILIAS\UI\Implementation\Component\ComponentHelper;
+use ILIAS\UI\Implementation\Component\Listing\Workflow\Workflow;
 
 abstract class Entity implements I\Entity
 {
@@ -45,6 +46,14 @@ abstract class Entity implements I\Entity
      * @var array<PropertyListing | StandardLink | Legacy>
      */
     protected array $featured_props = [];
+    /**
+     * @var array<StandardButton>
+     */
+    protected array $personal_workflow_actions = [];
+    /**
+     * @var array<StandardButton>
+     */
+    protected array $admin_workflow_actions = [];
     /**
      * @var array<PropertyListing | Legacy>
      */
@@ -68,11 +77,15 @@ abstract class Entity implements I\Entity
     /**
      * @var Shy[]
      */
-    protected array $actions = [];
+    protected array $managing_actions = [];
     /**
      * @var array<PropertyListing | Legacy>
      */
     protected array $personal_status = [];
+    /**
+     * @var ?Workflow
+     */
+    protected ?Workflow $workflow = null;
 
     public function __construct(
         protected Symbol | Image | Shy | StandardLink | string $primary_identifier,
@@ -159,12 +172,12 @@ abstract class Entity implements I\Entity
     /**
      * @inheritdoc
      */
-    public function withPrioritizedReactions(Glyph | Tag ...$prio_reactions): self
+    public function withPrioritizedReactions(Glyph | Tag | StandardButton | Shy ...$prio_reactions): self
     {
         $this->checkArgListElements(
             "Entity Prioritized Reactions",
             $prio_reactions,
-            [Glyph::class, Tag::class]
+            [Glyph::class, Tag::class, StandardButton::class, Shy::class]
         );
         $clone = clone $this;
         $clone->prio_reactions = $prio_reactions;
@@ -181,12 +194,12 @@ abstract class Entity implements I\Entity
     /**
      * @inheritdoc
      */
-    public function withReactions(Glyph | Tag ...$reactions): self
+    public function withReactions(Glyph | Tag | Shy | StandardButton ...$reactions): self
     {
         $this->checkArgListElements(
             "Entity Reactions",
             $reactions,
-            [Glyph::class, Tag::class]
+            [Glyph::class, Tag::class, Shy::class, StandardButton::class]
         );
 
         $clone = clone $this;
@@ -240,18 +253,18 @@ abstract class Entity implements I\Entity
     /**
      * @inheritdoc
      */
-    public function withActions(Shy ...$actions): self
+    public function withManagingActions(Shy ...$managing_actions): self
     {
         $clone = clone $this;
-        $clone->actions = $actions;
+        $clone->managing_actions = $managing_actions;
         return $clone;
     }
     /**
      * @return Shy[]
      */
-    public function getActions(): array
+    public function getManagingActions(): array
     {
-        return $this->actions;
+        return $this->managing_actions;
     }
 
     /**
@@ -270,5 +283,23 @@ abstract class Entity implements I\Entity
     public function getPersonalStatus(): array
     {
         return $this->personal_status;
+    }
+
+    /**
+     * @inheritdoc
+     * @param Workflow $workflow
+     * @return self
+     */
+    public function withWorkflow(
+        Workflow $workflow
+    ): self {
+        $clone = clone $this;
+        $clone->workflow = $workflow;
+        return $clone;
+    }
+
+    public function getWorkflow(): ?Workflow
+    {
+        return $this->workflow;
     }
 }

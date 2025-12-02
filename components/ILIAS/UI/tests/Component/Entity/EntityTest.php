@@ -93,11 +93,11 @@ class EntityTest extends ILIAS_UI_TestBase
         $entity = $this->getEntityFactory()->standard('primary', 'secondary')
             ->withPrioritizedReactions($glyph, $tag)
             ->withReactions($glyph, $glyph, $glyph)
-            ->withActions($shy);
+            ->withManagingActions($shy);
 
         $this->assertEquals([$glyph, $tag], $entity->getPrioritizedReactions());
         $this->assertEquals([$glyph,$glyph,$glyph], $entity->getReactions());
-        $this->assertEquals([$shy], $entity->getActions());
+        $this->assertEquals([$shy], $entity->getManagingActions());
     }
 
     public function testEntityComponentProperties(): void
@@ -108,11 +108,11 @@ class EntityTest extends ILIAS_UI_TestBase
         $entity = $this->getEntityFactory()->standard('primary', 'secondary')
             ->withPrioritizedReactions($glyph, $tag)
             ->withReactions($glyph)
-            ->withActions($shy);
+            ->withManagingActions($shy);
 
         $this->assertEquals([$glyph, $tag], $entity->getPrioritizedReactions());
         $this->assertEquals([$glyph], $entity->getReactions());
-        $this->assertEquals([$shy], $entity->getActions());
+        $this->assertEquals([$shy], $entity->getManagingActions());
     }
 
 
@@ -133,7 +133,7 @@ class EntityTest extends ILIAS_UI_TestBase
         $entity = $this->getEntityFactory()->standard('primary', 'secondary')
             ->withPrioritizedReactions($glyph, $tag)
             ->withReactions($glyph, $glyph)
-            ->withActions($shy, $shy)
+            ->withManagingActions($shy, $shy)
             ->withBlockingAvailabilityConditions($this->legacy('bc'))
             ->withFeaturedProperties($this->legacy('fp'))
             ->withMainDetails($this->legacy('md'))

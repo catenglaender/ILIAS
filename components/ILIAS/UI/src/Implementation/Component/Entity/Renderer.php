@@ -45,17 +45,19 @@ class Renderer extends AbstractComponentRenderer
         $tpl = $this->getTemplate('tpl.entity.html', true, true);
         $secondary_identifier = $component->getSecondaryIdentifier();
 
+
         if (is_string($secondary_identifier)) {
             $tpl->touchBlock('secondid_string');
         } elseif ($secondary_identifier instanceof Component\Image\Image) {
             $tpl->touchBlock('secondid_image');
-        } elseif ($secondary_identifier instanceof Component\Image\Symbol) {
+        } elseif ($secondary_identifier instanceof Component\Symbol\Symbol) {
             $tpl->touchBlock('secondid_symbol');
-        } elseif ($secondary_identifier instanceof Component\Image\Link) {
+        } elseif ($secondary_identifier instanceof Component\Link\Link) {
             $tpl->touchBlock('secondid_link');
-        } elseif ($secondary_identifier instanceof Component\Image\Shy) {
+        } elseif ($secondary_identifier instanceof Component\Button\Shy) {
             $tpl->touchBlock('secondid_shy');
         }
+
 
         $tpl->setVariable('SECONDARY_IDENTIFIER', is_string($secondary_identifier) ? $secondary_identifier : $this->maybeRender($default_renderer, $secondary_identifier));
 
@@ -70,9 +72,32 @@ class Renderer extends AbstractComponentRenderer
         $tpl->setVariable('AVAILABILITY', $this->maybeRender($default_renderer, ...$component->getAvailability()));
         $tpl->setVariable('DETAILS', $this->maybeRender($default_renderer, ...$component->getDetails()));
 
-        if ($actions = $component->getActions()) {
+        if ($workflow = $component->getWorkflow()) {
+            $button_components = [];
+            $all_steps = $workflow->getSteps();
+            $available_steps = [];
+            foreach ($all_steps as $step) {
+                if ($step->getAvailability() === $step::AVAILABLE
+                    && ($step->getStatus() === $step::NOT_STARTED || $step->getStatus() === $step::IN_PROGRESS)) {
+                    $available_steps[] = $step;
+                }
+            }
+            foreach ($available_steps as $step) {
+                [$label, $action] = [
+                    $step->getLabel(),
+                    $step->getAction()
+                ];
+                $button = $this->getUIFactory()->button()->standard(
+                    $label, $action
+                );
+                $button_components[] = $button;
+            }
+            $tpl->setVariable('WORKFLOW_ACTIONS', $default_renderer->render($button_components));
+        }
+
+        if ($actions = $component->getManagingActions()) {
             $actions_dropdown = $this->getUIFactory()->dropdown()->standard($actions);
-            $tpl->setVariable('ACTIONS', $default_renderer->render($actions_dropdown));
+            $tpl->setVariable('MANAGING_ACTIONS', $default_renderer->render($actions_dropdown));
         }
         if ($reactions = $component->getReactions()) {
             $tpl->setVariable('REACTIONS', $default_renderer->render($reactions));

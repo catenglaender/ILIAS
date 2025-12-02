@@ -34,7 +34,7 @@ function semantic_groups()
         ->withDetails($f->legacy('Details'))
         ->withReactions($f->button()->tag('reaction', '#'))
         ->withPrioritizedReactions($f->symbol()->glyph()->like())
-        ->withActions($f->button()->shy('action', '#'))
+        ->withManagingActions($f->button()->shy('action', '#'))
     ;
 
     return $renderer->render($entity);

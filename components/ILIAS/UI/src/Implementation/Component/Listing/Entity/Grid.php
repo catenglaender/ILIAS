@@ -18,23 +18,11 @@
 
 declare(strict_types=1);
 
-namespace ILIAS\UI\Component\Listing;
+namespace ILIAS\UI\Implementation\Component\Listing\Entity;
 
-use ILIAS\UI\Component\Symbol\Symbol;
-use ILIAS\UI\Component\Legacy\Legacy;
-use ILIAS\UI\Component\Link\Standard as StandardLink;
+use ILIAS\UI\Component\Listing\Entity as I;
+use ILIAS\UI\Component\Entity as IEntity;
 
-/**
- * Interface Property
- * @package ILIAS\UI\Component\Listing
- */
-interface Property extends Listing
+class Grid extends EntityListing implements I\Grid
 {
-    public function withProperty(
-        string $label,
-        string | Legacy | StandardLink $value,
-        bool $show_label = true,
-        Symbol $symbol_as_label = null,
-        Symbol $symbol_as_value = null
-    ): self;
 }

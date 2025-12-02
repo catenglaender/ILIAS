@@ -25,12 +25,14 @@ function base()
                 $f->symbol()->icon()->custom('./assets/images/learning_progress/in_progress.svg', 'incomplete'),
             ) . ' in progress',
             false
-        );
+        )
+        ->withProperty("date of upload", "21.03.2026", false, $f->symbol()->glyph()->calendar());
 
     $props2 = $props->withItems([
         ['a', "1"],
         ['y', "25", false],
-        ['link', $f->link()->standard('Goto ILIAS', 'http://www.ilias.de')]
+        ['link', $f->link()->standard('Goto ILIAS', 'http://www.ilias.de')],
+        ['approved', 'yes', true, null, $f->symbol()->glyph()->apply()],
     ]);
 
     return $renderer->render([

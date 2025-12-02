@@ -26,7 +26,7 @@ namespace ILIAS\UI\Examples\Entity\Standard;
  *     both status- and novelty counter.
  * ---
  */
-function base()
+function thumbnail()
 {
     global $DIC;
     $f = $DIC->ui()->factory();
@@ -37,7 +37,7 @@ function base()
     */
 
     $primary_id = "Building Better UX by Considering Information Architecture and User Intent";
-    $secondary_id = $f->symbol()->icon()->standard('crs', 'course icon', 'large');
+    $secondary_id = $f->image()->responsive("assets/ui-examples/images/Image/mountains.jpg", "Some mountains in the dusk");
 
     // creating the entity object now so it can be filled in the logic section
     $entity = $f->entity()->standard(
@@ -48,12 +48,19 @@ function base()
     /*
     * Dropdown Actions
     */
-
-    $actions = [
-        $f->button()->shy("ILIAS", "https://www.ilias.de"),
-        $f->button()->shy("GitHub", "https://www.github.com")
+/*
+    $admin_workflow_actions = [
+        $f->button()->standard("Analytics", "#"),
+        $f->button()->standard("Edit Curriculum", "#"),
     ];
-    $entity = $entity->withManagingActions(...$actions);
+    $entity = $entity->withAdminWorkflowActions(...$admin_workflow_actions);
+*/
+
+    $managing_actions = [
+        $f->button()->shy("Copy", "https://www.ilias.de"),
+        $f->button()->shy("Delete", "https://www.github.com")
+    ];
+    $entity = $entity->withManagingActions(...$managing_actions);
 
     /*
     * Logic for Pulling Availabilty Properties to Blocking Conditions
@@ -64,7 +71,7 @@ function base()
     $blocking = $f->listing()->property();
     $availability = $f->listing()->property();
 
-    $precondition_link = $f->link()->standard("Preconditions", "http://www.ilias.de");
+    $precondition_link = $f->link()->standard("Preconditions not passed", "http://www.ilias.de");
 
     // If preconditions aren't met
     $blocking = ($av_data['Expected Preconditions'] === $av_data['Passed Courses'])
@@ -88,7 +95,10 @@ function base()
     */
 
     $reactions = [
-        $f->button()->tag('UX/UI', '#'), $f->button()->tag('First Semester', '#')
+        $f->button()->tag('UX/UI', '#'),
+        $f->button()->tag('First Semester', '#'),
+        $f->button()->shy('Add tag', '#')
+            ->withSymbol($f->symbol()->glyph()->add()),
     ];
 
     $details = $f->listing()->property()
@@ -112,6 +122,7 @@ function base()
     */
 
     $featured_properties = $f->listing()->property()
+        ->withProperty("Course", "Icon of Course Object", false, null, $f->symbol()->icon()->standard('crs', 'course icon', 'large'))
         ->withProperty('Event Date', '14.02.2023');
 
     $prio_reactions = [

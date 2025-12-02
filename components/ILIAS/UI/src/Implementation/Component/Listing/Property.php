@@ -34,7 +34,6 @@ class Property extends Listing implements IListing\Property
 {
     use ComponentHelper;
     protected const ALLOWED_VALUE_TYPES = [
-        Symbol::class,
         Legacy::class,
         StandardLink::class
     ];
@@ -59,14 +58,13 @@ class Property extends Listing implements IListing\Property
 
     public function withProperty(
         string $label,
-        string | Symbol | Legacy | StandardLink $value,
-        bool $show_label = true
+        string | Legacy | StandardLink $value,
+        bool $show_label = true,
+        Symbol $symbol_as_label = null,
+        Symbol $symbol_as_value = null
     ): self {
-        if (is_array($value)) {
-            $this->checkArgListElements("value", $value, self::ALLOWED_VALUE_TYPES);
-        }
         $clone = clone $this;
-        $clone->items[] = [$label, $value, $show_label];
+        $clone->items[] = [$label, $value, $show_label, $symbol_as_label, $symbol_as_value];
         return $clone;
     }
 }
