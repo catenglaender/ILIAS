@@ -21,6 +21,7 @@ declare(strict_types=1);
 namespace ILIAS\UI\Implementation\Component\Entity;
 
 //use ILIAS\UI\Component\JavaScriptBindable;
+use ILIAS\UI\Component\Listing\Workflow\Workflow;
 use ILIAS\UI\Implementation\Render\AbstractComponentRenderer;
 use ILIAS\UI\Renderer as RendererInterface;
 use ILIAS\UI\Component;
@@ -34,7 +35,7 @@ class Renderer extends AbstractComponentRenderer
      */
     public function render(Component\Component $component, RendererInterface $default_renderer): string
     {
-        if ($component instanceof Component\Entity\Entity) {
+        if ($component instanceof Entity) {
             return $this->renderEntity($component, $default_renderer);
         }
         $this->cannotHandleComponent($component);
@@ -73,25 +74,7 @@ class Renderer extends AbstractComponentRenderer
         $tpl->setVariable('DETAILS', $this->maybeRender($default_renderer, ...$component->getDetails()));
 
         if ($workflow = $component->getWorkflow()) {
-            $button_components = [];
-            $all_steps = $workflow->getSteps();
-            $available_steps = [];
-            foreach ($all_steps as $step) {
-                if ($step->getAvailability() === $step::AVAILABLE
-                    && ($step->getStatus() === $step::NOT_STARTED || $step->getStatus() === $step::IN_PROGRESS)) {
-                    $available_steps[] = $step;
-                }
-            }
-            foreach ($available_steps as $step) {
-                [$label, $action] = [
-                    $step->getLabel(),
-                    $step->getAction()
-                ];
-                $button = $this->getUIFactory()->button()->standard(
-                    $label, $action
-                );
-                $button_components[] = $button;
-            }
+            $button_components = $this->extractBtnsFromWorkflow($workflow);
             $tpl->setVariable('WORKFLOW_ACTIONS', $default_renderer->render($button_components));
         }
 
@@ -117,5 +100,25 @@ class Renderer extends AbstractComponentRenderer
         }
 
         return $default_renderer->render($values);
+    }
+
+    /**
+     * @param Workflow $workflow
+     * @return array<Component\Button\Button>
+     */
+    protected function extractBtnsFromWorkflow(Component\Listing\Workflow\Workflow $workflow): array
+    {
+        $available_steps = array_filter(
+            $workflow->getSteps(),
+            fn($step) =>
+                $step->getAvailability() === $step::AVAILABLE
+                && ($step->getStatus() === $step::NOT_STARTED || $step->getStatus() === $step::IN_PROGRESS)
+        );
+
+        $bf = $this->getUIFactory()->button();
+        return array_map(
+            fn($step) => $bf->standard($step->getLabel(), $step->getAction()),
+            $available_steps
+        );
     }
 }

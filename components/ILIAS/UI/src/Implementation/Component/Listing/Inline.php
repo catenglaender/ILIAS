@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * This file is part of ILIAS, a powerful learning management system
  * published by ILIAS open source e-Learning e.V.
@@ -16,24 +18,15 @@
  *
  *********************************************************************/
 
-declare(strict_types=1);
+namespace ILIAS\UI\Implementation\Component\Listing;
 
-namespace ILIAS\UI\Component\Listing;
-
-use ILIAS\UI\Component\Symbol\Symbol;
-use ILIAS\UI\Component\Legacy\Legacy;
-use ILIAS\UI\Component\Link\Standard as StandardLink;
-use ILIAS\UI\Component\Listing\Inline;
+use ILIAS\UI\Component as C;
 
 /**
- * Interface Property
- * @package ILIAS\UI\Component\Listing
+ * Class Listing
+ * @implements C\Listing\Inline
+ * @package ILIAS\UI\Implementation\Component\Listing\Listing
  */
-interface Property extends Listing
+class Inline extends Listing implements C\Listing\Inline
 {
-    public function withProperty(
-        string | Symbol $label,
-        string | Symbol | Legacy | StandardLink | Inline $value,
-        bool $show_label = true,
-    ): self;
 }

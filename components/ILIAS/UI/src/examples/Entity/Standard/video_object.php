@@ -49,9 +49,12 @@ function video_object()
     * Priority Areas
     */
 
+    $glyph_calendar = $f->symbol()->glyph()->calendar()->withLabel("Published on");
+    $glyph_user = $f->symbol()->glyph()->user()->withLabel("Created by");
+
     $featured_properties = $f->listing()->property()
-        ->withProperty('Uploaded on', '24.01.2025', true, $f->symbol()->glyph()->calendar())
-        ->withProperty('Created by', 'BBC England, Co-Production: ARD/ZDF, Canal Plus', true, $f->symbol()->glyph()->user())
+        ->withProperty($glyph_calendar, '24.01.2025')
+        ->withProperty($glyph_user, 'BBC England, Co-Production: ARD/ZDF, Canal Plus')
     ;
 
     $entity = $entity
@@ -95,8 +98,10 @@ function video_object()
     * All Other Semantic Groups
     */
 
+    $glyph_time = $f->symbol()->glyph()->time()->withLabel("Duration");
+
     $main_details_01 = $f->listing()->property()
-        ->withProperty('Duration', '45:00', true, $f->symbol()->glyph()->time())
+        ->withProperty($glyph_time, '45:00')
     ;
     $main_details_02 = $f->listing()->property()
         ->withProperty('Description', "A fascinating look on the forces of nature that are able to move unimaginable tons of rocks. Find out how seemingly immovable landscape has transformed drastically through the incredible forces set free by earthquakes, vulcanos and water. This award-winning documentary traces the movement of the world's greatest mountain ranges throughout millions of years.", false)

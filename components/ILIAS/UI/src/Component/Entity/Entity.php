@@ -28,7 +28,7 @@ use ILIAS\UI\Component\Button\Tag;
 use ILIAS\UI\Component\Legacy\Legacy;
 use ILIAS\UI\Component\Listing\Property as PropertyListing;
 use ILIAS\UI\Component\Link\Standard as StandardLink;
-use ILIAS\UI\Implementation\Component\Listing\Workflow\Workflow;
+use ILIAS\UI\Component\Listing\Workflow;
 
 /**
  * This describes an Entity
@@ -103,6 +103,12 @@ interface Entity extends Component
     public function withManagingActions(Shy ...$managing_actions): self;
 
     /**
+     * Same as withManagingActions()
+     * @deprecated
+     */
+    public function withActions(Shy ...$managing_actions): self;
+
+    /**
      * Personal Status properties indicate the status of a relation between
      * the current user and the object. A most prominent example would be
      * the learning Progress of a Course.
@@ -111,7 +117,12 @@ interface Entity extends Component
         PropertyListing | Legacy ...$personal_status
     ): self;
 
+    /**
+     * This Workflow is used to create buttons on the entity.
+     * Only Workflow Steps which are AVAILABLE and either NOT_STARTED or IN_PROGRESS
+     * will be rendered as buttons.
+     */
     public function withWorkflow(
-        Workflow $workflow
+        Workflow\Linear $workflow
     ): self;
 }

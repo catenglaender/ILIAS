@@ -5,16 +5,21 @@
 // so we can force entity small space design on large screens
 @use "../../../070-components/UI-framework/Entity/ui-component_entity" as entity;
 
+$listing-column-min-width: 650px;
+$grid-column-min-width: 400px;
+
 .c-listing-entity,
 .c-listing-entity-grid {
     list-style: none;
     padding-left: 0;
 }
 
-$column-min-width: 400px;
+.c-listing-entity {
+    @include l-auto-grid.make-grid-with-auto-columns($listing-column-min-width);
+}
 
 .c-listing-entity-grid {
-    @include l-auto-grid.make-grid-with-auto-columns($column-min-width);
+    @include l-auto-grid.make-grid-with-auto-columns($grid-column-min-width);
     .c-entity {
         @include entity.entity-limited-space-design();
         &__container {

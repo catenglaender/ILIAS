@@ -57,14 +57,12 @@ class Property extends Listing implements IListing\Property
     }
 
     public function withProperty(
-        string $label,
-        string | Legacy | StandardLink $value,
+        string | Symbol $label,
+        string | Symbol | Legacy | StandardLink | IListing\Inline $value,
         bool $show_label = true,
-        Symbol $symbol_as_label = null,
-        Symbol $symbol_as_value = null
     ): self {
         $clone = clone $this;
-        $clone->items[] = [$label, $value, $show_label, $symbol_as_label, $symbol_as_value];
+        $clone->items[] = [$label, $value, $show_label];
         return $clone;
     }
 }

@@ -97,6 +97,7 @@ class Glyph implements C\Symbol\Glyph\Glyph
     private string $type;
     private ?string $action;
     private string $label;
+    private bool $is_label_customized;
     private array $counters;
     private bool $highlighted;
     private bool $active = true;
@@ -111,6 +112,7 @@ class Glyph implements C\Symbol\Glyph\Glyph
         $this->action = $action;
         $this->counters = array();
         $this->highlighted = false;
+        $this->is_label_customized = false;
     }
 
     public function getType(): string
@@ -123,11 +125,25 @@ class Glyph implements C\Symbol\Glyph\Glyph
         return $this->label;
     }
 
+    /**
+     * @ineritdoc
+     */
     public function withLabel(string $label): self
     {
         $clone = clone $this;
+        $clone->is_label_customized = true;
         $clone->label = $label;
         return $clone;
+    }
+
+    /**
+     * Returns false after directly after construction which uses a default label.
+     * Returns true after withLabel() has been used to override label text.
+     * @return bool
+     */
+    public function isLabelCustomized(): bool
+    {
+        return $this->is_label_customized;
     }
 
     /**

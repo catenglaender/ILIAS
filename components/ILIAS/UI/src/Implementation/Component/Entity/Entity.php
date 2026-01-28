@@ -21,7 +21,6 @@ declare(strict_types=1);
 namespace ILIAS\UI\Implementation\Component\Entity;
 
 use ILIAS\UI\Component\Entity as I;
-
 use ILIAS\UI\Component\Image\Image;
 use ILIAS\UI\Component\Symbol\Symbol;
 use ILIAS\UI\Component\Symbol\Glyph\Glyph;
@@ -32,7 +31,7 @@ use ILIAS\UI\Component\Legacy\Legacy;
 use ILIAS\UI\Component\Listing\Property as PropertyListing;
 use ILIAS\UI\Component\Link\Standard as StandardLink;
 use ILIAS\UI\Implementation\Component\ComponentHelper;
-use ILIAS\UI\Implementation\Component\Listing\Workflow\Workflow;
+use ILIAS\UI\Component\Listing\Workflow;
 
 abstract class Entity implements I\Entity
 {
@@ -48,14 +47,6 @@ abstract class Entity implements I\Entity
     protected array $featured_props = [];
     /**
      * @var array<StandardButton>
-     */
-    protected array $personal_workflow_actions = [];
-    /**
-     * @var array<StandardButton>
-     */
-    protected array $admin_workflow_actions = [];
-    /**
-     * @var array<PropertyListing | Legacy>
      */
     protected array $main_details = [];
     /**
@@ -82,10 +73,8 @@ abstract class Entity implements I\Entity
      * @var array<PropertyListing | Legacy>
      */
     protected array $personal_status = [];
-    /**
-     * @var ?Workflow
-     */
-    protected ?Workflow $workflow = null;
+
+    protected ?Workflow\Linear $workflow = null;
 
     public function __construct(
         protected Symbol | Image | Shy | StandardLink | string $primary_identifier,
@@ -259,6 +248,15 @@ abstract class Entity implements I\Entity
         $clone->managing_actions = $managing_actions;
         return $clone;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function withActions(Shy ...$managing_actions): self
+    {
+        return $this->withManagingActions(...$managing_actions);
+    }
+
     /**
      * @return Shy[]
      */
@@ -287,18 +285,19 @@ abstract class Entity implements I\Entity
 
     /**
      * @inheritdoc
-     * @param Workflow $workflow
-     * @return self
      */
     public function withWorkflow(
-        Workflow $workflow
+        Workflow\Linear $workflow
     ): self {
         $clone = clone $this;
         $clone->workflow = $workflow;
         return $clone;
     }
 
-    public function getWorkflow(): ?Workflow
+    /**
+     * @return Workflow\Linear|null
+     */
+    public function getWorkflow(): ?Workflow\Linear
     {
         return $this->workflow;
     }
