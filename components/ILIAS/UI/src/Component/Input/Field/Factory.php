@@ -804,4 +804,51 @@ interface Factory
      * @return \ILIAS\UI\Component\Input\Field\Rating
      */
     public function rating(string $label, ?string $byline = null): Rating;
+
+    /**
+     * ---
+     * description:
+     *   purpose: >
+     *      Use the Length of Time input to ask about durations in various units of time. It is meant to express spans
+     *      of times within the same day or, at most, within the same week.
+     *   composition: >
+     *      Internally, the input consist of multiple numeric inputs to separate a length of time with varying units
+     *      like Days, Hours, Minutes, Seconds into multiple fields.
+     *   effect: >
+     *      The fields can be operated like any number field.
+     *      There is an optional feature that can be activated using "withRecommendedTimeOverflows". This option adds a
+     *      transformer to the Length of Time field. It re-calculates any values that exceed the conversion step
+     *      to the next larger unit automatically. This conversion triggers when loosing focus on a field in browsers
+     *      with JavaScript enabled and when submitting the field. The calculation does not factor in leap seconds or
+     *      daylight savings time. It's very simple on purpose: 60 seconds = 1 minute, 60 minutes = 1 hour,
+     *      24 hours = 1 day.
+     *   rivals:
+     *      Duration: >
+     *          The Duration field offers inputs to enter a start and end date (and optionally time). It's the better
+     *          choice for "big picture" planning of event appointments spanning multiple days. The Length of Time Field
+     *          is the right choice for durations with a flexible or an unknown start date. It is the better choice for
+     *          timetable and agenda related items where duration matters more than the specific date.
+     *
+     * rules:
+     *   usage:
+     *      1: >
+     *          You SHOULD use the Length of Time input to asks for spans of time within the same day or, at most, the
+     *          same week.
+     *   wording:
+     *      1: >
+     *          Internally, we avoid calling this Field by using the name "duration" as such a field already exists for
+     *          picking a date range. However, in many cases the word "duration" is actually the best possible label to
+     *          give to the Length of Time field. You MAY use "duration" in the frontend label of this field.
+     * accessibility:
+     *     1: >
+     *          When withRecommendedTimeOverflow is enabled: Aria Live Updates inform Screen Readers about the complete
+     *          values entered throughout all input fields after a re-calculation into the more optimal format.
+     *
+     * ---
+     * @param string $label
+     * @param string|null $byline
+     * @param LengthOfTimeFieldPatterns $field_pattern
+     * @return \ILIAS\UI\Component\Input\Field\LengthOfTime
+     */
+    public function lengthOfTime(string $label, ?string $byline = null, LengthOfTimeFieldPatterns $field_pattern = LengthOfTimeFieldPatterns::hoursMinutes): LengthOfTime;
 }

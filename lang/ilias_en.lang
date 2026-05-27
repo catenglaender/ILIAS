@@ -17428,6 +17428,9 @@ ui#:#presentation_table_expand#:#Expand All
 ui#:#rating_average#:#Others rated %s of 5
 ui#:#reset_stars#:#neutral
 ui#:#table_posinput_col_title#:#Position
+ui#:#time_length_conversion_info#:#Your time input was changed from
+ui#:#time_length_conversion_info_screen_reader#:#While you changed focus your time input was changed from
+ui#:#time_length_conversion_to#:#to
 ui#:#ui_chars_max#:#Maximum:
 ui#:#ui_chars_min#:#Minimum:
 ui#:#ui_chars_remaining#:#Characters remaining:

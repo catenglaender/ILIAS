@@ -17427,6 +17427,9 @@ ui#:#presentation_table_expand#:#Alle zeigen
 ui#:#rating_average#:#Andere bewerteten mit %s von 5
 ui#:#reset_stars#:#neutral
 ui#:#table_posinput_col_title#:#Position
+ui#:#time_length_conversion_info#:#Die Zeitangabe wurde umgerechnet von
+ui#:#time_length_conversion_info_screen_reader#:#Nach dem Verlassen des Feldes wurde die Zeitangabe umgerechnet von
+ui#:#time_length_conversion_to#:#zu
 ui#:#ui_chars_max#:#Maximum:
 ui#:#ui_chars_min#:#Minimum:
 ui#:#ui_chars_remaining#:#Verbleibende Buchstaben

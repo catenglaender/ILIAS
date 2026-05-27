@@ -98,6 +98,9 @@ class Renderer extends AbstractComponentRenderer
             case ($component instanceof F\Duration):
                 return $this->renderDurationField($component, $default_renderer);
 
+            case ($component instanceof F\LengthOfTime):
+                return $this->renderLengthOfTimeField($component, $default_renderer);
+
             case ($component instanceof F\Link):
                 return $this->renderLinkField($component, $default_renderer);
 
@@ -670,6 +673,48 @@ class Renderer extends AbstractComponentRenderer
         $label_id = $this->createId();
         $tpl->setVariable('ID', $label_id);
         return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $label_id);
+    }
+
+    protected function renderLengthOfTimeField(F\LengthOfTime $component, RendererInterface $default_renderer): string
+    {
+        $tpl = $this->getTemplate("tpl.lengthoftime.html", true, true);
+
+        $id = $this->createId();
+        $tpl->setVariable('ID', $id);
+
+        $field_pattern = $component->getFieldPattern()->value;
+        $tpl->setVariable('PATTERN_TYPE', $field_pattern);
+
+        $inputs_html = $default_renderer->render($component->getInputs());
+        $tpl->setVariable('LENGTH_INPUTS', $inputs_html);
+
+        $is_using_recommended_time_overflow = $component->isUsingRecommendedTimeOverflow();
+
+        if ($is_using_recommended_time_overflow) {
+            // User Notification that JS recalculated the time values
+            // We need a span to target inside the message box to insert the time values.
+            $recalc_notification = $this->getUIFactory()->messageBox()->info(
+                $this->txt('time_length_conversion_info') . ' <span class="c-input-length-of-time__result"></span>'
+            );
+            $tpl->setVariable('RECALCULATION_NOTIFICATION', $default_renderer->render($recalc_notification));
+            $tpl->setVariable(
+                'RECALCULATION_NOTIFICATION_SCREEN_READER',
+                $this->txt('time_length_conversion_info_screen_reader') // html tpl includes result span
+            );
+            $translation_of_to = $this->txt('time_length_conversion_to');
+
+            $component = $component->withAdditionalOnLoadCode(
+                function ($id) use ($field_pattern, $translation_of_to) {
+                    return "il.UI.Input.lengthOfTime.init(
+                    $id,
+                    '$field_pattern',
+                    '$translation_of_to',
+                );";
+                }
+            );
+        }
+
+        return $this->wrapInFormContext($component, $component->getLabel(), $tpl->get(), $id);
     }
 
     /**

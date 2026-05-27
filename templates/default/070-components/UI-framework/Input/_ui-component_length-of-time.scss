@@ -1,0 +1,12 @@
+@use "../../../010-settings" as s;
+@use "../../../050-layout/basics" as l;
+
+.c-input-length-of-time {
+  .c-input-length-of-time__calc-message {
+    margin-top: l.$il-margin-large-vertical;
+    .alert {
+      margin-bottom: l.$il-margin-large-vertical;
+    }
+  }
+}
+
