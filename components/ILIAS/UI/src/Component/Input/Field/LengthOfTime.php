@@ -23,6 +23,7 @@ namespace ILIAS\UI\Component\Input\Field;
 
 use ILIAS\UI\Component\Input\Container\Filter\FilterInput;
 use DateInterval;
+use ILIAS\UI\Component\Input\Container\Form\FormInput;
 
 /**
  * This describes the duration input.

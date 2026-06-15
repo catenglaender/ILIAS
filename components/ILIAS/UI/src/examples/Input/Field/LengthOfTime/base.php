@@ -7,6 +7,7 @@ namespace ILIAS\UI\examples\Input\Field\LengthOfTime;
 use DateInterval;
 use ILIAS\UI\Component\Input\Field\LengthOfTimeFieldPatterns;
 use ILIAS\UI\Implementation\Component\Input\Field\LengthOfTime;
+use ILIAS\UI\URLBuilder;
 
 /**
  * ---
@@ -21,20 +22,45 @@ use ILIAS\UI\Implementation\Component\Input\Field\LengthOfTime;
 function base()
 {
     global $DIC;
+    $http = $DIC->http();
     $ui = $DIC->ui()->factory();
     $renderer = $DIC->ui()->renderer();
+    $df = new \ILIAS\Data\Factory();
+    $request = $DIC->http()->request();
+    $get_request = $http->wrapper()->query();
 
-    $time_interval = DateInterval::createFromDateString("1 hour 37 minutes");
+    $DIC->ctrl()->setParameterByClass(
+        'ilsystemstyledocumentationgui',
+        'example_name',
+        'base'
+    );
+    $form_action = $DIC->ctrl()->getFormActionByClass('ilsystemstyledocumentationgui');
+
+    $time_interval = DateInterval::createFromDateString("1 hour 67 minutes");
     $field_pattern = LengthOfTimeFieldPatterns::hoursMinutes;
 
+
     $length_of_time_field = $ui->input()->field()->lengthOfTime("Session duration", null, $field_pattern)
-                        ->withValue(["hours" => 1, "minutes" => 97]);
+                        ->withValue($time_interval);
     $form = $ui->input()->container()->form()->standard(
-        "#",
+        $form_action,
         [
-            0 => $length_of_time_field
+            $length_of_time_field,
         ],
     );
 
-    return $renderer->render($form);
+    // simulates a form processing endpoint:
+    if ($request->getMethod() == "POST"
+        && array_key_exists('example_name', $request->getQueryParams())
+        && $request->getQueryParams()['example_name'] == 'base') {
+        $form = $form->withRequest($request);
+        $result = $form->getData();
+    } else {
+        $result = "No result yet.";
+    }
+
+
+    return '<pre>' . print_r($result, true) . '</pre>' .
+        $renderer->render($form) . "<br/> ";
+    // return json_encode($time_interval->format("%H:%I"));
 }
